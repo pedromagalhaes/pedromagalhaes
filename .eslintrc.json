@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-react",
+    "airbnb"
+  ],
+  "plugins": [
+    "babel",
+    "react",
+    "promise"
+  ],
+  "env": {
+    "browser" : true
+  },
+  "rules": {
+    "key-spacing"                 : 0,
+    "comma-dangle"                : [2, "never"],
+    "jsx-quotes"                  : [2, "prefer-single"],
+    "max-len"                     : [2, 120, 2],
+    "object-curly-spacing"        : [2, "always"],
+    "semi"                        : [2, "never"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-shadow"                   : ["error", { "allow": ["webpackConfig"] }],
+    "no-unused-vars"              : ["error", { "vars": "local" }],
+    "prefer-rest-params"          : 0,
+    "no-param-reassign"           : ["error", { "props": false }],
+    "arrow-body-style"            : ["error", "as-needed"],
+    "react/forbid-prop-types"     : ["error", { "forbid": ["any"] }],
+    "react/require-default-props" : 0
+  }
+}
