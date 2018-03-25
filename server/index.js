@@ -1,6 +1,7 @@
 const express = require('express')
 
 const app = express()
+
 app.use(express.json()) // piece of middleware
 const logger = require('./modules/logger')
 
@@ -24,23 +25,25 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-//
 app.get('/api/courses', (req, res) => {
   res.send(courses)
 })
 
-// http://localhost:3000/api/courses/1
 app.get('/api/courses/:id', (req, res) => {
   const course = courses.find(c => c.id === parseInt(req.params.id))
   if (!course) {
     res.status(404).send('The course with the give ID was not found.')
+    return
   }
   res.send(course)
   // res.send(req.query)
   // res.send(req.params.id)
 })
 
-// post a new course, check postman
+app.get('/api/posts/:year/:month', (req, res) => {
+  res.send(req.params)
+})
+
 app.post('/api/courses', (req, res) => {
   const course = {
     id: courses.length + 1, // id from database
@@ -50,8 +53,15 @@ app.post('/api/courses', (req, res) => {
   res.send(course)
 })
 
-app.get('/api/posts/:year/:month', (req, res) => {
-  res.send(req.params)
+app.delete('/api/courses/:id', (req, res) => {
+  const course = courses.find(c => c.id === parseInt(req.params.id))
+  if (!course) {
+    res.status(404).send('The course with the give ID was not found.')
+    return
+  }
+  const index = courses.indexOf(course)
+  courses.splice(index, 1)
+  res.send(courses)
 })
 
 
