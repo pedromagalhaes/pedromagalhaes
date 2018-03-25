@@ -1,5 +1,5 @@
 function logger(message) {
-    console.log(message);
+  console.log(message);
 }
 
 module.exports = logger

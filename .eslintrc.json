@@ -27,6 +27,7 @@
     "no-param-reassign"           : ["error", { "props": false }],
     "arrow-body-style"            : ["error", "as-needed"],
     "react/forbid-prop-types"     : ["error", { "forbid": ["any"] }],
-    "react/require-default-props" : 0
+    "react/require-default-props" : 0,
+    "radix"                       : [2, "as-needed"]
   }
 }
