@@ -20,7 +20,7 @@
     "max-len"                     : [2, 120, 2],
     "object-curly-spacing"        : [2, "always"],
     "semi"                        : [2, "never"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".json"] }],
     "no-shadow"                   : ["error", { "allow": ["webpackConfig"] }],
     "no-unused-vars"              : ["error", { "vars": "local" }],
     "prefer-rest-params"          : 0,
