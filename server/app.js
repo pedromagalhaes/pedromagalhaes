@@ -8,10 +8,9 @@ const mongoose = require('mongoose')
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
 
-mongoose.connect(
-  'mongodb://pafgm:' +
-  process.env.MONGO_ATLAS_PW +
-  '!@pm-app-shard-00-00-yyxxt.mongodb.net:27017,pm-app-shard-00-01-yyxxt.mongodb.net:27017,pm-app-shard-00-02-yyxxt.mongodb.net:27017/test?ssl=true&replicaSet=PM-APP-shard-0&authSource=admin')
+mongoose.connect(`mongodb://pafgm:${
+  process.env.MONGO_ATLAS_PW
+}@pm-app-shard-00-00-yyxxt.mongodb.net:27017,pm-app-shard-00-01-yyxxt.mongodb.net:27017,pm-app-shard-00-02-yyxxt.mongodb.net:27017/test?ssl=true&replicaSet=PM-APP-shard-0&authSource=admin`)
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
