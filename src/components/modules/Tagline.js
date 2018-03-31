@@ -1,0 +1,39 @@
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import {
+  Container,
+  Header,
+  Segment
+} from 'semantic-ui-react'
+
+const Tagline = ({ mobile }) => (
+  <Segment inverted textAlign='center' style={{ padding: '1em 0em 1.5em 0em', backgroundColor: '#333' }} vertical>
+    <Header
+      as='h2'
+      content={'I can help you build your next product.'}
+      inverted
+      style={{
+        fontSize: mobile ? '2em' : '',
+        fontWeight: 'normal',
+        marginBottom: 0,
+        marginTop: mobile ? '1.5em' : '0'
+      }}
+    />
+    <Header
+      as='h3'
+      content={'Have a project you\'d like to discuss?'}
+      inverted
+      style={{
+        fontSize: mobile ? '1.5em' : '',
+        fontWeight: 'normal',
+        marginTop: mobile ? '0.5em' : '0.5em'
+      }}
+    />
+  </Segment>
+)
+
+Tagline.propTypes = {
+  mobile: PropTypes.bool
+}
+
+export default Tagline

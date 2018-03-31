@@ -15,7 +15,8 @@
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
-    ["lodash", {"id": ["lodash", "semantic-ui-react"]}]
+    ["lodash", {"id": ["lodash", "semantic-ui-react"]}],
+    "inline-react-svg"
   ],
   "env": {
     "development": {
