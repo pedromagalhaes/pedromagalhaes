@@ -13,6 +13,7 @@
     "@babel/react"
   ],
   "plugins": [
+    ["styled-components", { "displayName": true, "preprocess": false } ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
     ["lodash", {"id": ["lodash", "semantic-ui-react"]}],

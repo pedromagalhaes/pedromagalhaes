@@ -7,11 +7,10 @@ import {
 } from 'semantic-ui-react'
 
 const Tagline = ({ mobile }) => (
-  <Segment inverted textAlign='center' style={{ padding: '1em 0em 1.5em 0em', backgroundColor: '#333' }} vertical>
+  <Segment textAlign='center' style={{ padding: '3em 0em 3em 0em', backgroundColor: '#edeeef', border: 'none' }} vertical>
     <Header
       as='h2'
       content={'I can help you build your next product.'}
-      inverted
       style={{
         fontSize: mobile ? '2em' : '',
         fontWeight: 'normal',
@@ -22,7 +21,6 @@ const Tagline = ({ mobile }) => (
     <Header
       as='h3'
       content={'Have a project you\'d like to discuss?'}
-      inverted
       style={{
         fontSize: mobile ? '1.5em' : '',
         fontWeight: 'normal',

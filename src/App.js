@@ -1,22 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility
-} from 'semantic-ui-react'
+import { Button, Container, Icon, Menu, Responsive, Segment, Sidebar, Visibility } from 'semantic-ui-react'
+import Particles from 'react-particles-js'
 
 import './styling/semantic.less'
+import './styling/app.less'
+
 import Promotional from './components/ot-modules/Promotional'
 import Tagline from './components/modules/Tagline'
 import Services from './components/modules/Services'
@@ -26,10 +15,8 @@ import Works from './components/modules/Works'
 import Contact from './components/modules/Contact'
 import Footer from './components/ot-modules/Footer'
 
-/* Heads up!
- * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
- * It can be more complicated, but you can create really flexible markup.
- */
+import PM from './static/svg/logo3.svg'
+
 class DesktopContainer extends Component {
   state = {}
 
@@ -42,21 +29,23 @@ class DesktopContainer extends Component {
 
     return (
       <Responsive {...Responsive.onlyComputer}>
-        <Visibility once={false} onBottomPassed={this.showFixedMenu} onBottomPassedReverse={this.hideFixedMenu}>
-          <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+        <Visibility once={false}>
+          <Segment inverted textAlign='center' style={{ minHeight:'733px', padding: '1em 0em' }} vertical>
             <Menu
               fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
               size='large'
+              style={{ border: 'none', background: 'none' }}
             >
-              <Container>
-                <Menu.Item as='a' active>HOME</Menu.Item>
+              <Container style={{ zIndex: '10' }}>
+                <PM style={{ height:'70px', width: '70px', marginRight: '40px', position: 'relative', top: '15px' }} />
+                <Menu.Item position='right' as='a' className='active' style={{ border: 'none'}}>HOME</Menu.Item>
                 <Menu.Item as='a'>ABOUT</Menu.Item>
                 <Menu.Item as='a'>WORK</Menu.Item>
                 <Menu.Item as='a'>CONTACT</Menu.Item>
-                {
+                {/*
                   !fixed && (
                     <Menu.Item position='right'>
                       <a href='https://github.com/pedromagalhaes' target='_blank'><Icon name='github' /></a>
@@ -65,9 +54,30 @@ class DesktopContainer extends Component {
                       <a href='https://facebook.com/pedromagalhaes' target='_blank'><Icon name='facebook' style={{ marginLeft: '1em' }} /></a>
                     </Menu.Item>
                   )
-                }
+                */}
               </Container>
             </Menu>
+            <Particles
+              params={{
+                particles: {
+                  number: {
+                    value: 50
+                  },
+                  line_linked: {
+                    shadow: {
+                      enable: false
+                    }
+                  }
+                }
+              }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%'
+              }}
+            />
             <Promotional />
           </Segment>
         </Visibility>

@@ -22,7 +22,7 @@ import {
 
 const Contact = () => {
   return (
-    <Segment style={{ padding: '6em 0em 5em 0em', border: 'none' }} vertical inverted>
+    <Segment style={{ padding: '6em 0em 5em 0em', border: 'none'}} vertical inverted >
       <Container>
         <Grid>
           <Grid.Row>
