@@ -12,6 +12,14 @@ class Social extends React.Component {
     twitterData: null
   }
 
+  getTwitter = () => {
+    return axios.get('/api/twitter')
+  }
+
+  getProducts = () => {
+    return axios.get('/api/products')
+  }
+
   getInstagram = (userId, instagramToken) => {
     return axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent?access_token=${instagramToken}&count=6`)
   }
@@ -21,14 +29,19 @@ class Social extends React.Component {
       instagramUserId: INSTAGRAM_KEYS.user_id,
       instagramToken: INSTAGRAM_KEYS.token
     }
-    console.log(INSTAGRAM_KEYS)
     if (config.instagramUserId && config.instagramToken) {
       const allPromises = [
-        this.getInstagram(config.instagramUserId, config.instagramToken)
+        this.getInstagram(config.instagramUserId, config.instagramToken),
+        this.getTwitter(),
+        this.getProducts()
       ]
       Promise.all(allPromises).then((response) => {
+        console.log(response[0])
+        console.log(response[1])
+        console.log(response[2])
         this.setState({
-          instagramData: response[0].data.data
+          instagramData: response[0].data.data,
+          twitterData: response[1].data
         })
       })
     }
@@ -36,12 +49,15 @@ class Social extends React.Component {
 
   render() {
     const {
+      twitterData,
       instagramData
     } = this.state
 
-    if (!instagramData) {
+    if (!twitterData || !instagramData) {
       return null
     }
+    const url = 'https://twitter.com/'
+
 
     return (
     <Segment vertical>
@@ -76,15 +92,17 @@ class Social extends React.Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          {instagramData.map((object, i) =>
+          {twitterData.map((object, i) =>
             <Grid.Column key={i}>
-              <a href={object.link} target='_blank'>
-                {/*src={object.images.standard_resolution.url} */}
-                <img
-                  style={{ width: '100%'}}
-                  src='https://react.semantic-ui.com/assets/images/wireframe/image.png'
-                />
+              <p>{object.text}</p>
+              <a href={`${url}${object.user.screen_name}/status/${object.id_str}`} target='_blank'>
+                <p>{object.created_at}</p>
               </a>
+              <div>
+                <a href={`${url}intent/retweet?tweet_id=${object.id_str}`} target='_blank'> RT </a>
+                <a href={`${url}intent/favorite?tweet_id=${object.id_str}`} target='_blank'> FAV </a>
+                <a href={`${url}intent/tweet?in_reply_to=${object.id_str}`} target='_blank'> REP </a>
+              </div>
             </Grid.Column>
           )}
         </Grid.Row>
