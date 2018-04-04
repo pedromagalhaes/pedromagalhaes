@@ -36,9 +36,9 @@ class Social extends React.Component {
         this.getProducts()
       ]
       Promise.all(allPromises).then((response) => {
-        console.log(response[0])
-        console.log(response[1])
-        console.log(response[2])
+        //console.log(response[0])
+        //console.log(response[1])
+        //console.log(response[2])
         this.setState({
           instagramData: response[0].data.data,
           twitterData: response[1].data
