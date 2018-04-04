@@ -1,0 +1,38 @@
+@borderRadius: 0;
+@raisedShadow: none;
+@menuBorderColor: @gbFullGrey;
+@menuBorderRadius: 0;
+
+@itemVerticalPadding: .67em;
+@itemPadding: .67em @itemHorizontalPadding;
+@subMenuBorderRadius: 0;
+
+@menuDividerColor: @gbFullGrey;
+@menuDividerBorder: @menuDividerSize solid @gbDropdownOptionsSeparator;
+
+@selectionVerticalPadding: .67em;
+@selectionMinHeight: 1.21428571em;
+@selectionItemDivider: 1px solid @gbFullGrey;
+@selectBorder: 1px solid @gbFullGrey;
+@selectionBorderColor: @gbFullGrey;
+@selectionBorder: 1px solid @gbFullGrey;
+@selectionBorderRadius: 0;
+@selectionMenuBorderRadius: 0;
+@selectionHoverBorderColor: @gbFullGrey;
+@selectionFocusBorderColor: @gbFullGrey;
+@selectionVisibleBorderColor: @gbFullGrey;
+@selectionActiveHoverBorderColor: @gbFullGrey;
+
+@inlineMenuBorderRadius: 0;
+@labelBoxShadow: 0px 0px 0px @labelBorderWidth @gbFullGrey inset;
+@defaultTextColor: @gbFullGrey;
+@upwardSelectionVisibleBorderRadius: 0;
+@upwardMenuBorderRadius: 0;
+@leftSubMenuBorderRadius: 0;
+@floatingMenuBorderRadius: 0;
+
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @gbFullGrey;
+@pointingMenuBorderRadius: 0;
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @gbFullGrey;
+@pointingUpwardMenuBorderRadius: 0;
+@pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px 0px @gbFullGrey;
