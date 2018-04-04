@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React from 'react'
 import {
-  Container,
   Header,
   Segment
 } from 'semantic-ui-react'
 
 const Tagline = ({ mobile }) => (
-  <Segment textAlign='center' style={{ padding: '3em 0em 3em 0em', backgroundColor: '#edeeef', border: 'none' }} vertical>
+  <Segment textAlign='center' style={{ padding: '3em 0em', backgroundColor: '#edeeef', border: 'none' }} vertical>
     <Header
       as='h2'
-      content={'I can help you build your next product.'}
+      content='I can help you build your next product.'
       style={{
         fontSize: mobile ? '2em' : '',
         fontWeight: 'normal',
