@@ -29,7 +29,7 @@
     "twitter": "^1.7.1"
   },
   "scripts": {
-    "dev": "concurrently \"yarn server\" \"yarn start\"",
+    "dev": "cross-env environment=dev concurrently \"yarn server\" \"yarn start\"",
     "start": "node scripts/start.js",
     "server": "nodemon ./server/index.js",
     "build": "node scripts/build.js",

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
-import './styling/semantic.less'
-import './styling/app.less'
+import './styles/semantic.less'
+import './styles/app.less'
 
 import Header from './components/ot-modules/Header'
 import Footer from './components/ot-modules/Footer'

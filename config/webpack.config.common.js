@@ -15,9 +15,9 @@ const autoprefixerOptions = {
     '>1%',
     'last 4 versions',
     'Firefox ESR',
-    'not ie < 9', // React doesn't support IE8 anyway
+    'not ie < 9' // React doesn't support IE8 anyway
   ],
-  flexbox: 'no-2009',
+  flexbox: 'no-2009'
 }
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css'
@@ -60,8 +60,8 @@ module.exports = {
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
-          cacheDirectory: isDev,
-        },
+          cacheDirectory: isDev
+        }
       },
       // "postcss" loader applies autoprefixer to our LESS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -71,14 +71,14 @@ module.exports = {
       {
         test: /\.less$/,
         exclude: [
-          path.resolve(paths.appSrc, 'components'),
+          path.resolve(paths.appSrc, 'components')
         ],
         use: extractLess.extract({
           fallback: {
             loader: 'style-loader',
             options: {
-              hmr: isDev,
-            },
+              hmr: isDev
+            }
           },
           use: [
             {
@@ -86,8 +86,8 @@ module.exports = {
               options: {
                 importLoaders: 1,
                 minimize: process.env.NODE_ENV === 'production',
-                sourceMap: shouldUseSourceMap,
-              },
+                sourceMap: shouldUseSourceMap
+              }
             },
             {
               loader: require.resolve('postcss-loader'),
@@ -96,15 +96,15 @@ module.exports = {
                 // https://github.com/facebookincubator/create-react-app/issues/2677
                 ident: 'postcss',
                 plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer(autoprefixerOptions),
-                ],
-              },
+                  require('postcss-flexbugs-fixes'), // eslint-disable-line
+                  autoprefixer(autoprefixerOptions)
+                ]
+              }
             },
             { loader: require.resolve('less-loader') }
           ],
-          ...extractTextPluginOptions,
-        }),
+          ...extractTextPluginOptions
+        })
       },
       // Heads up!
       // We apply CSS modules only to our components, this allow to use them
@@ -112,14 +112,14 @@ module.exports = {
       {
         test: /\.less$/,
         include: [
-          path.resolve(paths.appSrc, 'components'),
+          path.resolve(paths.appSrc, 'components')
         ],
         use: extractLess.extract({
           fallback: {
             loader: require.resolve('style-loader'),
             options: {
-              hmr: isDev,
-            },
+              hmr: isDev
+            }
           },
           use: [
             {
@@ -129,8 +129,8 @@ module.exports = {
                 localIdentName: cssClassName,
                 modules: true,
                 minimize: process.env.NODE_ENV === 'production',
-                sourceMap: shouldUseSourceMap,
-              },
+                sourceMap: shouldUseSourceMap
+              }
             },
             {
               loader: require.resolve('postcss-loader'),
@@ -139,14 +139,14 @@ module.exports = {
                 // https://github.com/facebookincubator/create-react-app/issues/2677
                 ident: 'postcss',
                 plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer(autoprefixerOptions),
-                ],
-              },
+                  require('postcss-flexbugs-fixes'), // eslint-disable-line
+                  autoprefixer(autoprefixerOptions)
+                ]
+              }
             },
             { loader: require.resolve('less-loader') }
-          ],
-        }),
+          ]
+        })
       },
       // "url" loader works like "file" loader except that it embeds assets
       // smaller than specified limit in bytes as data URLs to avoid requests.
@@ -156,8 +156,8 @@ module.exports = {
         loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
       },
       // "file" loader makes sure assets end up in the `build` folder.
       // When you `import` an asset, you get its filename.
@@ -165,10 +165,10 @@ module.exports = {
         test: [/\.eot$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
         loader: require.resolve('file-loader'),
         options: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
-    ],
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
+      }
+    ]
   },
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
@@ -177,15 +177,15 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty',
+    child_process: 'empty'
   },
   plugins: [
-    extractLess,
+    extractLess
   ],
   resolve: {
     alias: {
-      '../../theme.config$': path.resolve(paths.appSrc, 'styling/theme.config'),
-      heading: path.resolve(paths.appSrc, 'styling/heading.less'),
+      '../../theme.config$': path.resolve(paths.appSrc, 'styles/theme.config'),
+      heading: path.resolve(paths.appSrc, 'styles/heading.less')
     },
     // This allows you to set a fallback for where Webpack should look for modules.
     // We placed these paths second because we want `node_modules` to "win"
@@ -194,11 +194,10 @@ module.exports = {
     modules: [
       'node_modules',
       paths.appNodeModules,
-      paths.appSrc,
-    ].concat(
+      paths.appSrc
+    ].concat( // eslint-disable-line
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
+      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -210,7 +209,7 @@ module.exports = {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-    ],
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
+    ]
   }
 }
