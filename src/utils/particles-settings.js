@@ -1,7 +1,7 @@
 const particlesParams = {
   particles: {
     number: {
-      value: 50,
+      value: 100,
       density: {
         enable: true,
         value_area: 2800
@@ -20,7 +20,7 @@ const particlesParams = {
         nb_sides: 5
       },
       image: {
-        src: 'img/github.svg',
+        src: '',
         width: 100,
         height: 100
       }
@@ -36,12 +36,12 @@ const particlesParams = {
       }
     },
     size: {
-      value: 3,
+      value: 1,
       random: true,
       anim: {
         enable: false,
         speed: 40,
-        size_min: 0.1,
+        size_min: 0,
         sync: false
       }
     },
@@ -54,7 +54,7 @@ const particlesParams = {
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 1,
       direction: 'none',
       random: false,
       straight: false,
@@ -71,11 +71,11 @@ const particlesParams = {
     detect_on: 'canvas',
     events: {
       onhover: {
-        enable: true,
+        enable: false,
         mode: 'repulse'
       },
       onclick: {
-        enable: true,
+        enable: false,
         mode: 'push'
       },
       resize: true
