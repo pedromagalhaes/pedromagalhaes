@@ -11,7 +11,7 @@ const Promotional = props => (
       <Container text>
         <Header as='h1' content={'Hi, I\'m Pedro.'} inverted textAlign='center' />
         <Header as='h2' inverted>
-          I design & build span web applications.
+          I design & build web applications.
         </Header>
       </Container>
     </div>
@@ -23,19 +23,21 @@ Promotional.propTypes = {
 }
 
 const StyledPromotional = styled(Promotional)`
+display: flex;
+  align-items: center;
+  justify-content: center;
+height: 100%;
 .${mID} {
+  align-self: center;
   .ui.text.container {
-    position: absolute;
     z-index: 100;
-    top: 100px;
     left: 25%;
     right: 25%;
-    width: 100%; 
+    width: 100%;
     h1.ui.header {
       font-size: 5em;
       font-weight: bold;
       margin-bottom: 0px;
-      margin-top: 2.6em;
       text-transform: uppercase;
     }
     h2.ui.header {

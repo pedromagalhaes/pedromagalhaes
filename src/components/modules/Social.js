@@ -65,7 +65,7 @@ class Social extends React.Component {
                   {/* src={object.images.standard_resolution.url} */}
                   <img
                     style={{ width: '100%' }}
-                    src='https://react.semantic-ui.com/assets/images/wireframe/image.png'
+                    src={object.images.standard_resolution.url}
                     alt='to be done'
                   />
                 </a>
