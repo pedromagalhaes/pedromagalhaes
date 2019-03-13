@@ -1,0 +1,12 @@
+@import './bulma';
+@import './variables';
+@import './nprogress';
+@import './forms';
+@import './navbar';
+
+body {
+  font-size: $bodySize;
+  line-height: $bodyLineHeight;
+  color: $colorBody;
+  font-family: $bodyFont;
+}

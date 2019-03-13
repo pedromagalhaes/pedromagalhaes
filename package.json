@@ -1,109 +1,52 @@
 {
-  "name": "pedromagalhaes.github.io",
-  "license": "MIT",
-  "version": "0.1.0",
-  "description": "React + Semantic UI + Node + Express + MongoDB + ESLint",
+  "name": "agroyo",
+  "version": "0.0.1",
+  "keywords": [],
+  "description": "Agroyo Web Application",
+  "author": "Pedro Magalhães",
+  "license": "UNLICENSED",
   "private": true,
-  "dependencies": {
-    "animated": "^0.2.2",
-    "apisauce": "^0.14.3",
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
-    "classnames": "^2.2.5",
-    "express": "^4.16.3",
-    "lint-staged": "^7.0.3",
-    "mongoose": "^5.0.11",
-    "morgan": "^1.9.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-hot-loader": "^4.0.0",
-    "react-particles-js": "^2.1.1",
-    "react-router-dom": "^4.2.2",
-    "react-router-transition": "^1.2.1",
-    "react-scripts": "1.1.1",
-    "semantic-ui-less": "^2.3.1",
-    "semantic-ui-react": "^0.79.0",
-    "shortid": "^2.2.8",
-    "styled-components": "^3.2.5",
-    "styled-media-query": "^2.0.2",
-    "twitter": "^1.7.1"
+  "workspaces": [
+    "src/*",
+    "src/tools/eslint-config-dmi"
+  ],
+  "engines": {
+    "node": ">=10.15"
   },
   "scripts": {
-    "dev": "cross-env environment=dev concurrently \"yarn server\" \"yarn start\"",
-    "start": "node scripts/start.js",
-    "server": "nodemon ./server/index.js",
-    "build": "node scripts/build.js",
-    "lint": "eslint . --fix",
-    "precommit": "lint-staged"
+    "dev": "yarn clean:all && yarn install && cross-env NODE_ENV=development yarn nodemon:go",
+    "build": "yarn lint:js && yarn clean:all && yarn build:app",
+    "build:job": "yarn clean:all && yarn build:app",
+    "build:app": "cross-env NODE_ENV=production environment=build yarn --cwd src/app next build",
+    "build:debug": "yarn clean:all && yarn install --check-files && cross-env x_app_debug=true yarn build:job",
+    "start": "cross-env NODE_ENV=production environment=test yarn node:go:debug -p 4000 src/app",
+    "start:debug": "cross-env NODE_ENV=production DEBUG=*,-nodemon:watch*,-eslint*,-babel* yarn node:go:debug",
+    "nodemon:go": "nodemon src/server",
+    "node:go": "node src/server",
+    "node:go:debug": "cross-env x_app_debug=true node src/server",
+    "lint": "yarn lint:js && yarn lint:style",
+    "lint:js": "eslint src -c ./.eslintrc.js",
+    "lint:style": "stylelint src",
+    "precommit": "lint-staged",
+    "clean:all": "yarn clean:babel_cache && yarn clean:npm_cache && yarn clean:next_cache",
+    "clean:npm_cache": "rimraf node_modules/.cache",
+    "clean:babel_cache": "rimraf node_modules/.cache/babel-loader",
+    "clean:next_cache": "rimraf src/app/.next"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "./node_modules/.bin/eslint --fix",
-      "git add"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
-    "autoprefixer": "^8.0.0",
-    "babel-loader": "^8.0.0-beta.0",
-    "babel-plugin-inline-import": "^2.0.6",
-    "babel-plugin-inline-react-svg": "^0.5.2",
-    "babel-plugin-lodash": "^3.3.2",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-plugin-react-svg": "^2.1.0",
-    "babel-plugin-styled-components": "^1.3.0",
-    "babel-plugin-transform-assets-import-to-string": "^1.1.0",
-    "babel-plugin-transform-define": "^1.3.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
-    "babel-plugin-transform-semantic-ui-react-imports": "^1.3.1",
-    "babel-plugin-wrap-in-js": "^1.1.1",
-    "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "chalk": "^2.3.1",
-    "concurrently": "^3.5.1",
-    "cross-env": "^5.1.3",
-    "css-loader": "^0.28.10",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.9",
-    "fs-extra": "^5.0.0",
-    "html-webpack-plugin": "2.30.1",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
-    "nodemon": "^1.17.2",
-    "postcss-flexbugs-fixes": "^3.3.0",
-    "postcss-loader": "^2.1.0",
-    "raw-loader": "^0.5.1",
-    "react-dev-utils": "^5.0.0",
-    "style-loader": "^0.20.2",
-    "uglifyjs-webpack-plugin": "^1.2.0",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.11.0",
-    "webpack-bundle-analyzer": "^2.10.0",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-manifest-plugin": "^1.3.2",
-    "webpack-merge": "^4.1.1"
-  },
-  "eslintConfig": {
-    "rules": {
-      "linebreak-style": [
-        "error",
-        "windows"
+    "concurrent": false,
+    "linters": {
+      "*.{css,scss}": [
+        "prettier",
+        "git add"
+      ],
+      "*.{js,jsx}": [
+        "./node_modules/.bin/eslint -c ./.eslintrc.js --fix --format=codeframe",
+        "git add"
       ]
     }
+  },
+  "devDependencies": {
+    "lerna": "^3.4.3"
   }
 }

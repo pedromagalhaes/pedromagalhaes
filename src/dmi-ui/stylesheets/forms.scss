@@ -1,0 +1,12 @@
+// todo: convert PX to REM
+
+form {
+
+  .field:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .control {
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,15 @@
+// todo: convert PX to REM
+
+.cms-header .navbar.is-black .navbar-brand .navbar-item:hover {
+  background: inherit;
+}
+
+.cms-page-menu {
+  margin: 60px auto;
+}
+
+.navbar.is-spaced .navbar-dropdown, .navbar-dropdown.is-boxed {
+  border-radius: 0px;
+  border-top: none;
+  box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
