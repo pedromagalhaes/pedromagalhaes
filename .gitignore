@@ -1,1 +1,12 @@
-node_modules
+**/node_modules
+**/*.log
+**/.DS_Store
+**/.history
+**/.project
+**/.settings
+src/app/.tmp
+src/app/.next
+
+.env.local
+.env.development.local
+.env.production.local
