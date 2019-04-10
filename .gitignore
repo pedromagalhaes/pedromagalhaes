@@ -1,10 +1,1 @@
-**/.idea
-**/node_modules
-**/*.log
-**/.DS_Store
-**/.history
-**/.project
-**/.settings
-**/.vscode
-src/app/.tmp
-src/app/.next
+node_modules
