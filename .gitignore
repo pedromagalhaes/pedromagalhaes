@@ -4,8 +4,8 @@
 **/.history
 **/.project
 **/.settings
-src/app/.tmp
-src/app/.next
+./.tmp
+./.next
 
 .env.local
 .env.development.local
