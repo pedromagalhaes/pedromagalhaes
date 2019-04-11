@@ -77,7 +77,7 @@ export default class MenuExampleStackable extends Component {
                 <Button secondary>Register</Button>
               </Menu.Item>              
               <Menu.Item>
-              <Button.Group color='gray'>
+              <Button.Group>
               <Dropdown 
                     button
                     className='icon'
