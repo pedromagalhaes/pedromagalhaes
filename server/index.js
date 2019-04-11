@@ -13,6 +13,6 @@ app.prepare()
     server.get('*', (req, res) => handle(req, res))
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> Ready on http://localhost:${port}`) // eslint-disable-line no-console
+      console.log(`> Ready on http://localhost:${port}...`) // eslint-disable-line no-console
     })
   })

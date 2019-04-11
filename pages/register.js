@@ -1,9 +1,9 @@
 import React from 'react'
 import { Segment, Grid, Item, List } from 'semantic-ui-react'
 
-import ModuleTitle from '../../components/ModuleTitle'
-import ListItem from '../../components/ListItem'
-import SideBarListItem from '../../components/SideBarListItem'
+import ModuleTitle from '../components/ModuleTitle'
+import ListItem from '../components/ListItem'
+import SideBarListItem from '../components/SideBarListItem'
 
 const ItemExampleDivided = () => (
   <>

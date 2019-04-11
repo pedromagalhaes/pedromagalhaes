@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import {
-  Button, Input, Menu, Container, Dropdown, Icon
-} from 'semantic-ui-react'
+import { Button, Input, Menu, Container, Dropdown, Icon } from 'semantic-ui-react'
+import Link from 'next/link'
 
 const trigger = (
   <span>
@@ -14,7 +13,7 @@ const options = [
     key: 'user',
     text: (
       <span>
-          Signed in as <strong>Bob Smith</strong>
+        Signed in as <strong>Bob Smith</strong>
       </span>
     ),
     disabled: true
@@ -58,22 +57,27 @@ export default class MenuExampleStackable extends Component {
   render() {
     return (
       <>
-
         <Menu size='small'>
           <Container>
-            <Menu.Item>
-              <img src='https://react.semantic-ui.com/logo.png' alt='' />
-            </Menu.Item>
+            <Link href='/' as='/'>
+              <Menu.Item>
+                <img src='https://react.semantic-ui.com/logo.png' alt='' />
+              </Menu.Item>
+            </Link>
             <Menu.Menu position='right'>
               <Menu.Item>
                 <Dropdown trigger={trigger} options={options} />
               </Menu.Item>
-              <Menu.Item name='sign-in'>
-                <Button>Login</Button>
-              </Menu.Item>
-              <Menu.Item>
-                <Button secondary>Register</Button>
-              </Menu.Item>
+              <Link href='/login' as='/login'>
+                <Menu.Item name='sign-in'>
+                  <Button>Login</Button>
+                </Menu.Item>
+              </Link>
+              <Link href='/register' as='/register'>
+                <Menu.Item>
+                  <Button secondary>Register</Button>
+                </Menu.Item>
+              </Link>
               <Menu.Item>
                 <Button.Group>
                   <Dropdown
@@ -93,14 +97,26 @@ export default class MenuExampleStackable extends Component {
         </Menu>
         <Menu size='small'>
           <Container>
-            <Menu.Item name='features' active>
-              Home
-            </Menu.Item>
-            <Menu.Item name='features'>About</Menu.Item>
-            <Menu.Item name='blog'>Blog</Menu.Item>
-            <Menu.Item name='contact'>Contact</Menu.Item>
-            <Menu.Item name='contact'>Portfolio</Menu.Item>
-            <Menu.Item name='services'>Services</Menu.Item>
+            <Link href='/' as='/'>
+              <Menu.Item name='home' active>
+                Home
+              </Menu.Item>
+            </Link>
+            <Link href='/about' as='/about'>
+              <Menu.Item name='about'>About</Menu.Item>
+            </Link>
+            <Link href='/blog' as='/blog'>
+              <Menu.Item name='blog'>Blog</Menu.Item>
+            </Link>
+            <Link href='/contact' as='/contact'>
+              <Menu.Item name='contact'>Contact</Menu.Item>
+            </Link>
+            <Link href='/portfolio' as='/portfolio'>
+              <Menu.Item name='portfolio'>Portfolio</Menu.Item>
+            </Link>
+            <Link href='/services' as='/services'>
+              <Menu.Item name='services'>Services</Menu.Item>
+            </Link>
             <Menu.Menu position='right'>
               <Menu.Item>
                 <Input icon='search' placeholder='Search...' />
