@@ -70,14 +70,14 @@ var _jsxFileName = "C:\\playground\\pedromagalhaes\\components\\Layout\\Header.j
 const trigger = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 7
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Icon"], {
   name: "user",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 8
   },
   __self: undefined
 }), " Hello, Bob");
@@ -86,13 +86,13 @@ const options = [{
   text: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 16
     },
     __self: undefined
   }, "Signed in as ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: undefined
   }, "Bob Smith")),
@@ -223,39 +223,39 @@ class MenuExampleStackable extends react__WEBPACK_IMPORTED_MODULE_1__["Component
       size: "small",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 66
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Container"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 67
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 68
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
       src: "https://react.semantic-ui.com/logo.png",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 69
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Menu, {
       position: "right",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 71
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 72
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
@@ -263,46 +263,45 @@ class MenuExampleStackable extends react__WEBPACK_IMPORTED_MODULE_1__["Component
       options: options,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 73
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "sign-in",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 75
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Button"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 76
       },
       __self: this
     }, "Login")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 78
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Button"], {
       secondary: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 79
       },
       __self: this
     }, "Register")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79
+        lineNumber: 81
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Button"].Group, {
-      color: "gray",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 82
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
@@ -316,20 +315,20 @@ class MenuExampleStackable extends react__WEBPACK_IMPORTED_MODULE_1__["Component
       text: "Select Language",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 83
       },
       __self: this
     })))))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"], {
       size: "small",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96
+        lineNumber: 98
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Container"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 99
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
@@ -337,55 +336,55 @@ class MenuExampleStackable extends react__WEBPACK_IMPORTED_MODULE_1__["Component
       active: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 100
       },
       __self: this
     }, "Home"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "features",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 103
       },
       __self: this
     }, "About"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "blog",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 104
       },
       __self: this
     }, "Blog"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "contact",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 105
       },
       __self: this
     }, "Contact"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "contact",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 106
       },
       __self: this
     }, "Portfolio"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       name: "services",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105
+        lineNumber: 107
       },
       __self: this
     }, "Services"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Menu, {
       position: "right",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106
+        lineNumber: 108
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Menu"].Item, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["Input"], {
@@ -393,7 +392,7 @@ class MenuExampleStackable extends react__WEBPACK_IMPORTED_MODULE_1__["Component
       placeholder: "Search...",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 110
       },
       __self: this
     }))))));
@@ -42301,7 +42300,7 @@ var partitionHTMLProps = function partitionHTMLProps(props) {
 /*!*************************************************************!*\
   !*** ./node_modules/semantic-ui-react/dist/es/lib/index.js ***!
   \*************************************************************/
-/*! exports provided: AutoControlledComponent, getChildMapping, mergeChildMappings, childrenUtils, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useMultipleProp, useTextAlignProp, useVerticalAlignProp, useWidthProp, customPropTypes, eventStack, createShorthand, createShorthandFactory, createHTMLDivision, createHTMLIframe, createHTMLImage, createHTMLInput, createHTMLLabel, createHTMLParagraph, getUnhandledProps, getElementType, htmlInputAttrs, htmlInputEvents, htmlInputProps, htmlImageProps, partitionHTMLProps, isBrowser, doesNodeContainClick, leven, createPaginationItems, SUI, numberToWordMap, numberToWord, normalizeOffset, normalizeTransitionDuration, objectDiff, handleRef, isRefObject */
+/*! exports provided: AutoControlledComponent, getChildMapping, mergeChildMappings, childrenUtils, useKeyOnly, useKeyOrValueAndKey, useValueAndKey, useMultipleProp, useTextAlignProp, useVerticalAlignProp, useWidthProp, customPropTypes, eventStack, getUnhandledProps, getElementType, htmlInputAttrs, htmlInputEvents, htmlInputProps, htmlImageProps, partitionHTMLProps, isBrowser, doesNodeContainClick, leven, createPaginationItems, SUI, numberToWordMap, numberToWord, normalizeOffset, normalizeTransitionDuration, objectDiff, handleRef, isRefObject, createShorthand, createShorthandFactory, createHTMLDivision, createHTMLIframe, createHTMLImage, createHTMLInput, createHTMLLabel, createHTMLParagraph */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

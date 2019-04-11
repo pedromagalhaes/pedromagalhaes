@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      // Application Source Code
+      "name": "APP",
+      "path": "."
+    },
+    {
+      // Application and 3rd Party Library Theming
+      "name": "UI",
+      "path": "./theme"
+    },
+    {
+      // Application and 3rd Party Library Theming
+      "name": "SERVER",
+      "path": "./server"
+    },
+    {
+      "name": "~",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.rulers": [
+      120
+    ],
+    "npm.packageManager": "yarn",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.watcherExclude": {
+      "**/.history/**": true,
+      "**/.git/**": true,
+      "**/node_modules/**": true,
+      "**/.next/**": true
+    },
+    "search.exclude": {
+      "**/.history/**": true,
+      "**/.git/**": true,
+      "**/node_modules/**": true,
+      "**/.next/**": true,
+      "**/.dist/**": true
+    },
+    "eslint.workingDirectories": [
+      "./"
+    ],
+    "eslint.nodePath": "node_modules",
+    "eslint.packageManager": "yarn",
+  }
+}

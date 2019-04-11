@@ -1,11 +1,6 @@
-**/node_modules
-**/*.log
-**/.DS_Store
-**/.history
-**/.project
-**/.settings
-./.tmp
-./.next
+**/node_modules/**
+
+**/.vscode/**
 
 .env.local
 .env.development.local

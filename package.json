@@ -1,13 +1,30 @@
 {
   "name": "pedromagalhaes",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=10.15"
+  },
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "dev": "yarn clean:all && yarn install && cross-env NODE_ENV=development yarn nodemon:go",
+    "build": "yarn lint:js && yarn clean:all && yarn build:app",
+    "build:job": "yarn clean:all && yarn build:app",
+    "build:app": "cross-env NODE_ENV=production environment=build yarn --cwd ./ next build",
+    "build:debug": "yarn clean:all && yarn install --check-files && cross-env x_app_debug=true yarn build:job",
+    "start": "cross-env NODE_ENV=production yarn node:go:debug -p 3001 .//index.js",
+    "start:debug": "cross-env NODE_ENV=production DEBUG=*,-nodemon:watch*,-eslint*,-babel* yarn node:go:debug",
+    "nodemon:go": "nodemon ./server/index.js",
+    "node:go": "node ./server/index.js",
+    "node:go:debug": "cross-env x_app_debug=true node ./server/index.js",
+    "lint": "yarn lint:js && yarn lint:style",
+    "lint:js": "./node_modules/.bin/eslint ./ -c ./.eslintrc.js --fix --format=codeframe",
+    "lint:style": "stylelint src",
+    "precommit": "lint-staged",
+    "clean:all": "yarn clean:babel_cache && yarn clean:npm_cache && yarn clean:next_cache",
+    "clean:npm_cache": "rimraf node_modules/.cache",
+    "clean:babel_cache": "rimraf node_modules/.cache/babel-loader",
+    "clean:next_cache": "rimraf ./.next"
   },
   "dependencies": {
-    "0": "^0.0.0",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "^0.0.3",
@@ -15,16 +32,33 @@
     "apollo-cache-inmemory": "^1.1.1",
     "apollo-client": "^2.0.3",
     "apollo-link-http": "^1.2.0",
+    "babel-eslint": "^10.0.1",
     "cross-env": "^5.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-import-resolver-babel-module": "^5.0.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-module-resolver": "^0.8.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "1.2.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-unicorn": "^8.0.2",
     "express": "^4.14.0",
     "faker": "^4.1.0",
     "graphql": "^14.0.2",
+    "graphql-anywhere": "^4.0.1",
     "graphql-hooks": "^3.2.1",
     "graphql-hooks-memcache": "^1.0.4",
     "graphql-hooks-ssr": "^1.0.1",
-    "graphql-anywhere": "^4.0.1",
     "graphql-tag": "^2.5.0",
     "isomorphic-unfetch": "^3.0.0",
+    "lint-staged": "^8.1.5",
     "nanoid": "^2.0.1",
     "next": "canary",
     "next-compose-plugins": "^2.1.1",
@@ -37,8 +71,8 @@
     "react": "^16.7.0",
     "react-apollo": "^2.1.11",
     "react-dom": "^16.7.0",
-    "react-no-ssr": "^1.1.0",
     "react-markdown": "^3.1.0",
+    "react-no-ssr": "^1.1.0",
     "recompose": "^0.30.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
@@ -64,5 +98,32 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6"
   },
-  "license": "ISC"
+  "nodemonConfig": {
+    "watch": [
+      "./server"
+    ],
+    "ignore": [
+      ".git",
+      "node_modules",
+      ".next/**"
+    ],
+    "events": {
+      "restart": "rimraf .next/"
+    },
+    "delay": "2500"
+  },
+  "license": "ISC",
+  "lint-staged": {
+    "concurrent": false,
+    "linters": {
+      "*.{css,scss}": [
+        "prettier",
+        "git add"
+      ],
+      "*.{js,jsx}": [
+        "./node_modules/.bin/eslint ./ -c ./.eslintrc.js --fix --format=codeframe",
+        "git add"
+      ]
+    }
+  }
 }

@@ -74,7 +74,7 @@ const nextConfig = {
           test: /\.(css)$/
         },
         loader: urlLoader
-      }
+      },
     )
 
     config.module.rules.push(
@@ -90,7 +90,7 @@ const nextConfig = {
           publicPath: '../fonts/',
           outputPath: `${staticPath}/fonts/`
         }
-      }
+      },
     )
 
     return config

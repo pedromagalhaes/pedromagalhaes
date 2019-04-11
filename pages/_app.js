@@ -17,7 +17,7 @@ class CMSApp extends App {
 }
 
 const enhance = compose(
-  setDisplayName('CMSApp')
+  setDisplayName('CMSApp'),
 )
 
 export default enhance(CMSApp)
