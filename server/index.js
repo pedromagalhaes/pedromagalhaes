@@ -1,4 +1,5 @@
 
+require('dotenv').config()
 const express = require('express')
 const next = require('next')
 const mongoose = require('mongoose')
@@ -12,8 +13,8 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
-  .then(() => console.log('Database Connected!'))
-  .catch(err => console.error(err))
+  .then(() => console.log('Database Connected!')) // eslint-disable-line no-console
+  .catch(err => console.error(err)) // eslint-disable-line no-console
 
 app.prepare()
   .then(() => {
@@ -27,6 +28,6 @@ app.prepare()
     })
   })
   .catch((err) => {
-    console.error(err.stack)
+    console.error(err.stack) // eslint-disable-line no-console
     process.exit(1)
   })
