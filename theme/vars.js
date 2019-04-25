@@ -1,7 +1,7 @@
 const theme = {
 
   // font family
-  bodyFont: 'Arial, sans-serif',
+  bodyFont: '\'Ubuntu\', sans-serif',
 
   // font sizes
   bodySize: '15px',

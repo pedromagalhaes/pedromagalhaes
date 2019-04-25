@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { Icon, Header } from 'semantic-ui-react'
 
 const ModuleTitle = ({ as, icon, text }) => (
-  <Header as={as} attached='top'>
+  <Header as={as}>
     <Icon name={icon} />
     <Header.Content>{text}</Header.Content>
   </Header>

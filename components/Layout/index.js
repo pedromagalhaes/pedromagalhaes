@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { ThemeProvider } from 'styled-components'
-import { Container } from 'semantic-ui-react'
 
 import theme from '../../theme/vars'
 import Head from './Head'
 import Header from './Header'
+import Footer from './Footer'
 import layoutStyles from './index.styles'
 
 const { useEffect } = React
@@ -27,7 +27,8 @@ const Layout = ({ children }) => {
           <Head />
           <GlobalStyles />
           <Header />
-          <Container>{children}</Container>
+          {children}
+          <Footer />
         </React.Fragment>
       </ThemeProvider>
     </main>

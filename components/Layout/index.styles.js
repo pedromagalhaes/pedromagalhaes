@@ -6,6 +6,11 @@ const GlobalStyle = theme => createGlobalStyle`
     font-size: ${theme.bodySize};
     color: ${theme.colorBody};
     line-height: ${theme.bodyLineHeight};
+    background: #ebf4f6 !important;
+  }
+
+  * {
+    font-family: ${theme.bodyFont};
   }
 
   #nprogress {

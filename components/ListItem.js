@@ -1,16 +1,15 @@
-import { Image, Item, Label } from 'semantic-ui-react'
+import { Item, Label } from 'semantic-ui-react'
+import PropTypes from 'prop-types'
 
-const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-
-const ListItem = () => (
+const ListItem = ({ data }) => (
   <Item>
-    <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+    <Item.Image src='' />
     <Item.Content>
-      <Item.Header as='a'>12 Years a Slave</Item.Header>
+      <Item.Header as='a'>{data.title}</Item.Header>
       <Item.Meta>
         <span className='cinema'>Union Square 14</span>
       </Item.Meta>
-      <Item.Description>{paragraph}</Item.Description>
+      <Item.Description>{data.description}</Item.Description>
       <Item.Extra>
         <Label>IMAX</Label>
         <Label icon='globe' content='Additional Languages' />
@@ -18,5 +17,9 @@ const ListItem = () => (
     </Item.Content>
   </Item>
 )
+
+ListItem.propTypes = {
+  data: PropTypes.object
+}
 
 export default ListItem
