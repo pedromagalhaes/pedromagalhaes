@@ -1,8 +1,12 @@
-import { Container } from 'semantic-ui-react'
+import Teaser from '../components/Modules/Teaser'
+import AboutMe from '../components/Modules/AboutMe'
+import Worked from '../components/Modules/Worked'
 
 const Home = () => (
   <>
-    <Container />
+    <Teaser />
+    <AboutMe />
+    <Worked />
   </>
 )
 

@@ -5,9 +5,9 @@ const HeaderStyles = styled.section`
 
   .ui.segment {
     border-radius: 0;
-    padding: 15px 0 15px 0;
+    padding: 25px 0 25px 0;
     box-shadow: none;
-    background: #58668b;
+    background: #444;
   }
 
   .left.menu .logo.left.item {
@@ -16,7 +16,7 @@ const HeaderStyles = styled.section`
     margin: 0;
 
     svg {
-      width: 36px;
+      width: 49px;
       shape-rendering: geometricPrecision;
     }
 

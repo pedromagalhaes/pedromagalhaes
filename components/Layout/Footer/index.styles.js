@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
 const FooterStyles = styled.section`
-  position: absolute; 
-  bottom: 0;
-  width: 100%;
   padding: 0;
   margin: 0;
 
   .ui.segment {
-    background: #58668b;
+    background: #444;
     padding: 0;
     margin: 0;
   }
@@ -21,7 +18,7 @@ const FooterStyles = styled.section`
     padding: 10px 0 30px 0;
     margin: 0;
     font-size: 12px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
   }
 `
 
