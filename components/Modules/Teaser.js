@@ -6,7 +6,7 @@ const CardComponent = () => (
     <Segment textAlign='center' vertical>
       <Container>
         <Header as='h1' content='Hi, my name is' inverted />
-        <Header as='h2' content='Pedro Magalhães' inverted />
+        <Header as='h2' content='Pedro Magalhães.' inverted />
         <Header as='h3' content='I build things for the web.' inverted />
         <div className='description'>
           <p>

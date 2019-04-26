@@ -4,7 +4,7 @@ const GlobalStyle = theme => createGlobalStyle`
   body {
     font-family: ${theme.bodyFont};
     font-size: ${theme.bodySize};
-    color: ${theme.colorBody};
+    color: ${props => props.theme.color5};
     line-height: ${theme.bodyLineHeight};
     background: #fff !important;
   }

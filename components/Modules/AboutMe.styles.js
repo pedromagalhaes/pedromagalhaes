@@ -11,14 +11,14 @@ const AboutMeStyles = styled.section`
     white-space: nowrap;
     font-size: 32px;
     margin: 10px 0 0;
-    color: #444;
+    color: ${props => props.theme.color5};
 
     &::before {
       counter-increment: section 1;
       content: '0' counter(section) '.';
-      margin-right: 10px;
+      margin-right: 15px;
       font-weight: normal;
-      color: #444;
+      color: ${props => props.theme.color5};
       font-size: 20px;
       position: relative;
       bottom: 0;
@@ -29,7 +29,7 @@ const AboutMeStyles = styled.section`
       display: block;
       height: 1px;
       width: 100%;
-      background-color: #444;
+      background-color: ${props => props.theme.color5};
       position: relative;
       top: 2px;
       margin-left: 20px;
@@ -55,13 +55,13 @@ const AboutMeStyles = styled.section`
       margin-bottom: 5px;
       padding-left: 20px;
       font-size: 14px;
-      color: #444;
+      color: ${props => props.theme.color5};
 
       &::before {
         content: '▹';
         position: absolute;
         left: 0;
-        color: #444;
+        color: ${props => props.theme.color5};
         font-size: 14px;
         line-height: 12px;
         top: 5px;

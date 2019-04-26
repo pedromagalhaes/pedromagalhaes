@@ -29,23 +29,23 @@ const Header = () => (
               <>
                 <Link href='/' as='/'>
                   <Menu.Item name='home' active>
-                    HOME
+                    <span>01.</span> Home
                   </Menu.Item>
                 </Link>
                 <Link href='/about' as='/about'>
-                  <Menu.Item name='about'>ABOUT</Menu.Item>
+                  <Menu.Item name='about'><span>02.</span> About</Menu.Item>
                 </Link>
                 <Link href='/portfolio' as='/portfolio'>
-                  <Menu.Item name='portfolio'>PORTFOLIO</Menu.Item>
+                  <Menu.Item name='portfolio'><span>03.</span> Portfolio</Menu.Item>
                 </Link>
                 <Link href='/services' as='/services'>
-                  <Menu.Item name='services'>SERVICES</Menu.Item>
+                  <Menu.Item name='services'><span>04.</span> Services</Menu.Item>
                 </Link>
                 <Link href='/blog' as='/blog'>
-                  <Menu.Item name='blog'>BLOG</Menu.Item>
+                  <Menu.Item name='blog'><span>05.</span> Blog</Menu.Item>
                 </Link>
                 <Link href='/contact' as='/contact'>
-                  <Menu.Item name='contact'>CONTACT</Menu.Item>
+                  <Menu.Item name='contact'><span>06.</span> Contact</Menu.Item>
                 </Link>
               </>
             </Menu.Menu>
@@ -54,10 +54,10 @@ const Header = () => (
                 <Dropdown trigger={trigger} options={options} />
               </Menu.Item>
               <Menu.Item>
-                <Button inverted>LOGIN</Button>
+                <Icon size='large' name='search' />
               </Menu.Item>
               <Menu.Item>
-                <Icon size='large' name='search' />
+                <Button inverted>LOGIN</Button>
               </Menu.Item>
             </Menu.Menu>
           </Container>

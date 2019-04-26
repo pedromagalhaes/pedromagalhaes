@@ -10,6 +10,16 @@ const theme = {
   languagesSize: '14px',
   buttonFontSize: '15px',
 
+  // palette
+  color1: 'rgb(100, 255, 218)',
+  color2: '#b27392',
+  color3: '#786895',
+  color4: '#465387',
+  color5: '#444',
+  color6: '#fff',
+  color7: '#eee',
+  color8: '#ccc',
+
   // colors
   colorBlack: '#000',
   colorBody: '#444749',

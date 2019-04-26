@@ -1,4 +1,5 @@
 import { Tab, Container, Header, Grid } from 'semantic-ui-react'
+import Fade from 'react-reveal/Fade'
 import WorkedStyles from './Worked.styles'
 
 const panes = [
@@ -11,7 +12,7 @@ const panes = [
           <span className='company'>
             &nbsp;@&nbsp;
             <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
-            Digital Management
+              Digital Management
             </a>
           </span>
         </Header>
@@ -166,22 +167,24 @@ const panes = [
 
 const CardComponent = () => (
   <WorkedStyles>
-    <Container>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column computer='16'>
-            <Header as='h3' content='Where I have Worked' inverted />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column computer='16'>
-            <div className='tabs'>
-              <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <Fade duration={800}>
+      <Container>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column computer='16'>
+              <Header as='h3' content='Where I have Worked' inverted />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column computer='16'>
+              <div className='tabs'>
+                <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </Fade>
   </WorkedStyles>
 )
 

@@ -5,7 +5,7 @@ const FooterStyles = styled.section`
   margin: 0;
 
   .ui.segment {
-    background: #444;
+    background: ${props => props.theme.color5};
     padding: 0;
     margin: 0;
   }

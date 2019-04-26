@@ -11,14 +11,14 @@ const WorkedStyles = styled.section`
     white-space: nowrap;
     font-size: 32px;
     margin: 10px 0 0;
-    color: #444;
+    color: ${props => props.theme.color5};
 
     &::before {
-      counter-increment: section 1;
+      counter-increment: section 2;
       content: '0' counter(section) '.';
-      margin-right: 10px;
+      margin-right: 15px;
       font-weight: normal;
-      color: #444;
+      color: ${props => props.theme.color5};
       font-size: 20px;
       position: relative;
       bottom: 0;
@@ -29,7 +29,7 @@ const WorkedStyles = styled.section`
       display: block;
       height: 1px;
       width: 100%;
-      background-color: #444;
+      background-color: ${props => props.theme.color5};
       position: relative;
       top: 2px;
       margin-left: 20px;
@@ -37,7 +37,7 @@ const WorkedStyles = styled.section`
   }
 
   h4.ui.header {
-    color: #444;
+    color: ${props => props.theme.color5};
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -47,7 +47,7 @@ const WorkedStyles = styled.section`
       font-weight: 500;
 
       a {
-        color: #444;
+        color: ${props => props.theme.color5};
       }
     }
   }
@@ -56,14 +56,14 @@ const WorkedStyles = styled.section`
     font-size: 13px;
     font-weight: normal;
     letter-spacing: 0.5px;
-    color: #444;
+    color: ${props => props.theme.color5};
     margin-bottom: 30px;
 
     span {
       font-size: 13px;
       font-weight: normal;
       letter-spacing: 0.5px;
-      color: #444;
+      color: ${props => props.theme.color5};
     }
   }
 
@@ -82,7 +82,7 @@ const WorkedStyles = styled.section`
         content: "▹";
         position: absolute;
         left: 0;
-        color: #444;
+        color: ${props => props.theme.color5};
         line-height: 20px;
       }
     }
@@ -91,12 +91,22 @@ const WorkedStyles = styled.section`
   .ui.attached.segment,
   .ui.vertical.tabular.menu .active.item,
   .ui.vertical.tabular.menu {
-    border-color: #444;
+    border-color: ${props => props.theme.color5};
   }
 
   .ui.vertical.tabular.menu .active.item {
     border-right: none !important;
     border-right-width: 0 !important;
+  }
+
+  .ui.attached.segment,
+  .hDQpYG .ui.vertical.tabular.menu .active.item,
+  .hDQpYG .ui.vertical.tabular.menu {
+    border: none;
+  }
+
+  .ui.vertical.tabular.menu .item {
+    color: ${props => props.theme.color5};
   }
 `
 

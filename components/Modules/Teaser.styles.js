@@ -5,8 +5,8 @@ const TeaserStyles = styled.section`
 
   .ui.segment {
     padding: 50px 0 67px 0;
-    background: #ddd;
     text-align: left;
+    background: ${props => props.theme.color7};
   }
 
   h1.ui.header {
@@ -14,21 +14,21 @@ const TeaserStyles = styled.section`
     font-family: ${props => props.theme.bodyFont};
     font-weight: 400;
     margin: 0 0 5px 5px;
-    color: #444;
+    color: ${props => props.theme.color5};
   }
 
   h2.ui.header {
-    font-size: 70px;
+    font-size: 65px;
     line-height: 1.1;
     margin: 0;
-    color: #444;
+    color: ${props => props.theme.color5};
     font-family: ${props => props.theme.bodyFont};
   }
 
   h3.ui.header {
-    font-size: 70px;
+    font-size: 65px;
     line-height: 1.1;
-    color: #444;
+    color: ${props => props.theme.color5};
     margin: 0 0 35px 0;
     font-family: ${props => props.theme.bodyFont};
   }
@@ -39,23 +39,23 @@ const TeaserStyles = styled.section`
 
     p {
       font-size: 18px;
-      color: #444;
+      color: ${props => props.theme.color5};
       font-family: ${props => props.theme.bodyFont};
     }
   }
 
   .ui.inverted.primary.button,
   .ui.inverted.primary.buttons .button {
-    color: #444 !important;
-    box-shadow: 0 0 0 2px #444 inset !important;
-    font-family: ${props => props.theme.bodyFont};
+    color: ${props => props.theme.color5} !important;
+    box-shadow: 0 0 0 2px ${props => props.theme.color5} inset !important;
+    font-family: ${props => props.theme.color5};
     font-weight: 400;
 
     &:hover,
     &:active,
     &:focus {
-      background: #444;
-      color: #fff !important;
+      background: ${props => props.theme.color5};
+      color: ${props => props.theme.color6} !important;
     }
   }
 `
