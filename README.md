@@ -1,4 +1,4 @@
-# PEDRO MAGALHÃES
+# Pedro Magalhães
 
 My personal site built with [Next.js](https://nextjs.org/) and hosted with [Digital Ocean](http://digitalocean.com/).
 
@@ -38,7 +38,6 @@ yarn start
 
 A quick look at the top-level files and directories in this project.
 
-    .
     ├── node_modules
     ├── src
     ├── .gitignore
