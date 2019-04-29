@@ -1,17 +1,12 @@
 import styled from 'styled-components'
 
 const WorkedStyles = styled.section`
-  background: ${props => props.theme.color6};
+  background: ${props => props.theme.color1};
   padding: 45px 0 67px 0;
 
   .ui.vertical.tabular.menu .active.item,
   .ui.segment {
     background: none !important;
-  }
-
-  .ui.menu.fluid,
-  .ui.vertical.menu.fluid {
-    height: 265px;
   }
 
   h3.ui.header {
@@ -22,36 +17,12 @@ const WorkedStyles = styled.section`
     white-space: nowrap;
     font-size: 32px;
     margin: 10px 0 0;
-    color: ${props => props.theme.color1};
+    color: ${props => props.theme.color6};
     font-weight: bold;
-
-    &::before {
-      counter-increment: section 2;
-      content: '0' counter(section) '.';
-      margin-right: 15px;
-      font-weight: normal;
-      color: ${props => props.theme.color1};
-      font-size: 20px;
-      position: relative;
-      bottom: 0;
-      display: none;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 100%;
-      background-color: ${props => props.theme.color1};
-      position: relative;
-      top: 2px;
-      margin-left: 20px;
-      display: none;
-    }
   }
 
   h4.ui.header {
-    color: ${props => props.theme.color1};
+    color: ${props => props.theme.color7};
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -61,7 +32,7 @@ const WorkedStyles = styled.section`
       font-weight: 500;
 
       a {
-        color: ${props => props.theme.color1};
+        color: ${props => props.theme.color7};
       }
     }
   }
@@ -70,15 +41,20 @@ const WorkedStyles = styled.section`
     font-size: 13px;
     font-weight: normal;
     letter-spacing: 0.5px;
-    color: ${props => props.theme.color1};
+    color: ${props => props.theme.color7};
     margin-bottom: 30px;
 
     span {
       font-size: 13px;
       font-weight: normal;
       letter-spacing: 0.5px;
-      color: ${props => props.theme.color1};
+      color: ${props => props.theme.color7};
     }
+  }
+
+  .stretched.twelve.wide.column {
+    padding: 0;
+    margin: 7px 0 0;
   }
 
   ul {
@@ -86,18 +62,20 @@ const WorkedStyles = styled.section`
     padding: 0;
     margin: 0;
     list-style: none;
+    max-width: 70%;
 
     li {
       position: relative;
       padding-left: 30px;
       margin-bottom: 10px;
-      color: ${props => props.theme.color1};
+      color: ${props => props.theme.color7};
+      font-size: 15px;
 
       &::before {
         content: "▹";
         position: absolute;
         left: 0;
-        color: ${props => props.theme.color1} !important;
+        color: ${props => props.theme.color10} !important;
         line-height: 20px;
       }
     }
@@ -106,30 +84,33 @@ const WorkedStyles = styled.section`
   .ui.attached.segment,
   .ui.vertical.tabular.menu .active.item,
   .ui.vertical.tabular.menu {
-    border-color: ${props => props.theme.color1};
-    border-width: 2px;
+    border-left: 2px solid ${props => props.theme.color2};
+    border-right: none !important;
+    border-radius: 0 !important;
   }
 
   .ui.vertical.tabular.menu .active.item {
+    border-left: 2px solid  ${props => props.theme.color10} !important;
+    border-top: none !important;
+    border-bottom: none !important;
     border-right: none !important;
-    border-right-width: 0 !important;
-    background: ${props => props.theme.color1} !important;
-    color: ${props => props.theme.color6} !important;
+    background: ${props => props.theme.color12} !important;
+    color: ${props => props.theme.color10} !important;
+    position: relative;
+    left: -2px;
+    text-indent: 2px;
+    text-shadow: none !important;
+    font-weight: normal;
   }
 
   .ui.attached.segment,
   .hDQpYG .ui.vertical.tabular.menu .active.item,
   .hDQpYG .ui.vertical.tabular.menu {
-    border: none;
+    border: none !important;
   }
 
   .ui.vertical.tabular.menu .item {
-    color: ${props => props.theme.color1};
-
-    &.active {
-      color: ${props => props.theme.color2};
-      font-weight: normal;
-    }
+    color: ${props => props.theme.color7};
   }
 `
 

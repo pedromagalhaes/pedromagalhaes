@@ -1,7 +1,5 @@
-import { Header } from 'semantic-ui-react'
+import { Header, Icon } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
-
-import { IconGithub, IconExternal, IconFolder } from '../Icons'
 
 const OtherProjectItem = ({ title }) => (
   <div className='project'>
@@ -9,7 +7,7 @@ const OtherProjectItem = ({ title }) => (
       <div>
         <div className='project-header'>
           <div className='folder'>
-            <IconFolder />
+            <Icon size='big' name='folder open outline' />
           </div>
           <div className='links'>
             <a
@@ -19,7 +17,7 @@ const OtherProjectItem = ({ title }) => (
               rel='nofollow noopener noreferrer'
               aria-label='Github Link'
             >
-              <IconGithub />
+              <Icon name='github' />
             </a>
 
             <a
@@ -29,7 +27,7 @@ const OtherProjectItem = ({ title }) => (
               rel='nofollow noopener noreferrer'
               aria-label='External Link'
             >
-              <IconExternal />
+              <Icon name='external alternate' />
             </a>
           </div>
         </div>

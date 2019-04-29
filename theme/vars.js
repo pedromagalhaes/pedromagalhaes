@@ -22,6 +22,7 @@ const theme = {
   color9: '#019b94',
   color10: 'rgb(100, 255, 218)',
   color11: '#eee',
+  color12: '#334e52',
 
   // colors
   colorBlack: '#000',

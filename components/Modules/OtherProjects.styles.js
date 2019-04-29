@@ -104,12 +104,11 @@ const Styles = styled.section`
   .icon-link {
     padding: 10px;
     position: relative;
-    top: -10px;
+    top: -5px;
 
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: ${props => props.theme.color4};
+    i {
+      font-size: 18px;
+      color: ${props => props.theme.color8};
     }
   }
 

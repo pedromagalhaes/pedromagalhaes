@@ -10,7 +10,7 @@ const panes = [
           <span>Senior Software Engineer</span>
           <span className='company'>
             &nbsp;@&nbsp;
-            <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
               Digital Management
             </a>
           </span>
@@ -42,7 +42,7 @@ const panes = [
           <span>Lead Frontend Engineer</span>
           <span className='company'>
             &nbsp;@&nbsp;
-            <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
               Golden Gekko
             </a>
           </span>
@@ -74,7 +74,7 @@ const panes = [
           <span>Lead Frontend Engineer</span>
           <span className='company'>
             &nbsp;@&nbsp;
-            <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
               Omnibees
             </a>
           </span>
@@ -106,7 +106,7 @@ const panes = [
           <span>Senior Frontend Engineer</span>
           <span className='company'>
             &nbsp;@&nbsp;
-            <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
               Visualforma
             </a>
           </span>
@@ -138,7 +138,7 @@ const panes = [
           <span>Full Stack Developer</span>
           <span className='company'>
             &nbsp;@&nbsp;
-            <a href='https://www.upstatement.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
               Porto City Hall
             </a>
           </span>
