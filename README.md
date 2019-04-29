@@ -22,18 +22,6 @@ My personal site built with [Next.js](https://nextjs.org/) and hosted with [Digi
    yarn dev
    ```
 
-## 🚀 Building and Running for Production
-
-In addition to the development server started with `yarn start`, you can also generate a full static production build and serve that to preview the site as it will appear once deployed:
-
-```sh
-yarn build
-```
-
-```sh
-yarn start
-```
-
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories in this project.
@@ -56,3 +44,15 @@ A quick look at the top-level files and directories in this project.
 5. **`README.md`**: A text file containing useful reference information about your project.
 
 6. **`yarn.lock`**: [Yarn](https://yarnpkg.com/) is a package manager alternative to npm. You can use either yarn or npm, though all of the Gatsby docs reference npm. This file serves essentially the same purpose as `package-lock.json`, just for a different package management system.
+
+## 🚀 Building and Running for Production
+
+In addition to the development server started with `yarn start`, you can also generate a full static production build and serve that to preview the site as it will appear once deployed:
+
+```sh
+yarn build
+```
+
+```sh
+yarn start
+```
