@@ -61,7 +61,6 @@ const Styles = styled.section`
     position: relative;
     padding: 25px;
     height: 100%;
-    border-radius: 2px;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-color: ${props => props.theme.color1};
   }
@@ -75,8 +74,6 @@ const Styles = styled.section`
 
       .project-inner {
         transform: translateY(-5px);
-        box-shadow: 0 2px 4px rgba(2, 12, 27, 0.9);
-        box-shadow: 0 19px 38px #01050b 0 15px 12px rgba(2, 12, 27, 0.9);
       }
     }
   }
@@ -118,7 +115,12 @@ const Styles = styled.section`
 
   .project-description {
     font-size: 14px;
+    margin-top: 20px;
     color: ${props => props.theme.color4};
+
+    p {
+      line-height: 20px;
+    }
 
     a {
       display: inline-block;
@@ -157,9 +159,8 @@ const Styles = styled.section`
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 0px;
-    margin: 50px 0 00px;
+    padding: 0;
+    margin: 35px 0 0;
     list-style: none;
 
     li {

@@ -1,6 +1,8 @@
 {
   "name": "pedromagalhaes",
+  "description": "Personal Website",
   "version": "1.0.0",
+  "author": "Pedro Magalhaes <pedro.magalhaes@outlook.com>",
   "engines": {
     "node": ">=10.15"
   },
@@ -135,7 +137,7 @@
     },
     "delay": "2500"
   },
-  "license": "ISC",
+  "license": "MIT",
   "lint-staged": {
     "concurrent": false,
     "linters": {
