@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const WorkedStyles = styled.section`
-  background: ${props => props.theme.color11};
+  background: ${props => props.theme.color6};
   padding: 45px 0 67px 0;
 
   .ui.vertical.tabular.menu .active.item,
@@ -23,6 +23,7 @@ const WorkedStyles = styled.section`
     font-size: 32px;
     margin: 10px 0 0;
     color: ${props => props.theme.color1};
+    font-weight: bold;
 
     &::before {
       counter-increment: section 2;

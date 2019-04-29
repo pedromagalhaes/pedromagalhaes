@@ -14,7 +14,7 @@ const AboutMeStyles = styled.section`
     font-size: 32px;
     margin: 10px 0 0;
     color: ${props => props.theme.color6};
-    letter-spacing: 3px;
+    font-weight: bold;
 
     &::before {
       counter-increment: section 1;

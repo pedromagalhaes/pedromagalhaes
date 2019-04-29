@@ -7,10 +7,10 @@ const Footer = () => (
     <>
       <Segment inverted vertical>
         <Container>
-          <Grid inverted>
+          <Grid inverted columns={5}>
             <Grid.Row>
-              <Grid.Column width={4}>
-                <Header inverted as='h4' content='ABOUT' />
+              <Grid.Column>
+                <Header inverted as='h4' content='About' />
                 <List link inverted>
                   <List.Item as='a'>Sitemap</List.Item>
                   <List.Item as='a'>Contact Us</List.Item>
@@ -18,8 +18,8 @@ const Footer = () => (
                   <List.Item as='a'>Gazebo Plans</List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={4}>
-                <Header inverted as='h4' content='SERVICES' />
+              <Grid.Column>
+                <Header inverted as='h4' content='Services' />
                 <List link inverted>
                   <List.Item as='a'>Banana Pre-Order</List.Item>
                   <List.Item as='a'>DNA FAQ</List.Item>
@@ -27,8 +27,8 @@ const Footer = () => (
                   <List.Item as='a'>Favorite X-Men</List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={4}>
-                <Header inverted as='h4' content='PORTFOLIO' />
+              <Grid.Column>
+                <Header inverted as='h4' content='Portfolio' />
                 <List link inverted>
                   <List.Item as='a'>Banana Pre-Order</List.Item>
                   <List.Item as='a'>DNA FAQ</List.Item>
@@ -36,8 +36,17 @@ const Footer = () => (
                   <List.Item as='a'>Favorite X-Men</List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={4}>
-                <Header inverted as='h4' content='CONTACT' />
+              <Grid.Column>
+                <Header inverted as='h4' content='Blog' />
+                <List link inverted>
+                  <List.Item as='a'>Banana Pre-Order</List.Item>
+                  <List.Item as='a'>DNA FAQ</List.Item>
+                  <List.Item as='a'>How To Access</List.Item>
+                  <List.Item as='a'>Favorite X-Men</List.Item>
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <Header inverted as='h4' content='Contact' />
                 <List link inverted>
                   <List.Item as='a'>Banana Pre-Order</List.Item>
                   <List.Item as='a'>DNA FAQ</List.Item>
@@ -46,9 +55,14 @@ const Footer = () => (
                 </List>
               </Grid.Column>
             </Grid.Row>
+          </Grid>
+          <Grid inverted>
             <Grid.Row>
-              <Grid.Column width={16}>
-                <p>© 2019 Envato Pty Ltd. Trademarks and brands are the property of their respective owners.</p>
+              <Grid.Column computer={12}>
+                <p>© 2019 Pedro Magalhaes. Trademarks and brands are the property of their respective owners.</p>
+              </Grid.Column>
+              <Grid.Column textAlign='right' computer={4}>
+                <p><a>Legal</a> <span>|</span> <a>Terms</a> <span>|</span> <a>Privacy</a></p>
               </Grid.Column>
             </Grid.Row>
           </Grid>

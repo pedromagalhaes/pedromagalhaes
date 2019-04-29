@@ -10,15 +10,39 @@ const FooterStyles = styled.section`
     margin: 0;
   }
 
-  .row:first-child {
-    padding: 70px 0 50px 0;
+  .ui.inverted.grid {
+    &:first-child {
+      .row {
+        padding: 70px 0 50px 0;
+
+        a.item {
+          color: ${props => props.theme.color8};
+        }
+      }
+    }
+
+    &:last-child {
+      .row {
+        padding: 10px 0 70px 0;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+
+        a {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        span {
+          display: inline-block;
+          margin: 0 5px;
+        }
+      }
+    }
   }
 
-  .row:last-child {
-    padding: 10px 0 70px 0;
-    margin: 0;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
+  h4.ui.header {
+    color: #fff;
+    font-weight: bold;
   }
 `
 

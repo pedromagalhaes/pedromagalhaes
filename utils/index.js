@@ -1,7 +1,9 @@
 import injectPolyfillIO from './polyfill'
+import sr from './sr'
 
 export {
-  injectPolyfillIO
+  injectPolyfillIO,
+  sr
 }
 
 export default {}
