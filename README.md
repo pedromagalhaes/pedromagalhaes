@@ -2,7 +2,7 @@
 
 My personal site built with [Next.js](https://nextjs.org/) and hosted with [Digital Ocean](http://digitalocean.com/).
 
-## 🚀 Quick Start
+## 🧘 Quick Start
 
 1. **Install and switch to the correct version of Node using NVM**
 
@@ -22,7 +22,7 @@ My personal site built with [Next.js](https://nextjs.org/) and hosted with [Digi
    yarn dev
    ```
 
-## 🧘 Building and Running for Production
+## 🚀 Building and Running for Production
 
 In addition to the development server started with `yarn start`, you can also generate a full static production build and serve that to preview the site as it will appear once deployed:
 
