@@ -7,7 +7,7 @@ const HeaderStyles = styled.section`
     border-radius: 0;
     padding: 25px 0 25px 0;
     box-shadow: none;
-    background: ${props => props.theme.color5};
+    background: ${props => props.theme.color1};
   }
 
   .right.menu {
@@ -78,16 +78,16 @@ const HeaderStyles = styled.section`
 
   .ui.inverted.button,
   .ui.inverted.button {
-    color: ${props => props.theme.color6} !important;
-    box-shadow: 0 0 0 2px ${props => props.theme.color6} inset !important;
+    color: ${props => props.theme.color10} !important;
+    box-shadow: 0 0 0 2px ${props => props.theme.color10} inset !important;
     font-family: ${props => props.theme.bodyFont};
     font-weight: 400;
 
     &:hover,
     &:active,
     &:focus {
-      background: ${props => props.theme.color6};
-      color: ${props => props.theme.color5} !important;
+      background: ${props => props.theme.color10};
+      color: ${props => props.theme.color1} !important;
     }
   }
 `

@@ -11,14 +11,17 @@ const theme = {
   buttonFontSize: '15px',
 
   // palette
-  color1: 'rgb(100, 255, 218)',
-  color2: '#b27392',
-  color3: '#786895',
-  color4: '#465387',
-  color5: '#444',
+  color1: '#27363b',
+  color2: '#557c83',
+  color3: '#3aafa9',
+  color4: '#dfdfdf',
+  color5: '#a2d5ac',
   color6: '#fff',
   color7: '#eee',
   color8: '#ccc',
+  color9: '#019b94',
+  color10: 'rgb(100, 255, 218)',
+  color11: '#eee',
 
   // colors
   colorBlack: '#000',

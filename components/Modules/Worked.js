@@ -1,5 +1,4 @@
 import { Tab, Container, Header, Grid } from 'semantic-ui-react'
-import Fade from 'react-reveal/Fade'
 import WorkedStyles from './Worked.styles'
 
 const panes = [
@@ -167,24 +166,22 @@ const panes = [
 
 const CardComponent = () => (
   <WorkedStyles>
-    <Fade duration={800}>
-      <Container>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column computer='16'>
-              <Header as='h3' content='Where I have Worked' inverted />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column computer='16'>
-              <div className='tabs'>
-                <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Fade>
+    <Container>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column computer='16'>
+            <Header as='h3' content='Where I have Worked' inverted />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column computer='16'>
+            <div className='tabs'>
+              <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+            </div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
   </WorkedStyles>
 )
 

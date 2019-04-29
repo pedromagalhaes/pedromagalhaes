@@ -1,7 +1,18 @@
 import styled from 'styled-components'
 
 const WorkedStyles = styled.section`
-  margin-bottom: 100px;
+  background: ${props => props.theme.color11};
+  padding: 45px 0 67px 0;
+
+  .ui.vertical.tabular.menu .active.item,
+  .ui.segment {
+    background: none !important;
+  }
+
+  .ui.menu.fluid,
+  .ui.vertical.menu.fluid {
+    height: 265px;
+  }
 
   h3.ui.header {
     position: relative;
@@ -11,17 +22,18 @@ const WorkedStyles = styled.section`
     white-space: nowrap;
     font-size: 32px;
     margin: 10px 0 0;
-    color: ${props => props.theme.color5};
+    color: ${props => props.theme.color1};
 
     &::before {
       counter-increment: section 2;
       content: '0' counter(section) '.';
       margin-right: 15px;
       font-weight: normal;
-      color: ${props => props.theme.color5};
+      color: ${props => props.theme.color1};
       font-size: 20px;
       position: relative;
       bottom: 0;
+      display: none;
     }
 
     &::after {
@@ -29,15 +41,16 @@ const WorkedStyles = styled.section`
       display: block;
       height: 1px;
       width: 100%;
-      background-color: ${props => props.theme.color5};
+      background-color: ${props => props.theme.color1};
       position: relative;
       top: 2px;
       margin-left: 20px;
+      display: none;
     }
   }
 
   h4.ui.header {
-    color: ${props => props.theme.color5};
+    color: ${props => props.theme.color1};
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -47,7 +60,7 @@ const WorkedStyles = styled.section`
       font-weight: 500;
 
       a {
-        color: ${props => props.theme.color5};
+        color: ${props => props.theme.color1};
       }
     }
   }
@@ -56,14 +69,14 @@ const WorkedStyles = styled.section`
     font-size: 13px;
     font-weight: normal;
     letter-spacing: 0.5px;
-    color: ${props => props.theme.color5};
+    color: ${props => props.theme.color1};
     margin-bottom: 30px;
 
     span {
       font-size: 13px;
       font-weight: normal;
       letter-spacing: 0.5px;
-      color: ${props => props.theme.color5};
+      color: ${props => props.theme.color1};
     }
   }
 
@@ -77,12 +90,13 @@ const WorkedStyles = styled.section`
       position: relative;
       padding-left: 30px;
       margin-bottom: 10px;
+      color: ${props => props.theme.color1};
 
       &::before {
         content: "▹";
         position: absolute;
         left: 0;
-        color: ${props => props.theme.color5};
+        color: ${props => props.theme.color1} !important;
         line-height: 20px;
       }
     }
@@ -91,12 +105,15 @@ const WorkedStyles = styled.section`
   .ui.attached.segment,
   .ui.vertical.tabular.menu .active.item,
   .ui.vertical.tabular.menu {
-    border-color: ${props => props.theme.color5};
+    border-color: ${props => props.theme.color1};
+    border-width: 2px;
   }
 
   .ui.vertical.tabular.menu .active.item {
     border-right: none !important;
     border-right-width: 0 !important;
+    background: ${props => props.theme.color1} !important;
+    color: ${props => props.theme.color6} !important;
   }
 
   .ui.attached.segment,
@@ -106,7 +123,12 @@ const WorkedStyles = styled.section`
   }
 
   .ui.vertical.tabular.menu .item {
-    color: ${props => props.theme.color5};
+    color: ${props => props.theme.color1};
+
+    &.active {
+      color: ${props => props.theme.color2};
+      font-weight: normal;
+    }
   }
 `
 
