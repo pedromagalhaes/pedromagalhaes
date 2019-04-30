@@ -8,7 +8,7 @@ module.exports = {
       },
       env_production: {
         NODE_ENV: 'production',
-        autorestart: false, // let docker handles restarts
+        autorestart: true,
         vizion: false
       }
     }

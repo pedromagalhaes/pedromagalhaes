@@ -9,9 +9,9 @@ const panes = [
         <Header as='h4' inverted>
           <span>Senior Software Engineer</span>
           <span className='company'>
-            &nbsp;@&nbsp;
+
             <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              Digital Management
+            &nbsp;@ Digital Management
             </a>
           </span>
         </Header>
@@ -41,9 +41,8 @@ const panes = [
         <Header as='h4' inverted>
           <span>Lead Frontend Engineer</span>
           <span className='company'>
-            &nbsp;@&nbsp;
             <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              Golden Gekko
+              &nbsp;@ Golden Gekko
             </a>
           </span>
         </Header>
@@ -73,9 +72,8 @@ const panes = [
         <Header as='h4' inverted>
           <span>Lead Frontend Engineer</span>
           <span className='company'>
-            &nbsp;@&nbsp;
             <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              Omnibees
+              &nbsp;@ Omnibees
             </a>
           </span>
         </Header>
@@ -105,9 +103,8 @@ const panes = [
         <Header as='h4' inverted>
           <span>Senior Frontend Engineer</span>
           <span className='company'>
-            &nbsp;@&nbsp;
             <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              Visualforma
+              &nbsp;@ Visualforma
             </a>
           </span>
         </Header>
@@ -137,9 +134,8 @@ const panes = [
         <Header as='h4' inverted>
           <span>Full Stack Developer</span>
           <span className='company'>
-            &nbsp;@&nbsp;
             <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              Porto City Hall
+              &nbsp;@ Porto City Hall
             </a>
           </span>
         </Header>

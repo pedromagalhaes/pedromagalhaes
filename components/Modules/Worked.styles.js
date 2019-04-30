@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const WorkedStyles = styled.section`
-  background: ${props => props.theme.color1};
+  background: ${props => props.theme.color12};
   padding: 45px 0 67px 0;
 
   .ui.vertical.tabular.menu .active.item,
@@ -31,9 +31,6 @@ const WorkedStyles = styled.section`
       font-size: 22px;
       font-weight: 500;
 
-      a {
-        color: ${props => props.theme.color7};
-      }
     }
   }
 
@@ -111,6 +108,12 @@ const WorkedStyles = styled.section`
 
   .ui.vertical.tabular.menu .item {
     color: ${props => props.theme.color7};
+  }
+
+  .company {
+    a {
+      color: ${props => props.theme.color10} !important;
+    }
   }
 `
 

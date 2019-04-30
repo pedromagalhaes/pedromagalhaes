@@ -15,17 +15,21 @@ const CardComponent = () => (
           <Grid.Column computer='9'>
             <div className='bio'>
               <p>
-                  Hello! Im Pedro, a software engineer based in Boston, MA who enjoys building things that live on the
-                  internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
-                  interfaces with efficient and modern backends.
+                Hello! Im Pedro, a software engineer based in Algarve, who enjoys building things that live on the
+                internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
+                interfaces with efficient and modern backends.
               </p>
               <p>
-                  Shortly after graduating from Northeastern University, I joined the engineering team at Upstatement
-                  where I work on a wide variety of interesting and meaningful projects on a daily basis.
-              </p>
-              <p>
-                  Shortly after graduating from Northeastern University, I joined the engineering team at Upstatement
-                  where I work on a wide variety of interesting and meaningful projects on a daily basis.
+                Shortly after graduating from{' '}
+                <a href='http://dminc.com/' target='blank'>
+                  Instituto Superior da Maia
+                </a>
+                , I joined the engineering team at
+                <a href='https://www.ismai.pt/' target='blank'>
+                  {' '}
+                  Digital Management
+                </a>{' '}
+                where I work on a wide variety of interesting and meaningful projects on a daily basis.
               </p>
               <p>Heres a few technologies Ive been working with recently:</p>
             </div>
@@ -40,8 +44,8 @@ const CardComponent = () => (
               <li>NativeScript</li>
             </ul>
           </Grid.Column>
-          <Grid.Column computer='1' />
-          <Grid.Column computer='6'>
+          <Grid.Column computer='2' />
+          <Grid.Column computer='5'>
             <Image src='https://dummyimage.com/500x500/27363b/dfdfdf' fluid />
           </Grid.Column>
         </Grid.Row>

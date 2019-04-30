@@ -43,9 +43,9 @@ const OtherProjectItem = ({ title }) => (
       </div>
       <div>
         <ul className='tech-list'>
-          <li>Tech</li>
-          <li>Tech</li>
-          <li>Tech</li>
+          <li>React</li>
+          <li>NextJS</li>
+          <li>Node</li>
         </ul>
       </div>
     </div>

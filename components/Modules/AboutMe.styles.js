@@ -43,7 +43,11 @@ const AboutMeStyles = styled.section`
   .bio {
     p {
       font-size: 17px;
-      color: ${props => props.theme.color4};
+      color: ${props => props.theme.color6};
+
+      a {
+        color: ${props => props.theme.color10};
+      }
     }
   }
 
@@ -60,13 +64,13 @@ const AboutMeStyles = styled.section`
       margin-bottom: 5px;
       padding-left: 20px;
       font-size: 14px;
-      color: ${props => props.theme.color4};
+      color: ${props => props.theme.color6};
 
       &::before {
         content: '▹';
         position: absolute;
         left: 0;
-        color: ${props => props.theme.color4};
+        color: ${props => props.theme.color10};
         font-size: 14px;
         line-height: 12px;
         top: 5px;
