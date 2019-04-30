@@ -1,6 +1,6 @@
 import { Image, Container, Header, Grid } from 'semantic-ui-react'
 
-import AboutMeStyles from './AboutMe.styles'
+import AboutMeStyles from './About.styles'
 
 const CardComponent = () => (
   <AboutMeStyles>

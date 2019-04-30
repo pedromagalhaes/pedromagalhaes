@@ -1,7 +1,7 @@
 import { Segment, Container, Header, Button } from 'semantic-ui-react'
 import TeaserStyles from './Teaser.styles'
 
-const CardComponent = () => (
+const TeaserComponent = () => (
   <TeaserStyles>
     <Segment textAlign='center' vertical>
       <Container>
@@ -10,16 +10,16 @@ const CardComponent = () => (
         <Header as='h3' content='I build things for the web' inverted />
         <div className='description'>
           <p>
-            Im a software engineer based in Portugal, specializing in building (and occasionally designing)
-            exceptional, high-quality websites and applications.
+              Im a software engineer based in Portugal, specializing in building (and occasionally designing)
+              exceptional, high-quality websites and applications.
           </p>
         </div>
         <Button primary inverted size='big'>
-          Get In Touch
+            Get In Touch
         </Button>
       </Container>
     </Segment>
   </TeaserStyles>
 )
 
-export default CardComponent
+export default TeaserComponent

@@ -1,8 +1,8 @@
 
-import Teaser from '../components/Modules/Teaser'
-import AboutMe from '../components/Modules/AboutMe'
-import Worked from '../components/Modules/Worked'
-import OtherProjects from '../components/Modules/OtherProjects'
+import Teaser from '../components/Modules/Teaser/Teaser'
+import AboutMe from '../components/Modules/About/About'
+import Worked from '../components/Modules/Worked/Worked'
+import OtherProjects from '../components/Modules/OtherProjects/OtherProjects'
 
 const Home = () => (
   <>

@@ -91,7 +91,7 @@ const WorkedStyles = styled.section`
     border-top: none !important;
     border-bottom: none !important;
     border-right: none !important;
-    background: ${props => props.theme.color12} !important;
+    background: ${props => props.theme.color1} !important;
     color: ${props => props.theme.color10} !important;
     position: relative;
     left: -2px;

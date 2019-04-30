@@ -7,11 +7,6 @@
     },
     {
       // Application and 3rd Party Library Theming
-      "name": "UI",
-      "path": "./theme"
-    },
-    {
-      // Application and 3rd Party Library Theming
       "name": "SERVER",
       "path": "./server"
     },

@@ -104,7 +104,6 @@ const Colors = () => (
         <div className='grid-item color11'>11 <br /><br /> #eee</div>
         <div className='grid-item color4'>4 <br /><br /> #dfdfdf</div>
         <div className='grid-item color8'>8 <br /><br /> #ccc</div>
-
       </div>
     </Styles>
     <GlobalStyle />
