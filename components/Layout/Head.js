@@ -4,7 +4,6 @@ import 'nprogress/nprogress.css'
 import { injectPolyfillIO } from '../../utils'
 
 export default React.memo(() => {
-  const env = process.env.environment || 'dev'
   const gtmScript = `
   window.addEventListener('load', function(event) {
     window.dataLayer = window.dataLayer || [];
@@ -56,13 +55,9 @@ export default React.memo(() => {
       <link rel='apple-touch-icon-precomposed' sizes='114x114' href='/static/favicon/android-chrome-192x192.png' />
       <link rel='apple-touch-icon-precomposed' sizes='72x72' href='/static/favicon/android-chrome-192x192.png' />
       <link rel='apple-touch-icon-precomposed' sizes='57x57' href='/static/favicon/android-chrome-192x192.png' />
-      {env !== 'dev' && (
-        <>
-          <script async src='https://www.googletagmanager.com/gtag/js?id=UA-23725125-1' />
-          {/* eslint-disable-next-line react/no-danger */}
-          <script id='gtm-head' dangerouslySetInnerHTML={{ __html: gtmScript }} />
-        </>
-      )}
+      <script async src='https://www.googletagmanager.com/gtag/js?id=UA-23725125-1' />
+      {/* eslint-disable-next-line react/no-danger */}
+      <script id='gtm-head' dangerouslySetInnerHTML={{ __html: gtmScript }} />
       {injectPolyfillIO()}
     </Head>
   )
