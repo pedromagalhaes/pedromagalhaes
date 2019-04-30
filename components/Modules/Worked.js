@@ -166,7 +166,7 @@ const CardComponent = () => (
       <Grid>
         <Grid.Row>
           <Grid.Column computer='16'>
-            <Header as='h3' content="Companies I've Worked" inverted />
+            <Header as='h3' content="Where I've Worked" inverted />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

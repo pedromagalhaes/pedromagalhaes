@@ -11,7 +11,7 @@ const Styles = styled.section`
     align-items: center;
     width: 100%;
     white-space: nowrap;
-    font-size: 32px;
+    font-size: 30px;
     margin: 10px 0 0;
     color: ${props => props.theme.color6};
     font-weight: bold;

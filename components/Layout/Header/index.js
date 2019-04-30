@@ -14,7 +14,7 @@ const options = [
 
 const Header = () => (
   <>
-    <HeaderStyles>
+    <HeaderStyles className='site-header'>
       <Segment inverted>
         <Menu inverted secondary>
           <Container>

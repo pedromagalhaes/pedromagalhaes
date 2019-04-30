@@ -42,6 +42,11 @@
       "**/.next/**": true,
       "**/.dist/**": true
     },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vscode": true,
+      "**/.history": true
+    },
     "eslint.workingDirectories": [
       "./"
     ],

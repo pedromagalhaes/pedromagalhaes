@@ -3,7 +3,7 @@ import { Container, Grid, Header, List, Segment } from 'semantic-ui-react'
 import FooterStyles from './index.styles'
 
 const Footer = () => (
-  <FooterStyles>
+  <FooterStyles className='site-footer'>
     <>
       <Segment inverted vertical>
         <Container>
