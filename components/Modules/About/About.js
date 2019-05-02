@@ -2,7 +2,7 @@ import { Image, Container, Header, Grid } from 'semantic-ui-react'
 
 import AboutMeStyles from './About.styles'
 
-const CardComponent = () => (
+const AboutMe = () => (
   <AboutMeStyles>
     <Container>
       <Grid>
@@ -54,4 +54,4 @@ const CardComponent = () => (
   </AboutMeStyles>
 )
 
-export default CardComponent
+export default AboutMe
