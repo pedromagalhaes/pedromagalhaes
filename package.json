@@ -1,6 +1,6 @@
 {
   "name": "pedromagalhaes",
-  "description": "Personal Website",
+  "description": "Pedro Magalhaes",
   "version": "1.0.0",
   "author": "Pedro Magalhaes <pedro.magalhaes@outlook.com>",
   "engines": {
@@ -10,22 +10,26 @@
     "dev": "yarn clean:all && yarn install && cross-env NODE_ENV=development yarn nodemon:go",
     "build": "yarn lint:js && yarn clean:all && yarn build:app",
     "build:job": "yarn clean:all && yarn build:app",
-    "build:app": "cross-env NODE_ENV=production environment=build yarn --cwd ./ next build",
+    "build:app": "cross-env NODE_ENV=production environment=build yarn next build src/app",
     "build:debug": "yarn clean:all && yarn install --check-files && cross-env x_app_debug=true yarn build:job",
     "start": "pm2-runtime ecosystem.config.js --env production --formatted",
     "start:dev": "cross-env NODE_ENV=production environment=dev yarn node:go:debug --api-cache",
     "start:debug": "cross-env NODE_ENV=production DEBUG=*,-nodemon:watch*,-eslint*,-babel* yarn node:go:debug",
-    "nodemon:go": "nodemon ./server/index.js",
-    "node:go": "node ./server/index.js",
-    "node:go:debug": "cross-env x_app_debug=true node ./server/index.js",
+    "nodemon:go": "nodemon ./src/server/index.js",
+    "node:go": "node ./src/server/index.js",
+    "node:go:debug": "cross-env x_app_debug=true node ./src/server/index.js",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "./node_modules/.bin/eslint ./ -c ./.eslintrc.js --fix --format=codeframe",
-    "lint:style": "stylelint src",
+    "lint:style": "stylelint ./src",
     "precommit": "lint-staged",
+    "pm2:logs": "pm2 logs",
+    "pm2:stop": "pm2 stop all",
+    "pm2:reload": "pm2 reload all",
+    "pm2:monitor": "pm2 monit",
     "clean:all": "yarn clean:babel_cache && yarn clean:npm_cache && yarn clean:next_cache",
     "clean:npm_cache": "rimraf node_modules/.cache",
     "clean:babel_cache": "rimraf node_modules/.cache/babel-loader",
-    "clean:next_cache": "rimraf ./.next"
+    "clean:next_cache": "rimraf src/app/.next"
   },
   "dependencies": {
     "@babel/preset-env": "^7.4.3",
@@ -125,15 +129,15 @@
   },
   "nodemonConfig": {
     "watch": [
-      "./server"
+      "./src/server"
     ],
     "ignore": [
       ".git",
       "node_modules",
-      ".next/**"
+      "./src/app/.next/**"
     ],
     "events": {
-      "restart": "rimraf .next/"
+      "restart": "rimraf ./src/app/.next/"
     },
     "delay": "2500"
   },

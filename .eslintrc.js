@@ -63,6 +63,7 @@ module.exports = {
     'unicorn/filename-case': 0,
     'unicorn/catch-error-name': 0,
     'import/no-extraneous-dependencies': 0,
-    'import/first': ['warn']
+    'import/first': ['warn'],
+    "no-console": "off"
   }
 }
