@@ -1,3 +1,5 @@
+const path = require('path')
+
 'use strict'
 
 module.exports = {
@@ -20,6 +22,27 @@ module.exports = {
     COOKIE_KEYS: false,
     PORT: false,
     getEnvConfig: false
+  },
+  settings: {
+    'import/resolver': {
+      "alias": {
+        "map": [
+          ['@icons', path.resolve(__dirname, './src/app/components/Icons')],
+          ['@services', path.resolve(__dirname, './src/app/services')],
+          ['@utils', path.resolve(__dirname, './src/app/utils')],
+          ['@context', path.resolve(__dirname, './src/app/context')],
+          ['@hoc', path.resolve(__dirname, './src/app/hoc')],
+          ['@components', path.resolve(__dirname, './src/app/components')],
+          ['@constants', path.resolve(__dirname, './src/app/constants')],
+          ['@reducers', path.resolve(__dirname, './src/app/reducers')],
+          ['@static', path.resolve(__dirname, './src/app/static')],
+          ['@mutations', path.resolve(__dirname, './src/app/mutations')],
+          ['@theme', path.resolve(__dirname, './src/app/theme')],
+          ['@server', path.resolve(__dirname, './src/server')]
+        ],
+        extensions: ['.ts', '.js', '.jsx', '.json']
+      }
+    }
   },
   rules: {
     'jsx-quotes': [2, 'prefer-single'],

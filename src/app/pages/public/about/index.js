@@ -1,5 +1,4 @@
-import AboutMe from '../../../components/Modules/About/About'
-import Worked from '../../../components/Modules/Worked/Worked'
+import { AboutMe, Worked } from '@components'
 
 const Home = () => (
   <>

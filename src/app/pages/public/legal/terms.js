@@ -1,3 +1,13 @@
-const x = () => ('empty')
+import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
 
-export default x
+const Home = () => (
+  <>
+    <Teaser />
+    <AboutMe />
+    <Worked />
+    <Projects />
+    <OtherProjects />
+  </>
+)
+
+export default Home

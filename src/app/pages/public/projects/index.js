@@ -1,5 +1,4 @@
-import OtherProjects from '../../../components/Modules/OtherProjects/OtherProjects'
-import Projects from '../../../components/Modules/Projects/Projects'
+import { OtherProjects, Projects } from '@components'
 
 const Home = () => (
   <>

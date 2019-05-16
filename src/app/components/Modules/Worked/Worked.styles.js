@@ -30,7 +30,6 @@ const WorkedStyles = styled.section`
     span {
       font-size: 22px;
       font-weight: 500;
-
     }
   }
 

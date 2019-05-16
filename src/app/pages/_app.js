@@ -1,8 +1,8 @@
 import App, { Container } from 'next/app'
 import { ApolloProvider } from 'react-apollo'
-import withApolloClient from '../hoc/with-apollo-client'
+import withApolloClient from '@hoc/with-apollo-client'
 
-import Layout from '../components/Layout'
+import Layout from '@components/Layout'
 
 class MyApp extends App {
   render() {

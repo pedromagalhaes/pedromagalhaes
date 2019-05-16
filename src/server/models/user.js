@@ -5,7 +5,9 @@ const { Schema } = mongoose
 
 const UserSchema = new Schema({
   email: String,
-  password: String
+  password: String,
+  firstName: String,
+  lastName: String
 })
 
 UserSchema.pre('save', function save(next) { // eslint-disable-line consistent-return

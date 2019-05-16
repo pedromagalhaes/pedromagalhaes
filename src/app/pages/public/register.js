@@ -1,10 +1,9 @@
+import { SignUp } from '@components'
 
-import Register from '../../components/SignupForm'
-
-const Home = () => (
+const RegisterPage = () => (
   <>
-    <Register />
+    <SignUp />
   </>
 )
 
-export default Home
+export default RegisterPage

@@ -1,3 +1,9 @@
-const x = () => ('empty')
+import { SignIn } from '@components'
 
-export default x
+const LoginPage = () => (
+  <>
+    <SignIn />
+  </>
+)
+
+export default LoginPage
