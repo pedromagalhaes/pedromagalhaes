@@ -3,7 +3,7 @@ import { Button, Container, Form, Grid, Message } from 'semantic-ui-react'
 import nanoid from 'nanoid'
 
 import mutation from '@mutations/Signup'
-import { ModuleTitle } from '@components'
+import { ModuleTitle, Text } from '@components'
 import Styles from './SignUp.styles'
 
 const { useState } = React
@@ -45,10 +45,10 @@ const RegisterBox = () => {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column computer='10'>
-                <p>
+                <Text>
                   As a registered user you will be able to save your favorite artworks, galleries, artists and events.
                   You can also access exclusive features and subscribe to our newsletters.
-                </p>
+                </Text>
               </Grid.Column>
             </Grid.Row>
           </Grid>

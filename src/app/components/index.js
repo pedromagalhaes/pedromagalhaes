@@ -9,11 +9,14 @@ import Map from '@components/Modules/Maps/GoogleMap'
 import DeckMap from '@components/Modules/Maps/DeckMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
-import ModuleTitle from '@components/Modules/Others/ModuleTitle'
-import BlogFeed from '@components/Modules/Others/BlogFeed'
-import Card from '@components/Modules/Others/Card'
-import ListItem from '@components/Modules/Others/ListItem'
-import SideBarListItem from '@components/Modules/Others/SideBarListItem'
+import ModuleTitle from '@components/Modules/Shared/ModuleTitle'
+import BlogFeed from '@components/Modules/Shared/BlogFeed'
+import Card from '@components/Modules/Shared/Card'
+import ListItem from '@components/Modules/Shared/ListItem'
+import SideBarListItem from '@components/Modules/Shared/SideBarListItem'
+import FullScreenLoader from '@components/Modules/Shared/FullScreenLoader'
+import Separator from '@components/Modules/Shared/Separator'
+import Text from '@components/Modules/Shared/Text'
 
 export {
   Teaser,
@@ -31,5 +34,8 @@ export {
   BlogFeed,
   Card,
   ListItem,
-  SideBarListItem
+  SideBarListItem,
+  FullScreenLoader,
+  Separator,
+  Text
 }

@@ -4,8 +4,8 @@ const theme = {
   bodyFont: '\'Ubuntu\', sans-serif',
 
   // font sizes
-  bodySize: '15px',
-  bodyLineHeight: '24px',
+  bodySize: '16px',
+  bodyLineHeight: '26px',
   descriptionSize: '16px',
   languagesSize: '14px',
   buttonFontSize: '15px',

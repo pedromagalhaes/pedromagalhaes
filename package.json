@@ -76,6 +76,7 @@
     "express-graphql": "^0.7.1",
     "express-session": "^1.16.1",
     "faker": "^4.1.0",
+    "formik": "^1.5.4",
     "graphql": "^14.0.2",
     "graphql-anywhere": "^4.0.1",
     "graphql-hooks": "^3.2.1",
