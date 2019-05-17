@@ -1,11 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  .site-header,
-  .site-footer {
-    display: none !important;
-  }
-`
+import styled from 'styled-components'
 
 const Styles = styled.section`
   .grid-container {
@@ -106,7 +99,6 @@ const Colors = () => (
         <div className='grid-item color8'>8 <br /><br /> #ccc</div>
       </div>
     </Styles>
-    <GlobalStyle />
   </>
 )
 

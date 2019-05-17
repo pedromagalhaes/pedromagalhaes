@@ -1,15 +1,15 @@
 import { Item, Label } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
-const ListItem = ({ data }) => (
+const ListItem = ({ title, description }) => (
   <Item>
     <Item.Image src='' />
     <Item.Content>
-      <Item.Header as='a'>{data.title}</Item.Header>
+      <Item.Header as='a'>{title}</Item.Header>
       <Item.Meta>
         <span className='cinema'>Union Square 14</span>
       </Item.Meta>
-      <Item.Description>{data.description}</Item.Description>
+      <Item.Description>{description}</Item.Description>
       <Item.Extra>
         <Label>IMAX</Label>
         <Label icon='globe' content='Additional Languages' />
@@ -19,7 +19,8 @@ const ListItem = ({ data }) => (
 )
 
 ListItem.propTypes = {
-  data: PropTypes.object
+  title: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default ListItem

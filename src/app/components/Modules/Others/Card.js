@@ -13,7 +13,7 @@ const CardComponent = () => (
               </Card.Content>
               <Image
                 style={{ maxHeight: '333px' }}
-                src=''
+                src='https://dummyimage.com/1127x333/27363b/dfdfdf'
                 fluid
               />
               <Card.Content>

@@ -1,4 +1,4 @@
-import { Menu, Container, Segment, Dropdown, Icon, Button } from 'semantic-ui-react'
+import { Menu, Container, Segment, Icon, Button } from 'semantic-ui-react'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Logo from '@static/logo.svg'
 import HeaderStyles from './index.styles'
 
+/*
 const trigger = (
   <span>
     {' '}
@@ -18,6 +19,7 @@ const options = [
   { key: 'pt', text: 'Português (PT)' },
   { key: 'es', text: 'Spanish (ES)' }
 ]
+*/
 
 const Header = ({ router }) => {
   const isActive = url => !!(router.asPath === url)
@@ -37,11 +39,13 @@ const Header = ({ router }) => {
               </Menu.Menu>
               <Menu.Menu position='right'>
                 <>
+                  {/*
                   <Link href='/' as='/'>
                     <Menu.Item name='home' active={isActive('/')}>
                       <span>01.</span> Home
                     </Menu.Item>
                   </Link>
+                  */}
                   <Link href='/public/about' as='/about'>
                     <Menu.Item name='about' active={isActive('/about')}>
                       <span>02.</span> About
@@ -70,15 +74,24 @@ const Header = ({ router }) => {
                 </>
               </Menu.Menu>
               <Menu.Menu position='right'>
+                {/*
                 <Menu.Item>
                   <Dropdown trigger={trigger} options={options} />
                 </Menu.Item>
+                */}
                 <Menu.Item>
                   <Icon size='large' name='search' />
                 </Menu.Item>
-                <Link href='/public/login' as='/login'>
+                <Link href='/public/authentication/login' as='/login'>
                   <Menu.Item>
-                    <Button inverted>LOGIN</Button>
+                    <Button inverted basic color='grey'>
+                      Log In
+                    </Button>
+                  </Menu.Item>
+                </Link>
+                <Link href='/public/authentication/register' as='/register'>
+                  <Menu.Item>
+                    <Button inverted>Sign Up</Button>
                   </Menu.Item>
                 </Link>
               </Menu.Menu>

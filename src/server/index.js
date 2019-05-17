@@ -1,6 +1,6 @@
-
 require('dotenv').config()
 
+const nodeoutlook = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const expressGraphQL = require('express-graphql')
 const mongoose = require('mongoose')
@@ -10,8 +10,6 @@ const compression = require('compression')
 const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')(session)
 const next = require('next')
-
-// models, services, schema
 const models = require('./models') // eslint-disable-line no-unused-vars
 const passportConfig = require('./services/auth') // eslint-disable-line no-unused-vars
 const schema = require('./schema/schema')
@@ -35,6 +33,7 @@ app.prepare()
     const server = express()
 
     server.use(compression())
+
     server.use(bodyParser.json())
 
     server.use(session({
@@ -48,12 +47,28 @@ app.prepare()
     }))
 
     server.use(passport.initialize())
+
     server.use(passport.session())
 
     server.use('/graphql', expressGraphQL({
       schema,
       graphiql: true
     }))
+
+    server.get(process.env.SMTP_URL, (req, res) => { // eslint-disable-line no-unused-vars
+      nodeoutlook.sendEmail({
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS
+        },
+        to: 'pedro.magalhaes@outlook.com',
+        subject: 'Hey you, awesome!',
+        html: '<b>This is bold text</b>',
+        text: 'This is text version!',
+        onError: e => console.log(e),
+        onSuccess: i => console.log(i)
+      })
+    })
 
     /*
     server.get('/api/works', (req, res) => {
@@ -64,6 +79,7 @@ app.prepare()
     */
 
     server.get('*', (req, res) => handle(req, res))
+
     server.listen(port, (err) => {
       if (err) throw err
       console.log(`> Ready on http://localhost:${port}...`) // eslint-disable-line no-console

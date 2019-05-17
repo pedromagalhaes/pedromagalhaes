@@ -9,6 +9,11 @@ import Map from '@components/Modules/Maps/GoogleMap'
 import DeckMap from '@components/Modules/Maps/DeckMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
+import ModuleTitle from '@components/Modules/Others/ModuleTitle'
+import BlogFeed from '@components/Modules/Others/BlogFeed'
+import Card from '@components/Modules/Others/Card'
+import ListItem from '@components/Modules/Others/ListItem'
+import SideBarListItem from '@components/Modules/Others/SideBarListItem'
 
 export {
   Teaser,
@@ -21,5 +26,10 @@ export {
   Map,
   DeckMap,
   SignUp,
-  SignIn
+  SignIn,
+  ModuleTitle,
+  BlogFeed,
+  Card,
+  ListItem,
+  SideBarListItem
 }

@@ -14,14 +14,7 @@ nextPlugins.push(require('@zeit/next-source-maps'))
 const nextConfig = {
   transpileModules: ['theme'],
   publicRuntimeConfig:
-  environment !== 'build'
-    ? {
-      ...global.next_publicRuntimeConfig,
-      runtimeId
-    }
-    : {
-      runtimeId
-    },
+  environment !== 'build' ? { ...global.next_publicRuntimeConfig, runtimeId } : { runtimeId },
   webpack: (config, options) => {
     const { isServer } = options
 
@@ -41,10 +34,7 @@ const nextConfig = {
       '@server': path.resolve(__dirname, '../server')
     }
 
-    let staticPath = 'static'
-    if (isServer) {
-      staticPath = '../static/'
-    }
+    const staticPath = isServer ? '../static/' : 'static'
 
     const urlLoader = {
       loader: 'url-loader',
@@ -106,11 +96,10 @@ const nextConfig = {
 
     return config
   },
-  // possible routes, if not needed later we will remove
   exportPathMap() {
     return {
       // public
-      '/about': { page: '/public/about' },
+      '/about': { page: '/public/about/' },
       '/projects': { page: '/public/projects' },
       '/services': { page: '/public/services' },
       '/blog': { page: '/public/blog' },
@@ -118,10 +107,12 @@ const nextConfig = {
       '/privacy': { page: '/public/legal/privacy' },
       '/terms': { page: '/public/legal/terms' },
       '/templates/colors': { page: '/public/templates/colors' },
-      '/changepassword': { page: '/public/changepassword' },
-      '/forgotpassword': { page: '/public/forgotpassword' },
-      '/login': { page: '/public/login' },
-      '/register': { page: '/public/register' },
+      '/confirmation': { page: '/public/authentication/confirmation' },
+      '/changepassword': { page: '/public/authentication/changepassword' },
+      '/forgotpassword': { page: '/public/authentication/forgotpassword' },
+      '/login': { page: '/public/authentication/login/' },
+      '/register': { page: '/public/authentication/register' },
+      '/search': { page: '/public/search' },
       // user
       '/dashboard': { page: '/dashboard' },
       '/dashboard/profile': { page: '/dashboard/profile' },
@@ -143,6 +134,7 @@ const nextConfig = {
       '/admin/pages/dashboard': { page: '/admin/pages/dashboard' },
       '/admin/pages/dashboard/profile': { page: '/admin/pages/dashboard/profile' },
       '/admin/pages/blog': { page: '/admin/pages/blog' },
+      '/admin/pages/blog/category': { page: '/admin/pages/blog/category' },
       '/admin/pages/blog/post': { page: '/admin/pages/blog/post' },
       '/admin/pages/blog/posts': { page: '/admin/pages/blog/posts' }
     }

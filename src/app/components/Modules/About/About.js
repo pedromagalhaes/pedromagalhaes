@@ -35,13 +35,13 @@ const AboutMe = () => (
             </div>
             <ul>
               <li>JavaScript</li>
-              <li>HTML &amp; SCSS</li>
               <li>React</li>
-              <li>Vue</li>
               <li>Node.js</li>
-              <li>Express</li>
+              <li>Mongo DB</li>
               <li>GraphQL</li>
-              <li>NativeScript</li>
+              <li>Jest</li>
+              <li>React Native</li>
+              <li>HTML & CSS</li>
             </ul>
           </Grid.Column>
           <Grid.Column computer='2' />

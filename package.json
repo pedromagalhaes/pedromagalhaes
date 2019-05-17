@@ -90,6 +90,8 @@
     "next": "canary",
     "next-compose-plugins": "^2.1.1",
     "next-plugin-transpile-modules": "^2.0.0",
+    "nodejs-nodemailer-outlook": "^1.1.0",
+    "nodemailer": "^6.1.1",
     "nprogress": "^0.2.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
