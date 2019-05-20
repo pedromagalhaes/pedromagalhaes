@@ -1,3 +1,4 @@
+// modules
 import Teaser from '@components/Modules/Teaser/Teaser'
 import AboutMe from '@components/Modules/About/About'
 import Worked from '@components/Modules/Worked/Worked'
@@ -9,14 +10,17 @@ import Map from '@components/Modules/Maps/GoogleMap'
 import DeckMap from '@components/Modules/Maps/DeckMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
-import ModuleTitle from '@components/Modules/Shared/ModuleTitle'
-import BlogFeed from '@components/Modules/Shared/BlogFeed'
-import Card from '@components/Modules/Shared/Card'
-import ListItem from '@components/Modules/Shared/ListItem'
-import SideBarListItem from '@components/Modules/Shared/SideBarListItem'
-import FullScreenLoader from '@components/Modules/Shared/FullScreenLoader'
-import Separator from '@components/Modules/Shared/Separator'
-import Text from '@components/Modules/Shared/Text'
+
+// shared
+import ModuleTitle from '@components/Shared/ModuleTitle'
+import BlogFeed from '@components/Shared/BlogFeed'
+import Card from '@components/Shared/Card'
+import ListItem from '@components/Shared/ListItem'
+import SideBarListItem from '@components/Shared/SideBarListItem'
+import FullScreenLoader from '@components/Shared/FullScreenLoader'
+import Separator from '@components/Shared/Separator'
+import Text from '@components/Shared/Text'
+import FormFieldError from '@components/Shared/FormFieldError'
 
 export {
   Teaser,
@@ -37,5 +41,6 @@ export {
   SideBarListItem,
   FullScreenLoader,
   Separator,
-  Text
+  Text,
+  FormFieldError
 }

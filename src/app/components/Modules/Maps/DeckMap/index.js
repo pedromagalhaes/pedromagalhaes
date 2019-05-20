@@ -9,7 +9,7 @@ import CityPin from './city-pin'
 import CityInfo from './city-info'
 import CITIES from './cities.json'
 
-const TOKEN = 'pk.eyJ1IjoicGVkcm9tYWdhbGhhZXMiLCJhIjoiY2p2cTR5eHV3MjAydjQ4cWpyMHBnNnVpMCJ9.CkBWt7y8jNpw3DFvcI_xgw'
+const TOKEN = process.env.DECKMAP_TOKEN
 
 const fullscreenControlStyle = {
   position: 'absolute',

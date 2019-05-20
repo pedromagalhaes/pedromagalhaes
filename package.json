@@ -120,7 +120,8 @@
     "stylelint-config-standard": "^18.3.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.7.0",
-    "webpack-bundle-size-analyzer": "^2.7.0"
+    "webpack-bundle-size-analyzer": "^2.7.0",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",

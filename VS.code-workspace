@@ -53,6 +53,7 @@
       "**/.dist/**": true
     },
     "files.exclude": {
+      "**/.history/**": true,
       "**/.git": true,
       "**/.vscode": true,
       "**/.history": true
