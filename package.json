@@ -97,6 +97,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "postcss-easy-import": "^3.0.0",
+    "prettier": "^1.17.1",
     "prettyjson": "^1.2.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.4.2",
