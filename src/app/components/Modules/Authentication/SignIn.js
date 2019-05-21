@@ -6,7 +6,7 @@ import mutation from '@mutations/Login'
 
 const { useState } = React
 
-const RegisterBox = () => {
+const SignInBox = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -102,4 +102,4 @@ const RegisterBox = () => {
   )
 }
 
-export default withApollo(RegisterBox)
+export default withApollo(SignInBox)

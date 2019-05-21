@@ -110,7 +110,7 @@ const nextConfig = {
       '/confirmation': { page: '/public/authentication/confirmation' },
       '/changepassword': { page: '/public/authentication/changepassword' },
       '/forgotpassword': { page: '/public/authentication/forgotpassword' },
-      '/login': { page: '/public/authentication/login/' },
+      '/login': { page: '/public/authentication/login' },
       '/register': { page: '/public/authentication/register' },
       '/search': { page: '/public/search' },
       // user

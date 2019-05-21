@@ -11,16 +11,6 @@
       "path": "./src/server"
     },
     {
-      // Next.js Pages
-      "name": "PAGES",
-      "path": "./src/app/pages"
-    },
-    {
-      // Components
-      "name": "COMPONENTS",
-      "path": "./src/app/components"
-    },
-    {
       // Application and 3rd Party Library Theming
       "name": "THEME",
       "path": "./src/theme"

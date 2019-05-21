@@ -1,5 +1,12 @@
-**/node_modules/**
-**/.vscode/**
-**/.history/**
-
+**/.idea
+**/node_modules
+**/*.log
+**/.DS_Store
+**/.history
+**/.project
+**/.settings
+**/.vscode
+src/app/.next
+src/app/.tmp
+eslint-report.json
 .env

@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const nodeoutlook = require('nodejs-nodemailer-outlook')
+const nodemailer = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const expressGraphQL = require('express-graphql')
 const mongoose = require('mongoose')
@@ -14,14 +14,20 @@ const models = require('./models') // eslint-disable-line no-unused-vars
 const passportConfig = require('./services/auth') // eslint-disable-line no-unused-vars
 const schema = require('./schema/schema')
 
+// env vars
 const port = process.env.PORT || 4000
 const dev = process.env.NODE_ENV !== 'production'
+const mongoURL = dev ? process.env.MONGO_URL_DEV : process.env.MONGO_URL_PROD
+const hostURL = dev ? process.env.HOST_DEV : process.env.HOST_PROD
+
+// next.js pages directory
 const app = next({ dev, dir: './src/app' })
 
+// handle requests
 const handle = app.getRequestHandler()
 
 // mongo connection
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
+mongoose.connect(mongoURL, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:')) // eslint-disable-line no-console
 db.once('open', () => {
@@ -31,32 +37,33 @@ db.once('open', () => {
 app.prepare()
   .then(() => {
     const server = express()
-
     server.use(compression())
-
     server.use(bodyParser.json())
 
+    // mongo db
     server.use(session({
       resave: true,
       saveUninitialized: true,
       secret: 'aaabbbccc',
       store: new MongoStore({
-        url: process.env.MONGO_URL,
+        url: mongoURL,
         autoReconnect: true
       })
     }))
 
+    // passport
     server.use(passport.initialize())
-
     server.use(passport.session())
 
+    // graphql
     server.use('/graphql', expressGraphQL({
       schema,
       graphiql: true
     }))
 
+    // email server
     server.get(process.env.SMTP_URL, (req, res) => { // eslint-disable-line no-unused-vars
-      nodeoutlook.sendEmail({
+      nodemailer.sendEmail({
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS
@@ -82,7 +89,7 @@ app.prepare()
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> Ready on http://localhost:${port}...`) // eslint-disable-line no-console
+      console.log(`> Ready on ${hostURL}...`) // eslint-disable-line no-console
     })
   })
   .catch((err) => {
