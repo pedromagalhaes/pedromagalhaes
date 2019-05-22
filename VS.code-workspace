@@ -46,12 +46,24 @@
       "**/.history/**": true,
       "**/.git": true,
       "**/.vscode": true,
-      "**/.history": true
+      "**/.history": true,
+      "**/.next/**": true
     },
     "eslint.workingDirectories": [
       "./"
     ],
     "eslint.nodePath": "node_modules",
     "eslint.packageManager": "yarn",
+    "local-history.exclude": [
+      "**/.history/**",
+      "**/.vscode/**",
+      "**/node_modules/**",
+      "**/typings/**",
+      "**/out/**",
+      "**/Code/User/**",
+      "**/.tmp/**",
+      "**/.next/**"
+    ],
+    "local-history.daysLimit": 30
   }
 }
