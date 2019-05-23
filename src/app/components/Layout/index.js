@@ -11,8 +11,9 @@ import layoutStyles from './index.styles'
 
 const { useEffect } = React
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const GlobalStyles = layoutStyles(theme)
+  const { user } = props
 
   useEffect(() => {
     Router.events.on('routeChangeStart', () => NProgress.start())
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
         <React.Fragment>
           <Head />
           <GlobalStyles />
-          <Header />
+          <Header {...user} />
           {children}
           <Footer />
         </React.Fragment>
@@ -36,7 +37,8 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  user: PropTypes.object
 }
 
 export default Layout

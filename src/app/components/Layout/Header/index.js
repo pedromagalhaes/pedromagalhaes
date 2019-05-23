@@ -2,27 +2,25 @@ import { Menu, Container, Segment, Icon, Button } from 'semantic-ui-react'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
-
+import { Auth as AuthService } from '@services'
 import Logo from '@static/logo.svg'
+import redirect from '@utils/redirect'
 import HeaderStyles from './index.styles'
 
-/*
-const trigger = (
-  <span>
-    {' '}
-    <Icon name='world' size='large' />
-  </span>
-)
-
-const options = [
-  { key: 'en', text: 'English (US)' },
-  { key: 'pt', text: 'Português (PT)' },
-  { key: 'es', text: 'Spanish (ES)' }
-]
-*/
-
-const Header = ({ router }) => {
+const Header = ({ router, ...props }) => {
+  const { user } = props
   const isActive = url => !!(router.asPath === url)
+
+  const handleSignOutSubmit = (e) => {
+    e.preventDefault()
+    AuthService.signOut()
+      .then(() => {
+        redirect({}, '/')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   return (
     <>
@@ -39,13 +37,6 @@ const Header = ({ router }) => {
               </Menu.Menu>
               <Menu.Menu position='right'>
                 <>
-                  {/*
-                  <Link href='/' as='/'>
-                    <Menu.Item name='home' active={isActive('/')}>
-                      <span>01.</span> Home
-                    </Menu.Item>
-                  </Link>
-                  */}
                   <Link href='/public/about' as='/about'>
                     <Menu.Item name='about' active={isActive('/about')}>
                       <span>02.</span> About
@@ -82,18 +73,29 @@ const Header = ({ router }) => {
                 <Menu.Item>
                   <Icon size='large' name='search' />
                 </Menu.Item>
-                <Link href='/public/authentication/login' as='/login'>
-                  <Menu.Item>
-                    <Button inverted basic color='grey'>
-                      Log In
-                    </Button>
-                  </Menu.Item>
-                </Link>
-                <Link href='/public/authentication/register' as='/register'>
-                  <Menu.Item>
-                    <Button inverted>Sign Up</Button>
-                  </Menu.Item>
-                </Link>
+                {!user ? (
+                  <>
+                    <Link href='/public/authentication/login' as='/login'>
+                      <Menu.Item>
+                        <Button inverted basic color='grey'>
+                          Log In
+                        </Button>
+                      </Menu.Item>
+                    </Link>
+                    <Link href='/public/authentication/register' as='/register'>
+                      <Menu.Item>
+                        <Button inverted>Sign Up</Button>
+                      </Menu.Item>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Menu.Item>{`${user.firstName} ${user.lastName}`}</Menu.Item>
+                    <Menu.Item onClick={e => handleSignOutSubmit(e)}>
+                      <Button inverted>Log Out</Button>
+                    </Menu.Item>
+                  </>
+                )}
               </Menu.Menu>
             </Container>
           </Menu>
@@ -104,7 +106,8 @@ const Header = ({ router }) => {
 }
 
 Header.propTypes = {
-  router: PropTypes.object
+  router: PropTypes.object,
+  user: PropTypes.object
 }
 
 export default withRouter(Header)

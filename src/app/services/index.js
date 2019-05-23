@@ -1,7 +1,9 @@
 import Posts from './posts'
+import Auth from './auth'
 
 export {
-  Posts
+  Posts,
+  Auth
 }
 
 export default {}

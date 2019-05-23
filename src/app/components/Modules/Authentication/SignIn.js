@@ -3,6 +3,7 @@ import { Button, Container, Form, Grid, Message, Segment } from 'semantic-ui-rea
 import Link from 'next/link'
 import nanoid from 'nanoid'
 import mutation from '@mutations/Login'
+import redirect from '@utils/redirect'
 
 const { useState } = React
 
@@ -44,6 +45,9 @@ const SignInBox = () => {
                     e.stopPropagation()
                     if (validateForm()) {
                       create({ variables: { email, password } })
+                      setTimeout(() => {
+                        redirect({}, '/dashboard')
+                      }, 400)
                       resetForm()
                     }
                   }}

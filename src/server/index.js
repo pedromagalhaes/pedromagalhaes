@@ -1,17 +1,20 @@
+/* eslint-disable no-unused-vars, no-console, no-unused-vars */
+
 require('dotenv').config()
 
 const nodemailer = require('nodejs-nodemailer-outlook')
 const express = require('express')
-const expressGraphQL = require('express-graphql')
+const graphqlHTTP = require('express-graphql')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
-const compression = require('compression')
-const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')(session)
 const next = require('next')
-const models = require('./models') // eslint-disable-line no-unused-vars
-const passportConfig = require('./services/auth') // eslint-disable-line no-unused-vars
+const expressValidator = require('express-validator')
+const cookieParser = require('cookie-parser')
+
+const models = require('./models')
+const passportConfig = require('./services/auth')
 const schema = require('./schema/schema')
 
 // env vars
@@ -27,42 +30,51 @@ const app = next({ dev, dir: './src/app' })
 const handle = app.getRequestHandler()
 
 // mongo connection
+mongoose.set('useCreateIndex', true)
 mongoose.connect(mongoURL, { useNewUrlParser: true })
 const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:')) // eslint-disable-line no-console
+db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
-  console.log('Connection successfully done to Mongo DB') // eslint-disable-line no-console
+  console.log('Connection successfully done to Mongo DB')
 })
 
-app.prepare()
+app
+  .prepare()
   .then(() => {
     const server = express()
-    server.use(compression())
-    server.use(bodyParser.json())
+    server.use(expressValidator())
+    server.use(cookieParser())
 
     // mongo db
-    server.use(session({
-      resave: true,
-      saveUninitialized: true,
-      secret: 'aaabbbccc',
-      store: new MongoStore({
-        url: mongoURL,
-        autoReconnect: true
+    server.use(
+      session({
+        secret: 'kjaigalhdenmaaesross',
+        key: 'token',
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({
+          url: mongoURL,
+          autoReconnect: true
+        })
       })
-    }))
+    )
 
     // passport
     server.use(passport.initialize())
     server.use(passport.session())
 
     // graphql
-    server.use('/graphql', expressGraphQL({
+    server.use('/graphql', graphqlHTTP(req => ({
       schema,
+      context: {
+        login: req.login.bind(req),
+        user: req.user
+      },
       graphiql: true
-    }))
+    })))
 
     // email server
-    server.get(process.env.SMTP_URL, (req, res) => { // eslint-disable-line no-unused-vars
+    server.get(process.env.SMTP_URL, (req, res) => {
       nodemailer.sendEmail({
         auth: {
           user: process.env.SMTP_USER,
@@ -77,6 +89,11 @@ app.prepare()
       })
     })
 
+    server.post('/logout', (req, res) => {
+      req.logout()
+      req.session.destroy(() => res.redirect('/'))
+    })
+
     /*
     server.get('/api/works', (req, res) => {
       db.collection('works').find().toArray((err, results) => {
@@ -89,10 +106,10 @@ app.prepare()
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> Ready on ${hostURL}...`) // eslint-disable-line no-console
+      console.log(`> GraphQL Server Listening on ${hostURL}...`)
     })
   })
   .catch((err) => {
-    console.error(err.stack) // eslint-disable-line no-console
+    console.error(err.stack)
     process.exit(1)
   })
