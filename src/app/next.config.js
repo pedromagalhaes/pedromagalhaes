@@ -9,30 +9,7 @@ const { environment = 'build' } = process.env
 const runtimeId = nanoid()
 
 const nextPlugins = []
-
-let analyzeTarget = ''
-if (process.argv.indexOf('--bundle=server') !== -1) analyzeTarget = 'server'
-else if (process.argv.indexOf('--bundle=client') !== -1) analyzeTarget = 'client'
-else if (process.argv.indexOf('--bundle=both') !== -1) analyzeTarget = 'both'
-
 nextPlugins.push(require('@zeit/next-source-maps'))
-nextPlugins.push([
-  require('@zeit/next-bundle-analyzer'),
-  {
-    analyzeServer: analyzeTarget === 'server' || analyzeTarget === 'both',
-    analyzeBrowser: analyzeTarget === 'client' || analyzeTarget === 'both',
-    bundleAnalyzerConfig: {
-      server: {
-        analyzerMode: 'static',
-        reportFilename: '../bundles/server.html'
-      },
-      browser: {
-        analyzerMode: 'static',
-        reportFilename: '../bundles/client.html'
-      }
-    }
-  }
-])
 
 const nextConfig = {
   transpileModules: ['theme'],
