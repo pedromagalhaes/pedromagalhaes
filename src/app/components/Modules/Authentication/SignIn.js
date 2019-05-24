@@ -30,12 +30,8 @@ const SignInBox = () => {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Mutation
               mutation={mutation}
-              onCompleted={(data) => {
-                console.log(data)
-              }}
-              onError={(error) => {
-                console.log(error.graphQLErrors)
-              }}
+              onCompleted={(data) => { data.login && redirect({}, '/dashboard') }}
+              onError={() => { resetForm() }}
             >
               {(create, { loading, error }) => (
                 <Form
@@ -43,13 +39,7 @@ const SignInBox = () => {
                   onSubmit={(e) => {
                     e.preventDefault()
                     e.stopPropagation()
-                    if (validateForm()) {
-                      create({ variables: { email, password } })
-                      setTimeout(() => {
-                        redirect({}, '/dashboard')
-                      }, 400)
-                      resetForm()
-                    }
+                    validateForm() && create({ variables: { email, password } })
                   }}
                 >
                   <Segment stacked>

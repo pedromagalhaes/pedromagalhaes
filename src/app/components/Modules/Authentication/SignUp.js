@@ -6,10 +6,13 @@ import nanoid from 'nanoid'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import PropTypes from 'prop-types'
-
+import uuidv4 from 'uuid/v4'
 import mutation from '@mutations/Signup'
 import { ModuleTitle, Text, FormFieldError } from '@components'
 import Styles from './SignUp.styles'
+
+const oldDateObj = new Date()
+const newDateObj = new Date()
 
 const initialValues = {
   firstName: '',
@@ -17,7 +20,11 @@ const initialValues = {
   email: '',
   password: '',
   confirmPassword: '',
-  termsCondition: false
+  termsCondition: false,
+  isAdmin: false,
+  isActive: false,
+  emailToken: uuidv4(),
+  emailTokenExpiresAt: newDateObj.setTime(oldDateObj.getTime() + 30 * 60 * 1000)
 }
 
 const validationSchema = Yup.object().shape({
@@ -80,7 +87,10 @@ const SignUp = () => (
                       firstName: values.firstName,
                       lastName: values.lastName,
                       email: values.email,
-                      password: values.password
+                      password: values.password,
+                      emailToken: values.emailToken,
+                      emailTokenExpiresAt: values.emailTokenExpiresAt,
+                      isActive: values.isActive
                     }
                   })
                   resetForm(initialValues)

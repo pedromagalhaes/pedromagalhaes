@@ -90,6 +90,7 @@
     "semantic-ui-react": "^0.86.0",
     "styled-components": "^4.2.0",
     "url-loader": "^1.1.2",
+    "uuid": "^3.3.2",
     "webpack": "^4.29.6",
     "webpack-bundle-size-analyzer": "^2.7.0",
     "yup": "^0.27.0"

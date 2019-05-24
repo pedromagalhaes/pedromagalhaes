@@ -9,6 +9,7 @@ import OtherProjectItem from '@components/Modules/OtherProjects/OtherProjectItem
 import Map from '@components/Modules/Maps/GoogleMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
+import Banner from '@components/Modules/Banner'
 
 // shared
 import ModuleTitle from '@components/Shared/ModuleTitle'
@@ -22,6 +23,7 @@ import Text from '@components/Shared/Text'
 import FormFieldError from '@components/Shared/FormFieldError'
 
 export {
+  Banner,
   Teaser,
   AboutMe,
   Worked,

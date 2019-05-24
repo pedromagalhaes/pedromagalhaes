@@ -1,21 +1,29 @@
 /* eslint-disable no-unused-vars, no-console, no-unused-vars */
-
 require('dotenv').config()
-
-const nodemailer = require('nodejs-nodemailer-outlook')
+// Fast, unopinionated, minimalist web framework for node
 const express = require('express')
-const graphqlHTTP = require('express-graphql')
-const mongoose = require('mongoose')
+// Session middleware for Express
 const session = require('express-session')
-const passport = require('passport')
-const MongoStore = require('connect-mongo')(session)
-const next = require('next')
+// An express.js middleware for validator
 const expressValidator = require('express-validator')
+// MongoDB session store for Connect and Express
+const MongoStore = require('connect-mongo')(session)
+// Schema-based solution to model your application data
+// It includes built-in type casting, validation, query building, business logic hooks and more
+const mongoose = require('mongoose')
+// Create a GraphQL HTTP server with any HTTP web framework that supports connect styled middleware
+const graphqlHTTP = require('express-graphql')
+// Passport is Express-compatible authentication middleware for Node.js
+// Authenticate requests, which it does through an extensible set of plugins known as strategies
+const passport = require('passport')
+
+const next = require('next')
+const nodemailer = require('nodejs-nodemailer-outlook')
 const cookieParser = require('cookie-parser')
 
 const models = require('./models')
-const passportConfig = require('./services/auth')
-const schema = require('./schema/schema')
+const MyGraphQLSchema = require('./schema')
+const passportConfig = require('./passport/auth')
 
 // env vars
 const port = process.env.PORT || 4000
@@ -64,13 +72,14 @@ app
     server.use(passport.session())
 
     // graphql
-    server.use('/graphql', graphqlHTTP(req => ({
-      schema,
+    server.use('/graphql', graphqlHTTP(async req => ({
+      schema: MyGraphQLSchema,
       context: {
         login: req.login.bind(req),
         user: req.user
       },
-      graphiql: true
+      graphiql: true,
+      pretty: true
     })))
 
     // email server

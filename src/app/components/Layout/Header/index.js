@@ -90,7 +90,9 @@ const Header = ({ router, ...props }) => {
                   </>
                 ) : (
                   <>
-                    <Menu.Item>{`${user.firstName} ${user.lastName}`}</Menu.Item>
+                    <Link href='/dashboard' as='/dashboard'>
+                      <Menu.Item>{`${user.firstName || ''} ${user.lastName || ''}`}</Menu.Item>
+                    </Link>
                     <Menu.Item onClick={e => handleSignOutSubmit(e)}>
                       <Button inverted>Log Out</Button>
                     </Menu.Item>

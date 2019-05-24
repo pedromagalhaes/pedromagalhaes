@@ -1,13 +1,24 @@
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
+import React from 'react'
+import { Banner } from '@components'
 
-const Home = () => (
-  <>
-    <Teaser />
-    <AboutMe />
-    <Worked />
-    <Projects />
-    <OtherProjects />
-  </>
-)
+import withData from '@hoc/withData'
+import checkLoggedIn from '@hoc/checkLoggedIn'
 
-export default Home
+class DashboardPage extends React.Component {
+  static async getInitialProps(context, apolloClient) {
+    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
+    return {
+      user: loggedInUser
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <Banner h2='Profile' />
+      </>
+    )
+  }
+}
+
+export default withData(DashboardPage)

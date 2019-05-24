@@ -1,10 +1,10 @@
 import React from 'react'
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
+import { Banner } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 
-class Index extends React.Component {
+class DashboardPage extends React.Component {
   static async getInitialProps(context, apolloClient) {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
     return {
@@ -15,14 +15,10 @@ class Index extends React.Component {
   render() {
     return (
       <>
-        <Teaser />
-        <AboutMe />
-        <Worked />
-        <Projects />
-        <OtherProjects />
+        <Banner h2='Dashboard' />
       </>
     )
   }
 }
 
-export default withData(Index)
+export default withData(DashboardPage)

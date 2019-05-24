@@ -3,13 +3,13 @@ import { SignIn } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
-import redirect from '@utils/redirect'
+// import redirect from '@utils/redirect'
 
 class SignInPage extends React.Component {
   static async getInitialProps(context, apolloClient) {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
     if (loggedInUser.user) {
-      redirect(context, '/dashboard')
+      // redirect(context, '/dashboard')
     }
     return { loggedInUser }
   }
