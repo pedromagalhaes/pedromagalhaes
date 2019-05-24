@@ -20,8 +20,6 @@ const schema = require('./schema/schema')
 // env vars
 const port = process.env.PORT || 4000
 const dev = process.env.NODE_ENV !== 'production'
-const mongoURL = dev ? process.env.MONGO_URL_DEV : process.env.MONGO_URL_PROD
-const hostURL = dev ? process.env.HOST_DEV : process.env.HOST_PROD
 
 // next.js pages directory
 const app = next({ dev, dir: './src/app' })
@@ -31,7 +29,7 @@ const handle = app.getRequestHandler()
 
 // mongo connection
 mongoose.set('useCreateIndex', true)
-mongoose.connect(mongoURL, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
@@ -53,7 +51,7 @@ app
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({
-          url: mongoURL,
+          url: process.env.MONGO_URL,
           autoReconnect: true
         })
       })
@@ -106,7 +104,7 @@ app
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> GraphQL Server Listening on ${hostURL}...`)
+      console.log(`> GraphQL Server Listening on ${process.env.HOST}...`)
     })
   })
   .catch((err) => {
