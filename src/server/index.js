@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars, no-console, no-unused-vars */
 
 require('dotenv').config()
-
 const nodemailer = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
@@ -12,20 +11,22 @@ const MongoStore = require('connect-mongo')(session)
 const next = require('next')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
-
+const { parse } = require('url')
+const routes = require('./routes')
 const models = require('./models')
 const passportConfig = require('./services/auth')
 const schema = require('./schema/schema')
 
 // env vars
-const port = process.env.PORT || 4000
-const dev = process.env.NODE_ENV !== 'production'
+const env = process.env.environment
+const port = parseInt(process.env.PORT, 10) || 4000
+const dev = process.env.NODE_ENV === 'development'
 
 // next.js pages directory
-const app = next({ dev, dir: './src/app' })
+const app = next({ dev, dir: 'src/app' })
 
 // handle requests
-const handle = app.getRequestHandler()
+const handle = routes.getRequestHandler(app)
 
 // mongo connection
 mongoose.set('useCreateIndex', true)
@@ -100,11 +101,16 @@ app
     })
     */
 
-    server.get('*', (req, res) => handle(req, res))
+    server.get('*', (req, res) => {
+      const parsedUrl = parse(req.url, true)
+      const { pathname, query } = parsedUrl
+      handle(req, res, parsedUrl)
+    })
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> GraphQL Server Listening on ${process.env.HOST}...`)
+      const startupInfo = `${port} [${env}]`
+      console.log(`[ SERVER STARTED ] - Ready on port ${startupInfo}`)
     })
   })
   .catch((err) => {

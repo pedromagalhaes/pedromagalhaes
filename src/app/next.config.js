@@ -36,6 +36,7 @@ nextPlugins.push([
 
 const nextConfig = {
   transpileModules: ['theme'],
+  useFileSystemPublicRoutes: false,
   publicRuntimeConfig:
   environment !== 'build' ? { ...global.next_publicRuntimeConfig, runtimeId } : { runtimeId },
   webpack: (config, options) => {
@@ -118,7 +119,7 @@ const nextConfig = {
     )
 
     return config
-  },
+  }/* ,
   exportPathMap() {
     return {
       // public
@@ -161,7 +162,7 @@ const nextConfig = {
       '/admin/pages/blog/post': { page: '/admin/pages/blog/post' },
       '/admin/pages/blog/posts': { page: '/admin/pages/blog/posts' }
     }
-  }
+  } */
 }
 
 module.exports = withPlugins(nextPlugins, withTM(withCSS(nextConfig)))
