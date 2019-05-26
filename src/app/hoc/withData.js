@@ -4,8 +4,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
-
 import { Container } from 'next/app'
+
 import Layout from '@components/Layout'
 import initApollo from './initApollo'
 
@@ -36,6 +36,7 @@ export default ComposedComponent => class WithData extends React.Component {
       let composedInitialProps = {}
       if (ComposedComponent.getInitialProps) {
         composedInitialProps = await ComposedComponent.getInitialProps(context, apollo)
+        console.log(composedInitialProps)
       }
 
       // Run all graphql queries in the component tree
@@ -49,17 +50,15 @@ export default ComposedComponent => class WithData extends React.Component {
 
         // Provide the `url` prop data in case a graphql query uses it
         const url = { query: context.query, pathname: context.pathname }
-        console.log('composedInitialProps ---------------------')
-        console.log(composedInitialProps)
         try {
           // Run all GraphQL queries
           const app = (
             <Container>
-              <Layout {...composedInitialProps}>
-                <ApolloProvider client={apollo}>
+              <ApolloProvider client={apollo}>
+                <Layout {...composedInitialProps}>
                   <ComposedComponent url={url} {...composedInitialProps} />
-                </ApolloProvider>
-              </Layout>
+                </Layout>
+              </ApolloProvider>
             </Container>
           )
           await getDataFromTree(app, {
@@ -102,11 +101,11 @@ export default ComposedComponent => class WithData extends React.Component {
     render() {
       return (
         <Container>
-          <Layout {...this.props}>
-            <ApolloProvider client={this.apollo}>
+          <ApolloProvider client={this.apollo}>
+            <Layout {...this.props}>
               <ComposedComponent {...this.props} />
-            </ApolloProvider>
-          </Layout>
+            </Layout>
+          </ApolloProvider>
         </Container>
       )
     }

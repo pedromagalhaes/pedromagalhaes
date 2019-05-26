@@ -15,7 +15,7 @@ const AboutMe = () => (
           <Grid.Column computer='9'>
             <div className='bio'>
               <p>
-                Hello! Im Pedro, a software engineer based in Algarve, who enjoys building things that live on the
+                Hello! Im Pedro, a software engineer based in Cambodia, who enjoys building things that live on the
                 internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
                 interfaces with efficient and modern backends.
               </p>

@@ -21,14 +21,12 @@ const panes = [
         <div>
           <ul>
             <li>
-              Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass,
-              JavaScript, and jQuery
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
             <li>
-              Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and
-              responsiveness
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
-            <li>Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -52,14 +50,12 @@ const panes = [
         <div>
           <ul>
             <li>
-              Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass,
-              JavaScript, and jQuery
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
             <li>
-              Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and
-              responsiveness
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
-            <li>Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -83,14 +79,12 @@ const panes = [
         <div>
           <ul>
             <li>
-              Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass,
-              JavaScript, and jQuery
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
             <li>
-              Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and
-              responsiveness
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
-            <li>Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -114,14 +108,12 @@ const panes = [
         <div>
           <ul>
             <li>
-              Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass,
-              JavaScript, and jQuery
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
             <li>
-              Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and
-              responsiveness
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
-            <li>Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -145,14 +137,12 @@ const panes = [
         <div>
           <ul>
             <li>
-              Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass,
-              JavaScript, and jQuery
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
             <li>
-              Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and
-              responsiveness
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </li>
-            <li>Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
           </ul>
         </div>
       </Tab.Pane>

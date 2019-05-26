@@ -10,7 +10,7 @@ const TeaserComponent = () => (
         <Header as='h3' content='I build things for the web' inverted />
         <div className='description'>
           <p>
-              Im a software engineer based in Portugal, specializing in building (and occasionally designing)
+              Im a software engineer based in Cambodia, specializing in building (and occasionally designing)
               exceptional, high-quality websites and applications.
           </p>
         </div>
