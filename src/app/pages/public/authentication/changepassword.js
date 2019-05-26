@@ -1,13 +1,27 @@
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
+import { ChangePassword } from '@components'
 
-const Home = () => (
-  <>
-    <Teaser />
-    <AboutMe />
-    <Worked />
-    <Projects />
-    <OtherProjects />
-  </>
-)
+import withData from '@hoc/withData'
+import checkLoggedIn from '@hoc/checkLoggedIn'
+import redirect from '@utils/redirect'
 
-export default Home
+class ChangePasswordPage extends React.Component {
+  static async getInitialProps(context, apolloClient) {
+    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
+    if (loggedInUser.user) {
+      redirect(context, '/dashboard')
+    }
+    return {
+      user: loggedInUser
+    }
+  }
+
+  render() {
+    return (
+      <>
+        <ChangePassword />
+      </>
+    )
+  }
+}
+
+export default withData(ChangePasswordPage)

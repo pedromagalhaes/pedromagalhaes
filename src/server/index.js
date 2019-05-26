@@ -25,7 +25,7 @@ const dev = process.env.NODE_ENV === 'development'
 // next.js pages directory
 const app = next({ dev, dir: 'src/app' })
 
-// handle requests
+// handle dynamic next.js routes requests
 const handle = routes.getRequestHandler(app)
 
 // mongo connection
@@ -90,16 +90,9 @@ app
 
     server.post('/logout', (req, res) => {
       req.logout()
+      res.cookie('token', '', { maxAge: -1 })
       req.session.destroy(() => res.redirect('/'))
     })
-
-    /*
-    server.get('/api/works', (req, res) => {
-      db.collection('works').find().toArray((err, results) => {
-        res.send(results)
-      })
-    })
-    */
 
     server.get('*', (req, res) => {
       const parsedUrl = parse(req.url, true)
@@ -110,7 +103,7 @@ app
     server.listen(port, (err) => {
       if (err) throw err
       const startupInfo = `${port} [${env}]`
-      console.log(`[ SERVER STARTED ] - Ready on port ${startupInfo}`)
+      console.log(`[SERVER STARTED] Ready on port ${startupInfo}`)
     })
   })
   .catch((err) => {

@@ -7,6 +7,7 @@ import checkLoggedIn from '@hoc/checkLoggedIn'
 class Index extends React.Component {
   static async getInitialProps(context, apolloClient) {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
+    console.log(loggedInUser)
     return {
       user: loggedInUser
     }

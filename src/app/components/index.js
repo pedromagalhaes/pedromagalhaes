@@ -9,8 +9,11 @@ import OtherProjectItem from '@components/Modules/OtherProjects/OtherProjectItem
 import Map from '@components/Modules/Maps/GoogleMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
-
-// shared
+import ForgotPassword from '@components/Modules/Authentication/ForgotPassword'
+import ChangePassword from '@components/Modules/Authentication/ChangePassword'
+import Profile from '@components/Modules/Dashboard/Profile'
+import Preferences from '@components/Modules/Dashboard/Preferences'
+import DeleteAccount from '@components/Modules/Dashboard/DeleteAccount'
 import ModuleTitle from '@components/Shared/ModuleTitle'
 import BlogFeed from '@components/Shared/BlogFeed'
 import Card from '@components/Shared/Card'
@@ -22,6 +25,11 @@ import Text from '@components/Shared/Text'
 import FormFieldError from '@components/Shared/FormFieldError'
 
 export {
+  Profile,
+  Preferences,
+  DeleteAccount,
+  ChangePassword,
+  ForgotPassword,
   Teaser,
   AboutMe,
   Worked,

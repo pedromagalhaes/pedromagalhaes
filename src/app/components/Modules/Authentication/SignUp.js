@@ -95,6 +95,13 @@ const SignUp = () => (
                     <Grid>
                       <Grid.Row>
                         <Grid.Column computer={10}>
+                          <Message
+                            icon='mail'
+                            color='teal'
+                            size='small'
+                            header='Your registration was submitted successfully'
+                            content={<p>Please confirm your account by clicking the activation email link</p>}
+                          />
                           <Grid>
                             <Grid.Row>
                               <Grid.Column computer={16}>

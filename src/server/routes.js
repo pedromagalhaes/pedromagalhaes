@@ -4,23 +4,22 @@ module.exports = routes()
   .add('/', '/')
   .add('/login', '/public/authentication/login')
   .add('/register', '/public/authentication/register')
+  .add('/about', '/public/about')
+  .add('/projects', '/public/projects')
+  .add('/services', '/public/services')
+  .add('/blog', '/public/blog')
+  .add('/contact', '/public/contact')
+  .add('/privacy', '/public/legal/privacy')
+  .add('/terms', '/public/legal/terms')
+  .add('/templates/colors', '/public/templates/colors')
+  .add('/confirmation', '/public/authentication/confirmation')
+  .add('/changepassword', '/public/authentication/changepassword')
+  .add('/forgotpassword', '/public/authentication/forgotpassword')
+  .add('/search', '/public/search')
   .add('/dashboard', '/dashboard')
+  .add('/dashboard/profile', '/dashboard/profile')
 
 /*
-{
-  '/about': { page: '/public/about/' },
-  '/projects': { page: '/public/projects' },
-  '/services': { page: '/public/services' },
-  '/blog': { page: '/public/blog' },
-  '/contact': { page: '/public/contact' },
-  '/privacy': { page: '/public/legal/privacy' },
-  '/terms': { page: '/public/legal/terms' },
-  '/templates/colors': { page: '/public/templates/colors' },
-  '/confirmation': { page: '/public/authentication/confirmation' },
-  '/changepassword': { page: '/public/authentication/changepassword' },
-  '/forgotpassword': { page: '/public/authentication/forgotpassword' },
-  '/search': { page: '/public/search' },
-  '/dashboard/profile': { page: '/dashboard/profile' },
   '/admin': { page: '/admin/login' },
   '/admin/menu': { page: '/admin/menu' },
   '/admin/tools': { page: '/admin/tools/modules' },
@@ -41,5 +40,4 @@ module.exports = routes()
   '/admin/pages/blog/category': { page: '/admin/pages/blog/category' },
   '/admin/pages/blog/post': { page: '/admin/pages/blog/post' },
   '/admin/pages/blog/posts': { page: '/admin/pages/blog/posts' }
-}
 */

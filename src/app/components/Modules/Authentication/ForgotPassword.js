@@ -9,36 +9,32 @@ import PropTypes from 'prop-types'
 import mutation from '@mutations/Login'
 import { ModuleTitle, Text, FormFieldError } from '@components'
 import redirect from '@utils/redirect'
-import Styles from './SignIn.styles'
+import Styles from './ForgotPassword.styles'
 
 const initialValues = {
-  email: '',
-  password: ''
+  email: ''
 }
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address')
-    .required('Email is required!'),
-  password: Yup.string()
-    .required('Password is required!')
+    .required('Email is required!')
 })
 
-const SignIn = () => (
+const ForgotPassword = () => (
   <>
     <Styles>
       <Container>
         <Grid>
           <Grid.Row>
             <Grid.Column>
-              <ModuleTitle as='h1' text='Sign In' icon='sign-in' />
+              <ModuleTitle as='h1' text='Forgot Password' icon='user secret' />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column computer='10'>
               <Text as='p'>
-                As a logged user you will be able to save your favorite artworks, galleries, artists and events. You
-                can also access exclusive features and subscribe to our newsletters.
+                Please enter your e-mail address, so we can send to you a confirmation to generate a new password.
               </Text>
             </Grid.Column>
           </Grid.Row>
@@ -48,7 +44,6 @@ const SignIn = () => (
           mutation={mutation}
           onCompleted={(data) => {
             console.log(data)
-            data && redirect({}, '/dashboard')
           }}
           onError={(error) => {
             console.log(error.graphQLErrors)
@@ -63,13 +58,10 @@ const SignIn = () => (
                 setTimeout(() => {
                   create({
                     variables: {
-                      email: values.email,
-                      password: values.password
+                      email: values.email
                     }
                   })
-                  console.log(error)
-                  console.log(data)
-                  // resetForm(initialValues)
+                  resetForm(initialValues)
                   setSubmitting(false)
                 }, 500)
               }}
@@ -114,24 +106,6 @@ const SignIn = () => (
                             </Grid.Row>
                             <Grid.Row>
                               <Grid.Column computer={10}>
-                                <Form.Input
-                                  fluid
-                                  name='password'
-                                  label='Password'
-                                  id='password'
-                                  type='password'
-                                  value={values.password}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                  error={errors.password && touched.password}
-                                />
-                                {errors.password && touched.password && (
-                                  <FormFieldError>{errors.password}</FormFieldError>
-                                )}
-                              </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Row>
-                              <Grid.Column computer={10}>
                                 <Button color='teal' fluid size='large' type='submit' disabled={isSubmitting}>
                                   Submit
                                 </Button>
@@ -152,7 +126,7 @@ const SignIn = () => (
   </>
 )
 
-SignIn.propTypes = {
+ForgotPassword.propTypes = {
   values: PropTypes.object,
   touched: PropTypes.bool,
   errors: PropTypes.object,
@@ -162,4 +136,4 @@ SignIn.propTypes = {
   handleSubmit: PropTypes.func
 }
 
-export default withApollo(SignIn)
+export default withApollo(ForgotPassword)

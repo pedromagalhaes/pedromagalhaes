@@ -36,7 +36,6 @@ export default ComposedComponent => class WithData extends React.Component {
       let composedInitialProps = {}
       if (ComposedComponent.getInitialProps) {
         composedInitialProps = await ComposedComponent.getInitialProps(context, apollo)
-        console.log(composedInitialProps)
       }
 
       // Run all graphql queries in the component tree

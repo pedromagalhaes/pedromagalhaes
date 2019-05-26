@@ -11,7 +11,9 @@ class SignInPage extends React.Component {
     if (loggedInUser.user) {
       redirect(context, '/dashboard')
     }
-    return { loggedInUser }
+    return {
+      user: loggedInUser
+    }
   }
 
   render() {

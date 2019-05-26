@@ -9,36 +9,32 @@ import PropTypes from 'prop-types'
 import mutation from '@mutations/Login'
 import { ModuleTitle, Text, FormFieldError } from '@components'
 import redirect from '@utils/redirect'
-import Styles from './SignIn.styles'
+import Styles from './ForgotPassword.styles'
 
 const initialValues = {
-  email: '',
-  password: ''
+  email: ''
 }
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address')
-    .required('Email is required!'),
-  password: Yup.string()
-    .required('Password is required!')
+    .required('Email is required!')
 })
 
-const SignIn = () => (
+const ForgotPassword = () => (
   <>
     <Styles>
       <Container>
         <Grid>
           <Grid.Row>
             <Grid.Column>
-              <ModuleTitle as='h1' text='Sign In' icon='sign-in' />
+              <ModuleTitle as='h1' text='Change Password' icon='user secret' />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column computer='10'>
               <Text as='p'>
-                As a logged user you will be able to save your favorite artworks, galleries, artists and events. You
-                can also access exclusive features and subscribe to our newsletters.
+                Please change your password in the form bellow.<br /> A confirmation e-mail will be sent to you.
               </Text>
             </Grid.Column>
           </Grid.Row>
@@ -48,7 +44,6 @@ const SignIn = () => (
           mutation={mutation}
           onCompleted={(data) => {
             console.log(data)
-            data && redirect({}, '/dashboard')
           }}
           onError={(error) => {
             console.log(error.graphQLErrors)
@@ -63,13 +58,10 @@ const SignIn = () => (
                 setTimeout(() => {
                   create({
                     variables: {
-                      email: values.email,
-                      password: values.password
+                      email: values.email
                     }
                   })
-                  console.log(error)
-                  console.log(data)
-                  // resetForm(initialValues)
+                  resetForm(initialValues)
                   setSubmitting(false)
                 }, 500)
               }}
@@ -101,21 +93,6 @@ const SignIn = () => (
                               <Grid.Column computer={10}>
                                 <Form.Input
                                   fluid
-                                  label='E-mail address'
-                                  name='email'
-                                  id='email'
-                                  value={values.email}
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                  error={errors.email && touched.email}
-                                />
-                                {errors.email && touched.email && <FormFieldError>{errors.email}</FormFieldError>}
-                              </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Row>
-                              <Grid.Column computer={10}>
-                                <Form.Input
-                                  fluid
                                   name='password'
                                   label='Password'
                                   id='password'
@@ -126,7 +103,25 @@ const SignIn = () => (
                                   error={errors.password && touched.password}
                                 />
                                 {errors.password && touched.password && (
-                                  <FormFieldError>{errors.password}</FormFieldError>
+                                <FormFieldError>{errors.password}</FormFieldError>
+                                )}
+                              </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row>
+                              <Grid.Column computer={10}>
+                                <Form.Input
+                                  fluid
+                                  name='confirmPassword'
+                                  label='Confirm password'
+                                  id='confirmPassword'
+                                  type='password'
+                                  value={values.confirmPassword}
+                                  onChange={handleChange}
+                                  onBlur={handleBlur}
+                                  error={errors.confirmPassword && touched.confirmPassword}
+                                />
+                                {errors.confirmPassword && touched.confirmPassword && (
+                                <FormFieldError>{errors.confirmPassword}</FormFieldError>
                                 )}
                               </Grid.Column>
                             </Grid.Row>
@@ -152,7 +147,7 @@ const SignIn = () => (
   </>
 )
 
-SignIn.propTypes = {
+ForgotPassword.propTypes = {
   values: PropTypes.object,
   touched: PropTypes.bool,
   errors: PropTypes.object,
@@ -162,4 +157,4 @@ SignIn.propTypes = {
   handleSubmit: PropTypes.func
 }
 
-export default withApollo(SignIn)
+export default withApollo(ForgotPassword)
