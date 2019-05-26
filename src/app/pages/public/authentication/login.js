@@ -1,17 +1,20 @@
 import React from 'react'
 import { SignIn } from '@components'
 
-import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 import redirect from '@utils/redirect'
 
 class SignInPage extends React.Component {
-  static async getInitialProps(context, apolloClient) {
-    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-    if (loggedInUser.user) {
-      redirect(context, '/dashboard')
+  static async getInitialProps(context) {
+    const { loggedInUser } = await checkLoggedIn(context.apolloClient)
+
+    if (loggedInUser && loggedInUser.user) {
+      // Already signed in? No need to continue.
+      // Throw them back to the main page
+      redirect(context, '/')
     }
-    return { loggedInUser }
+
+    return {}
   }
 
   render() {
@@ -23,4 +26,4 @@ class SignInPage extends React.Component {
   }
 }
 
-export default withData(SignInPage)
+export default SignInPage

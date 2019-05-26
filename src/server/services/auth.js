@@ -14,6 +14,7 @@ passport.serializeUser((user, done) => {
 // the user object.  This object is placed on 'req.user'.
 passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
+    // console.log(user)
     done(err, user)
   })
 })
@@ -57,7 +58,7 @@ function signup({ firstName, lastName, email, password, req }) {
       return user.save()
     })
     .then(user => new Promise((resolve, reject) => { // eslint-disable-line no-shadow
-      req.logIn(user, (err) => {
+      req.login(user, (err) => {
         if (err) { reject(err) }
         resolve(user)
       })

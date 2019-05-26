@@ -1,28 +1,9 @@
 import React from 'react'
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
 
-import withData from '@hoc/withData'
-import checkLoggedIn from '@hoc/checkLoggedIn'
-
-class Index extends React.Component {
-  static async getInitialProps(context, apolloClient) {
-    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-    return {
-      user: loggedInUser
-    }
-  }
-
+export default class Index extends React.Component {
   render() {
     return (
-      <>
-        <Teaser />
-        <AboutMe />
-        <Worked />
-        <Projects />
-        <OtherProjects />
-      </>
+      <p>Homepage</p>
     )
   }
 }
-
-export default withData(Index)

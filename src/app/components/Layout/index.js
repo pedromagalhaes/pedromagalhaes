@@ -13,7 +13,6 @@ const { useEffect } = React
 
 const Layout = ({ children, ...props }) => {
   const GlobalStyles = layoutStyles(theme)
-  const { user } = props
 
   useEffect(() => {
     Router.events.on('routeChangeStart', () => NProgress.start())
@@ -27,7 +26,7 @@ const Layout = ({ children, ...props }) => {
         <React.Fragment>
           <Head />
           <GlobalStyles />
-          <Header {...user} />
+          <Header {...props} />
           {children}
           <Footer />
         </React.Fragment>
