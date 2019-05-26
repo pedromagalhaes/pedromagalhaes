@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars, no-console, no-unused-vars */
+
 require('dotenv').config()
 
-const chalk = require('chalk')
 const nodemailer = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
@@ -12,8 +12,6 @@ const MongoStore = require('connect-mongo')(session)
 const next = require('next')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
-const cors = require('cors')
-const bodyParser = require('body-parser')
 
 const models = require('./models')
 const passportConfig = require('./services/auth')
@@ -22,7 +20,6 @@ const schema = require('./schema/schema')
 // env vars
 const port = process.env.PORT || 4000
 const dev = process.env.NODE_ENV !== 'production'
-const { log } = console
 
 // next.js pages directory
 const app = next({ dev, dir: './src/app' })
@@ -65,22 +62,14 @@ app
     server.use(passport.session())
 
     // graphql
-    server.use(
-      '/graphql',
-      cors(),
-      bodyParser.json(),
-      graphqlHTTP((req) => {
-        console.log(req.user)
-        return ({
-          schema,
-          context: {
-            login: req.login.bind(req),
-            user: req.user
-          },
-          graphiql: true
-        })
-      })
-    )
+    server.use('/graphql', graphqlHTTP(req => ({
+      schema,
+      context: {
+        login: req.login.bind(req),
+        user: req.user
+      },
+      graphiql: true
+    })))
 
     // email server
     server.get(process.env.SMTP_URL, (req, res) => {
@@ -103,9 +92,13 @@ app
       req.session.destroy(() => res.redirect('/'))
     })
 
-    log(chalk.bgRed('LOG:SERVER'), chalk.red('MONGO_URL'), process.env.MONGO_URL)
-    log(chalk.bgRed('LOG:SERVER'), chalk.red('HOST'), process.env.HOST)
-    log(chalk.bgRed('LOG:SERVER'), chalk.red('PORT'), process.env.PORT)
+    /*
+    server.get('/api/works', (req, res) => {
+      db.collection('works').find().toArray((err, results) => {
+        res.send(results)
+      })
+    })
+    */
 
     server.get('*', (req, res) => handle(req, res))
 

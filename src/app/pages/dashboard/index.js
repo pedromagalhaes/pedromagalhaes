@@ -1,23 +1,28 @@
 import React from 'react'
 import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
 
+import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
-import redirect from '@utils/redirect'
 
 class Index extends React.Component {
   static async getInitialProps(context, apolloClient) {
-    const { loggedInUser } = await checkLoggedIn(context.apolloClient)
-    console.log(loggedInUser)
-    return { loggedInUser }
+    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
+    return {
+      user: loggedInUser
+    }
   }
 
   render() {
     return (
       <>
-        <h1>Dashboard</h1>
+        <Teaser />
+        <AboutMe />
+        <Worked />
+        <Projects />
+        <OtherProjects />
       </>
     )
   }
 }
 
-export default (Index)
+export default withData(Index)

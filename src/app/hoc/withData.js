@@ -1,90 +1,113 @@
+/* eslint-disable consistent-return, react/destructuring-assignment */
+
 import React from 'react'
-import cookie from 'cookie'
 import PropTypes from 'prop-types'
-import { getDataFromTree } from 'react-apollo'
+import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
 
+import { Container } from 'next/app'
+import Layout from '@components/Layout'
 import initApollo from './initApollo'
 
-function parseCookies(req, options = {}) {
-  return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
+function getCookie(context = {}) {
+  return context.req && context.req.headers ? context.req.headers.cookie : document.cookie
 }
 
-export default App => class WithData extends React.Component {
-    static displayName = `WithData(${App.displayName})`
+export default ComposedComponent => class WithData extends React.Component {
+    static displayName = `WithData(${ComposedComponent.displayName})`
 
     static propTypes = {
-      apolloState: PropTypes.object.isRequired
+      serverState: PropTypes.object.isRequired
     }
 
-    static async getInitialProps(ctx) {
-      const { Component, router, ctx: { req, res } } = ctx
+    static async getInitialProps(context) {
+      let serverState = {}
 
-      // console.log(req.user)
+      // Setup a server-side one-time-use apollo client for initial props and
+      // rendering (on server)
       const apollo = initApollo(
         {},
         {
-          getToken: () => parseCookies(req).token
+          getToken: () => getCookie(context)
         }
       )
 
-      ctx.ctx.apolloClient = apollo
-
-      let appProps = {}
-      if (App.getInitialProps) {
-        appProps = await App.getInitialProps(ctx, apollo)
+      // Evaluate the composed component's getInitialProps()
+      let composedInitialProps = {}
+      if (ComposedComponent.getInitialProps) {
+        composedInitialProps = await ComposedComponent.getInitialProps(context, apollo)
       }
 
+      // Run all graphql queries in the component tree
+      // and extract the resulting data
       if (!process.browser) {
-        if (res && res.finished) {
+        if (context.res && context.res.finished) {
           // When redirecting, the response is finished.
           // No point in continuing to render
-          return {}
+          return
         }
 
-        // Run all graphql queries in the component tree
-        // and extract the resulting data
+        // Provide the `url` prop data in case a graphql query uses it
+        const url = { query: context.query, pathname: context.pathname }
+        console.log('composedInitialProps ---------------------')
+        console.log(composedInitialProps)
         try {
           // Run all GraphQL queries
-          await getDataFromTree(
-            <App
-              {...appProps}
-              Component={Component}
-              router={router}
-              apolloClient={apollo}
-            />
+          const app = (
+            <Container>
+              <Layout {...composedInitialProps}>
+                <ApolloProvider client={apollo}>
+                  <ComposedComponent url={url} {...composedInitialProps} />
+                </ApolloProvider>
+              </Layout>
+            </Container>
           )
+          await getDataFromTree(app, {
+            router: {
+              query: context.query,
+              pathname: context.pathname,
+              asPath: context.asPath
+            }
+          })
         } catch (error) {
           // Prevent Apollo Client GraphQL errors from crashing SSR.
           // Handle them in components via the data.error prop:
-          // https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
-          console.error('Error while running `getDataFromTree`', error)
+          // http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error
         }
-
         // getDataFromTree does not call componentWillUnmount
         // head side effect therefore need to be cleared manually
         Head.rewind()
+
+        // Extract query data from the Apollo's store
+        serverState = apollo.cache.extract()
       }
 
-      // Extract query data from the Apollo's store
-      const apolloState = apollo.cache.extract()
-
       return {
-        ...appProps,
-        apolloState
+        serverState,
+        ...composedInitialProps
       }
     }
 
     constructor(props) {
       super(props)
-      // `getDataFromTree` renders the component first, the client is passed off as a property.
-      // After that rendering is done using Next's normal rendering pipeline
-      this.apolloClient = initApollo(props.apolloState, {
-        getToken: () => parseCookies().token
+      // Note: Apollo should never be used on the server side beyond the initial
+      // render within `getInitialProps()` above (since the entire prop tree
+      // will be initialized there), meaning the below will only ever be
+      // executed on the client.
+      this.apollo = initApollo(this.props.serverState, {
+        getToken: () => getCookie()
       })
     }
 
     render() {
-      return <App {...this.props} apolloClient={this.apolloClient} />
+      return (
+        <Container>
+          <Layout {...this.props}>
+            <ApolloProvider client={this.apollo}>
+              <ComposedComponent {...this.props} />
+            </ApolloProvider>
+          </Layout>
+        </Container>
+      )
     }
 }

@@ -2,7 +2,7 @@
 import fetch from '../utils/fetch'
 
 const isBrowser = typeof window !== 'undefined'
-const HOST = `${process.env.HOST}`
+const HOST = `http://localhost:${process.env.PORT}`
 
 const initFetch = fetch({
   baseURL: isBrowser ? window.location.origin : HOST,
