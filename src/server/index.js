@@ -5,9 +5,9 @@ const nodemailer = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const mongoose = require('mongoose')
-const session = require('express-session')
+const ExpressSession = require('express-session')
 const passport = require('passport')
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo')(ExpressSession)
 const next = require('next')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
@@ -46,11 +46,18 @@ app
 
     // mongo db
     server.use(
-      session({
+      ExpressSession({
         secret: 'kjaigalhdenmaaesross',
-        key: 'token',
-        resave: false,
+        key: 'connect.sid',
+        resave: true,
+        rolling: true,
         saveUninitialized: false,
+        cookie: {
+          name: 'connect.sid',
+          httpOnly: true,
+          secure: 'auto',
+          maxAge: 60000 * 60 * 24 * 7 // 7 days
+        },
         store: new MongoStore({
           url: process.env.MONGO_URL,
           autoReconnect: true
@@ -71,7 +78,6 @@ app
       },
       graphiql: true
     })))
-
     // email server
     server.get(process.env.SMTP_URL, (req, res) => {
       nodemailer.sendEmail({
@@ -90,7 +96,7 @@ app
 
     server.post('/logout', (req, res) => {
       req.logout()
-      res.cookie('token', '', { maxAge: -1 })
+      res.cookie('connect.sid', '', { maxAge: -1 })
       req.session.destroy(() => res.redirect('/'))
     })
 
@@ -102,8 +108,9 @@ app
 
     server.listen(port, (err) => {
       if (err) throw err
-      const startupInfo = `${port} [${env}]`
-      console.log(`[SERVER STARTED] Ready on port ${startupInfo}`)
+      console.log(`[HOST] ${process.env.HOST}`)
+      console.log(`[MONGO_URL] ${process.env.MONGO_URL}`)
+      console.log(`[environment] ${process.env.environment}`)
     })
   })
   .catch((err) => {
