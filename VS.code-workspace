@@ -47,7 +47,11 @@
       "**/.git": true,
       "**/.vscode": true,
       "**/.history": true,
-      "**/.next/**": true
+      "**/.next/**": true,
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
     },
     "eslint.workingDirectories": [
       "./"
