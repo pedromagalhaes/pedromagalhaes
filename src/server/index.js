@@ -12,13 +12,13 @@ const next = require('next')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
 const { parse } = require('url')
+const cors = require('cors')
 const routes = require('./routes')
 const models = require('./models')
 const passportConfig = require('./services/auth')
 const schema = require('./schema/schema')
 
 // env vars
-const env = process.env.environment
 const port = parseInt(process.env.PORT, 10) || 4000
 const dev = process.env.NODE_ENV === 'development'
 
@@ -43,6 +43,7 @@ app
     const server = express()
     server.use(expressValidator())
     server.use(cookieParser())
+    server.use(cors())
 
     // mongo db
     server.use(
@@ -110,7 +111,7 @@ app
       if (err) throw err
       console.log(`[HOST] ${process.env.HOST}`)
       console.log(`[MONGO_URL] ${process.env.MONGO_URL}`)
-      console.log(`[environment] ${process.env.environment}`)
+      console.log(`[GRAPHQL] ${process.env.GRAPHQL}`)
     })
   })
   .catch((err) => {
