@@ -12,6 +12,33 @@ const nextPlugins = []
 
 nextPlugins.push(require('@zeit/next-source-maps'))
 
+let analyzeTarget = ''
+if (process.argv.indexOf('--bundle=server') !== -1) analyzeTarget = 'server'
+else if (process.argv.indexOf('--bundle=client') !== -1) analyzeTarget = 'client'
+else if (process.argv.indexOf('--bundle=both') !== -1) analyzeTarget = 'both'
+
+if (environment === 'build') analyzeTarget = 'both'
+
+nextPlugins.push([
+  require('@zeit/next-bundle-analyzer'),
+  {
+    analyzeServer: analyzeTarget === 'server' || analyzeTarget === 'both',
+    analyzeBrowser: analyzeTarget === 'client' || analyzeTarget === 'both',
+    bundleAnalyzerConfig: {
+      server: {
+        analyzerMode: 'static',
+        reportFilename: './analysis/server-bundle.html',
+        openAnalyzer: false
+      },
+      browser: {
+        analyzerMode: 'static',
+        reportFilename: './analysis/client-bundle.html',
+        openAnalyzer: false
+      }
+    }
+  }
+])
+
 const nextConfig = {
   transpileModules: ['theme'],
   useFileSystemPublicRoutes: false,
