@@ -27,12 +27,6 @@ pipeline {
                 echo 'Build...'
                 sh 'yarn build:app'
             }
-        }
-        stage('Start') {
-            steps {
-                echo 'Start...'
-                sh 'pm2 start ecosystem.config.js --env production'
-            }
-        }        
+        } 
     }
 }
