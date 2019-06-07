@@ -1,5 +1,4 @@
-# use the latest node LTS release
-FROM node:carbon
+FROM ubuntu:18.04
 
 RUN apk update && apk add bash && apk add --no-cache git
 
