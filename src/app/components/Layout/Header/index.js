@@ -8,7 +8,7 @@ import redirect from '@utils/redirect'
 import HeaderStyles from './index.styles'
 
 const Header = ({ router, ...props }) => {
-  console.log(props)
+  // console.log(props)
   const { user } = props
   const isActive = url => !!(router.asPath === url)
 

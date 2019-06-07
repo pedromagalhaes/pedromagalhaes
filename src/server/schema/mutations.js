@@ -9,7 +9,7 @@ const AuthService = require('../services/auth')
 const SongType = require('./types/song_type')
 const LyricType = require('./types/lyric_type')
 
-const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLBoolean } = graphql
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -20,10 +20,12 @@ const mutation = new GraphQLObjectType({
         firstName: { type: GraphQLString },
         lastName: { type: GraphQLString },
         email: { type: GraphQLString },
+        emailToken: { type: GraphQLString },
+        emailVerified: { type: GraphQLBoolean },
         password: { type: GraphQLString }
       },
-      resolve(parentValue, { firstName, lastName, email, password }, req) {
-        return AuthService.signup({ firstName, lastName, email, password, req })
+      resolve(parentValue, { firstName, lastName, email, password, emailToken, emailVerified }, req) {
+        return AuthService.signup({ firstName, lastName, email, password, emailToken, emailVerified, req })
       }
     },
     logout: {

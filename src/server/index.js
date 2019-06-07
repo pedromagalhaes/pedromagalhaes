@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars, no-console, no-unused-vars */
 
 require('dotenv').config()
-const nodemailer = require('nodejs-nodemailer-outlook')
+const nodeoutlook = require('nodejs-nodemailer-outlook')
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const mongoose = require('mongoose')
@@ -13,6 +13,7 @@ const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser')
 const { parse } = require('url')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const routes = require('./routes')
 const models = require('./models')
 const passportConfig = require('./services/auth')
@@ -44,6 +45,7 @@ app
     server.use(expressValidator())
     server.use(cookieParser())
     server.use(cors())
+    server.use(bodyParser.json())
 
     // mongo db
     server.use(
@@ -79,19 +81,29 @@ app
       },
       graphiql: true
     })))
+
+
     // email server
-    server.get(process.env.SMTP_URL, (req, res) => {
-      nodemailer.sendEmail({
+    server.post(process.env.SMTP_URL, (req, res, body) => {
+      console.log('SEND EMAIL REQUEST')
+      console.log(req.body)
+      nodeoutlook.sendEmail({
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS
         },
+        from: 'pedro.magalhaes@outlook.com',
         to: 'pedro.magalhaes@outlook.com',
-        subject: 'Hey you, awesome!',
-        html: '<b>This is bold text</b>',
-        text: 'This is text version!',
-        onError: e => console.log(e),
-        onSuccess: i => console.log(i)
+        subject: req.body.subject,
+        html: req.body.html,
+        onError: (err) => {
+          console.log('ERROR SEND EMAIL')
+          console.log(err)
+        },
+        onSuccess: (data) => {
+          console.log('SUCCESS SEND EMAIL')
+          // console.log(data)
+        }
       })
     })
 

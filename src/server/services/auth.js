@@ -47,8 +47,8 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 // Notice the Promise created in the second 'then' statement.  This is done
 // because Passport only supports callbacks, while GraphQL only supports promises
 // for async code!  Awkward!
-function signup({ firstName, lastName, email, password, req }) {
-  const user = new User({ firstName, lastName, email, password })
+function signup({ firstName, lastName, email, password, emailToken, emailVerified }) {
+  const user = new User({ firstName, lastName, email, password, emailToken, emailVerified })
   if (!email || !password) { throw new Error('You must provide an email and password.') }
 
   return User.findOne({ email })
@@ -57,10 +57,11 @@ function signup({ firstName, lastName, email, password, req }) {
       return user.save()
     })
     .then(user => new Promise((resolve, reject) => { // eslint-disable-line no-shadow
-      req.login(user, (err) => {
-        if (err) { reject(err) }
-        resolve(user)
-      })
+      // req.login(user, (err) => {
+      // if (err) { reject(err) }
+      if (!user) { reject('Failed signup') } // eslint-disable-line prefer-promise-reject-errors
+      resolve(user)
+      // })
     }))
 }
 

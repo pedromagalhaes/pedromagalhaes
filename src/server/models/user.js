@@ -13,7 +13,9 @@ const UserSchema = new Schema({
   },
   password: String,
   firstName: String,
-  lastName: String
+  lastName: String,
+  emailToken: String,
+  emailVerified: Boolean
 })
 
 UserSchema.pre('save', function save(next) { // eslint-disable-line consistent-return

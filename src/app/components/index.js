@@ -1,4 +1,3 @@
-// modules
 import Teaser from '@components/Modules/Teaser/Teaser'
 import AboutMe from '@components/Modules/About/About'
 import Worked from '@components/Modules/Worked/Worked'
@@ -9,6 +8,7 @@ import OtherProjectItem from '@components/Modules/OtherProjects/OtherProjectItem
 import Map from '@components/Modules/Maps/GoogleMap'
 import SignUp from '@components/Modules/Authentication/SignUp'
 import SignIn from '@components/Modules/Authentication/SignIn'
+import Activate from '@components/Modules/Authentication/Activate'
 import ForgotPassword from '@components/Modules/Authentication/ForgotPassword'
 import ChangePassword from '@components/Modules/Authentication/ChangePassword'
 import Profile from '@components/Modules/Dashboard/Profile'
@@ -23,6 +23,7 @@ import FullScreenLoader from '@components/Shared/FullScreenLoader'
 import Separator from '@components/Shared/Separator'
 import Text from '@components/Shared/Text'
 import FormFieldError from '@components/Shared/FormFieldError'
+import LoaderLogo from '@components/Loader/Logo'
 
 export {
   Profile,
@@ -48,5 +49,7 @@ export {
   FullScreenLoader,
   Separator,
   Text,
-  FormFieldError
+  FormFieldError,
+  LoaderLogo,
+  Activate
 }
