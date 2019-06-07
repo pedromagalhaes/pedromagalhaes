@@ -1,10 +1,12 @@
-FROM node:10.13-alpine
+FROM ubuntu:18.04
 
-RUN apk update && apk add bash jq curl tini && apk add --no-cache git
-COPY container/ /
-COPY ./ /usr/src
+WORKDIR /usr/src
 
-RUN cd /usr/src && FORCE_COLOR=0 yarn install --emoji=false --no-color --no-progess --frozen-lockfile && yarn build
+COPY package*.json ./
+RUN yarn install
 
+COPY . .
+
+EXPOSE 3000
 CMD [ "yarn", "start:dev" ]
 

@@ -4,7 +4,7 @@ pipeline {
 
     agent {
         docker {
-            image 'node'
+            image 'ubuntu'
             args '-u root'
         }
     }
@@ -19,7 +19,7 @@ pipeline {
         stage('Lint') {
             steps {
                 echo 'Lint...'
-                sh 'yarn lint:js'
+                sh 'yarn lint'
             }
         }
         stage('Build') {
