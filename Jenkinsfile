@@ -16,11 +16,17 @@ pipeline {
                 sh 'yarn install'
             }
         }
+        stage('Lint') {
+            steps {
+                echo 'Lint...'
+                sh 'yarn lint:js'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Build...'
                 sh 'yarn build'
             }
-        }
+        }        
     }
 }
