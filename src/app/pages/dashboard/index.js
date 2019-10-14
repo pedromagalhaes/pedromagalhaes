@@ -1,9 +1,9 @@
 import React from 'react'
-import { Profile } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 import redirect from '@utils/redirect'
+import { Profile } from '@components'
 
 class Index extends React.Component {
   static async getInitialProps(context, apolloClient) {

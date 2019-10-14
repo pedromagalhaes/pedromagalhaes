@@ -7,8 +7,8 @@ import * as Yup from 'yup'
 import PropTypes from 'prop-types'
 
 import mutation from '@mutations/Login'
-import { ModuleTitle, Text, FormFieldError } from '@components'
 import redirect from '@utils/redirect'
+import { ModuleTitle, Text, FormFieldError } from '@components'
 import Styles from './ForgotPassword.styles'
 
 const initialValues = {
@@ -43,7 +43,7 @@ const ForgotPassword = () => (
         <Mutation
           mutation={mutation}
           onCompleted={(data) => {
-            console.log(data)
+            // console.log(data)
           }}
           onError={(error) => {
             console.log(error.graphQLErrors)
@@ -79,7 +79,7 @@ const ForgotPassword = () => (
                                 {loading && <p>Loading...</p>}
                                 {error && error.graphQLErrors.length > 0 && (
                                   <Message
-                                    header='Login was unsuccessful'
+                                    header='Login Unsuccessful'
                                     negative
                                     size='small'
                                     content={error.graphQLErrors.map(({ message }) => (

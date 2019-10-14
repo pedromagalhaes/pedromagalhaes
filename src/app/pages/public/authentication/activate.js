@@ -1,13 +1,15 @@
 import React from 'react'
-import { Teaser, Activate } from '@components'
-
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
+import redirect from '@utils/redirect'
+import { Activate } from '@components'
 
 class Index extends React.Component {
   static async getInitialProps(context, apolloClient) {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-    console.log('CURRENT LOGGED IN USER IN HOMEPAGE')
+    if (loggedInUser.user) {
+      redirect(context, '/dashboard')
+    }
     return {
       user: loggedInUser
     }
@@ -16,7 +18,6 @@ class Index extends React.Component {
   render() {
     return (
       <>
-        <Teaser />
         <Activate />
       </>
     )

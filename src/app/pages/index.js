@@ -1,30 +1,39 @@
-import React from 'react'
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
+/* eslint-disable no-unused-vars */
 
+import { compose, setDisplayName, setStatic } from 'recompose'
+import qs from 'query-string'
 import withData from '@hoc/withData'
+import activateAccount from '@hoc/activateAccount'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 
-class Index extends React.Component {
-  static async getInitialProps(context, apolloClient) {
+import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
+
+const Index = props => (
+  <>
+    <Teaser />
+    <AboutMe />
+    <Worked />
+    <Projects />
+    <OtherProjects />
+  </>
+)
+
+export default compose(
+  withData,
+  setDisplayName('Index'),
+  setStatic('getInitialProps', async (context, apolloClient) => {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-    console.log('CURRENT LOGGED IN USER IN HOMEPAGE')
-    console.log(loggedInUser)
+    const path = context.asPath ? context.asPath.replace('/', '') : '/'
+    const qsParsed = qs.parse(path)
+    const { emailToken } = qsParsed
+    const token = typeof emailToken === 'string' ? emailToken : null
+    const account = await activateAccount(context, apolloClient, token)
+    console.log(account)
+
     return {
-      user: loggedInUser
+      user: loggedInUser,
+      account,
+      token
     }
-  }
-
-  render() {
-    return (
-      <>
-        <Teaser />
-        <AboutMe />
-        <Worked />
-        <Projects />
-        <OtherProjects />
-      </>
-    )
-  }
-}
-
-export default withData(Index)
+  })
+)(Index)

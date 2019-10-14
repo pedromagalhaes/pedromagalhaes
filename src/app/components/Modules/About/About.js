@@ -15,8 +15,8 @@ const AboutMe = () => (
           <Grid.Column computer='9'>
             <div className='bio'>
               <p>
-                Hello! Im Pedro, a software engineer based in Cambodia, who enjoys building things that live on the
-                internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
+                Hello! I&apos;m Pedro, a software engineer based in Portugal, who enjoys building things that live on
+                the internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
                 interfaces with efficient and modern backends.
               </p>
               <p>
@@ -36,12 +36,12 @@ const AboutMe = () => (
             <ul>
               <li>JavaScript</li>
               <li>React</li>
+              <li>Next.js</li>
               <li>Node.js</li>
               <li>Mongo DB</li>
               <li>GraphQL</li>
-              <li>Jest</li>
               <li>React Native</li>
-              <li>HTML & CSS</li>
+              <li>Jest</li>
             </ul>
           </Grid.Column>
           <Grid.Column computer='2' />

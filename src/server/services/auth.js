@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow, no-unused-vars, consistent-return */
+
 const mongoose = require('mongoose')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
@@ -26,19 +28,29 @@ passport.deserializeUser((id, done) => {
 // the password might not match the saved one.  In either case, we call the 'done'
 // callback, including a string that messages why the authentication process failed.
 // This string is provided back to the GraphQL client.
-passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-  User.findOne({ email: email.toLowerCase() }, (err, user) => { // eslint-disable-line no-shadow, consistent-return
-    if (err) { return done(err) }
-    if (!user) { return done(null, false, 'Invalid Credentials') }
-    user.comparePassword(password, (err, isMatch) => { // eslint-disable-line no-shadow
-      if (err) { return done(err) }
-      if (isMatch) {
-        return done(null, user)
+passport.use(
+  new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+    User.findOne({ email: email.toLowerCase() }, (err, user) => {
+      // eslint-disable-line no-shadow, consistent-return
+      if (err) {
+        return done(err)
       }
-      return done(null, false, 'Invalid credentials.')
+      if (!user) {
+        return done(null, false, 'Invalid Credentials')
+      }
+      user.comparePassword(password, (err, isMatch) => {
+        // eslint-disable-line no-shadow
+        if (err) {
+          return done(err)
+        }
+        if (isMatch) {
+          return done(null, user)
+        }
+        return done(null, false, 'Invalid credentials.')
+      })
     })
   })
-}))
+)
 
 // Creates a new user account.  We first check to see if a user already exists
 // with this email address to avoid making multiple accounts with identical addresses
@@ -49,20 +61,29 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 // for async code!  Awkward!
 function signup({ firstName, lastName, email, password, emailToken, emailVerified }) {
   const user = new User({ firstName, lastName, email, password, emailToken, emailVerified })
-  if (!email || !password) { throw new Error('You must provide an email and password.') }
+  if (!email || !password) {
+    throw new Error('You must provide an email and password.')
+  }
 
   return User.findOne({ email })
     .then((existingUser) => {
-      if (existingUser) { throw new Error('Email in use') }
+      if (existingUser) {
+        throw new Error('Email in use')
+      }
       return user.save()
     })
-    .then(user => new Promise((resolve, reject) => { // eslint-disable-line no-shadow
-      // req.login(user, (err) => {
-      // if (err) { reject(err) }
-      if (!user) { reject('Failed signup') } // eslint-disable-line prefer-promise-reject-errors
-      resolve(user)
-      // })
-    }))
+    .then(
+      user => new Promise((resolve, reject) => {
+        // eslint-disable-line no-shadow
+        // req.login(user, (err) => {
+        // if (err) { reject(err) }
+        if (!user) {
+          reject(new Error('Failed signup'))
+        }
+        resolve(user)
+        // })
+      })
+    )
 }
 
 // Logs in a user.  This will invoke the 'local-strategy' defined above in this
@@ -73,10 +94,40 @@ function signup({ firstName, lastName, email, password, emailToken, emailVerifie
 function login({ email, password, req }) {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {
-      if (!user) { reject('Invalid credentials.') } // eslint-disable-line prefer-promise-reject-errors
-      req.login(user, () => resolve(user))
+      if (!user) {
+        reject(new Error('Invalid user or credentials.'))
+      }
+      if (user.emailVerified) {
+        req.login(user, () => resolve(user))
+      } else {
+        reject(new Error('Your account has not been activated yet. Please click the activation link in your email.'))
+      }
     })({ body: { email, password } })
   })
 }
 
-module.exports = { signup, login }
+function activateAccount({ emailToken }) {
+  console.log('activateAccount')
+  const user = new User({ emailToken })
+  if (!emailToken) {
+    throw new Error('=== You must provide an email token. === ')
+  }
+
+  return User.findOne({ emailToken })
+    .then((foundUser) => {
+      console.log('=== foundUser=== ')
+      // if (foundUser) {
+
+      // }
+    })
+    .then(
+      user => new Promise((resolve, reject) => {
+        if (!user) {
+          reject(new Error('Failed activation'))
+        }
+        resolve(user)
+      })
+    )
+}
+
+module.exports = { signup, login, activateAccount }

@@ -2,9 +2,9 @@ import { Menu, Container, Segment, Icon, Button } from 'semantic-ui-react'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
-import { Auth as AuthService } from '@services'
 import Logo from '@static/logo.svg'
 import redirect from '@utils/redirect'
+import { Auth as AuthService } from '@services'
 import HeaderStyles from './index.styles'
 
 const Header = ({ router, ...props }) => {

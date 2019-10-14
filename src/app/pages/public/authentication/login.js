@@ -1,9 +1,8 @@
 import React from 'react'
-import { SignIn } from '@components'
-
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 import redirect from '@utils/redirect'
+import { SignIn } from '@components'
 
 class SignInPage extends React.Component {
   static async getInitialProps(context, apolloClient) {

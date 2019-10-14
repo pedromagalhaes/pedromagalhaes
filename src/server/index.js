@@ -73,20 +73,22 @@ app
     server.use(passport.session())
 
     // graphql
-    server.use('/graphql', graphqlHTTP(req => ({
-      schema,
-      context: {
-        login: req.login.bind(req),
-        user: req.user
-      },
-      graphiql: true
-    })))
-
+    server.use(
+      '/graphql',
+      graphqlHTTP(req => ({
+        schema,
+        context: {
+          login: req.login.bind(req),
+          user: req.user
+        },
+        graphiql: true
+      }))
+    )
 
     // email server
     server.post(process.env.SMTP_URL, (req, res, body) => {
-      console.log('SEND EMAIL REQUEST')
-      console.log(req.body)
+      // console.log('SEND EMAIL REQUEST')
+      // console.log(req.body)
       nodeoutlook.sendEmail({
         auth: {
           user: process.env.SMTP_USER,
@@ -97,11 +99,11 @@ app
         subject: req.body.subject,
         html: req.body.html,
         onError: (err) => {
-          console.log('ERROR SEND EMAIL')
+          // console.log('ERROR SEND EMAIL')
           console.log(err)
         },
         onSuccess: (data) => {
-          console.log('SUCCESS SEND EMAIL')
+          // console.log('SUCCESS SEND EMAIL')
           // console.log(data)
         }
       })
@@ -111,6 +113,10 @@ app
       req.logout()
       res.cookie('connect.sid', '', { maxAge: -1 })
       req.session.destroy(() => res.redirect('/'))
+    })
+
+    server.post('/activateAccount', (req, res) => {
+      // req.activateAccount()
     })
 
     server.get('*', (req, res) => {

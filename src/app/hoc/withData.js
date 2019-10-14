@@ -4,7 +4,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
-import { Container } from 'next/app'
 
 import Layout from '@components/Layout'
 import initApollo from './initApollo'
@@ -52,13 +51,11 @@ export default ComposedComponent => class WithData extends React.Component {
         try {
           // Run all GraphQL queries
           const app = (
-            <Container>
-              <ApolloProvider client={apollo}>
-                <Layout {...composedInitialProps}>
-                  <ComposedComponent url={url} {...composedInitialProps} />
-                </Layout>
-              </ApolloProvider>
-            </Container>
+            <ApolloProvider client={apollo}>
+              <Layout {...composedInitialProps}>
+                <ComposedComponent url={url} {...composedInitialProps} />
+              </Layout>
+            </ApolloProvider>
           )
           await getDataFromTree(app, {
             router: {
@@ -99,13 +96,11 @@ export default ComposedComponent => class WithData extends React.Component {
 
     render() {
       return (
-        <Container>
-          <ApolloProvider client={this.apollo}>
-            <Layout {...this.props}>
-              <ComposedComponent {...this.props} />
-            </Layout>
-          </ApolloProvider>
-        </Container>
+        <ApolloProvider client={this.apollo}>
+          <Layout {...this.props}>
+            <ComposedComponent {...this.props} />
+          </Layout>
+        </ApolloProvider>
       )
     }
 }

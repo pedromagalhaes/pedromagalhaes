@@ -50,7 +50,7 @@ const SignUp = ({ domain }) => {
 
   const sendConfirmationEmail = async (values) => {
     try {
-      const emailLink = `${domain}/activate?key=${values.signup.emailToken}`
+      const emailLink = `${domain}/?emailToken=${values.signup.emailToken}`
       const emailData = {
         to: 'pedro.magalhaes@outlook.com',
         subject: `Hello ${values.signup.firstName} ${values.signup.lastName}, please confirm your account`,
@@ -61,7 +61,7 @@ const SignUp = ({ domain }) => {
       }
       await AuthService.sendEmail(emailData)
     } catch (err) {
-      console.log('SEND CONFIRMATION EMAIL ERROR')
+      // console.log('SEND CONFIRMATION EMAIL ERROR')
       console.log(err)
     }
   }
@@ -79,7 +79,7 @@ const SignUp = ({ domain }) => {
             <Grid.Row>
               <Grid.Column computer='10'>
                 <Text as='p'>
-                  As a registered user you will be able to save your favorite artworks, galleries, artists and events.
+                  As a registered user you will be able to save your favorite news, works, tutorials or events.
                   You can also access exclusive features and subscribe to our newsletters.
                 </Text>
               </Grid.Column>
@@ -89,13 +89,13 @@ const SignUp = ({ domain }) => {
           <Mutation
             mutation={mutation}
             onCompleted={(data) => {
-              console.log('SIGNUP COMPLETED')
-              console.log(data)
+              // console.log('SIGNUP COMPLETED')
+              // console.log(data)
               sendConfirmationEmail(data)
               setSuccess(true)
             }}
             onError={(error) => {
-              console.log('SIGNUP ERROR')
+              // console.log('SIGNUP ERROR')
               console.log(error.graphQLErrors)
               setSuccess(false)
             }}
@@ -106,7 +106,7 @@ const SignUp = ({ domain }) => {
                 // validationSchema={validationSchema}
                 size='large'
                 onSubmit={(values, { setSubmitting, resetForm }) => {
-                  console.log('SIGNUP SUBMIT')
+                  /* console.log('SIGNUP SUBMIT')
                   console.log({
                     firstName: values.firstName,
                     lastName: values.lastName,
@@ -115,6 +115,7 @@ const SignUp = ({ domain }) => {
                     emailVerified: false,
                     password: values.password
                   })
+                  */
                   setTimeout(() => {
                     create({
                       variables: {
@@ -153,7 +154,7 @@ const SignUp = ({ domain }) => {
                                   {loading && <p>Loading...</p>}
                                   {error && error.graphQLErrors.length > 0 && (
                                     <Message
-                                      header='There was some errors with your submission:'
+                                      header='The following error(s) occur while submitting your form:'
                                       negative
                                       size='small'
                                       content={error.graphQLErrors.map(({ message }) => (

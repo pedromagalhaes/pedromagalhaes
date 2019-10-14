@@ -1,8 +1,8 @@
-import { ForgotPassword } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 import redirect from '@utils/redirect'
+import { ForgotPassword } from '@components'
 
 class ForgotPasswordPage extends React.Component {
   static async getInitialProps(context, apolloClient) {

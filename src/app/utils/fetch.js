@@ -17,8 +17,8 @@ export default (config) => {
           ({ trace, ...responseData } = response.data)
         }
         if (!response.ok) {
-          console.log(responseData) // eslint-disable-line no-console
-          console.log('----') // eslint-disable-line no-console
+          // console.log(responseData) // eslint-disable-line no-console
+          // console.log('----') // eslint-disable-line no-console
         }
       }
     } catch (e) {} // eslint-disable-line no-empty

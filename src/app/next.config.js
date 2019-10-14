@@ -1,7 +1,7 @@
 /* eslint-disable max-len, no-param-reassign, no-console, no-underscore-dangle, global-require */
 const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
-const withTM = require('next-plugin-transpile-modules')
+const withTM = require('next-transpile-modules')
 const path = require('path')
 const nanoid = require('nanoid')
 

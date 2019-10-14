@@ -1,8 +1,8 @@
 import React from 'react'
-import { SignUp } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
+import { SignUp } from '@components'
 import { redirect, parseUrls } from '@utils'
 
 class SignUpPage extends React.Component {

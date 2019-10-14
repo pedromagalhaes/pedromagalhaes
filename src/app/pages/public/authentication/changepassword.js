@@ -1,8 +1,8 @@
-import { ChangePassword } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
 import redirect from '@utils/redirect'
+import { ChangePassword } from '@components'
 
 class ChangePasswordPage extends React.Component {
   static async getInitialProps(context, apolloClient) {

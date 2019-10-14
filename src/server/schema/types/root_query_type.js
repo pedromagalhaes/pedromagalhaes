@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const graphql = require('graphql')
 
-const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql
+const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull, GraphQLString } = graphql
 const UserType = require('./user_type')
 const SongType = require('./song_type')
 const LyricType = require('./lyric_type')
@@ -14,6 +14,9 @@ const RootQueryType = new GraphQLObjectType({
   fields: {
     user: {
       type: UserType,
+      args: {
+        emailToken: { type: GraphQLString }
+      },
       resolve(parentValue, args, req) {
         return req.user
       }

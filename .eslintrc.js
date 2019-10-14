@@ -64,6 +64,7 @@ module.exports = {
     'jsx-a11y/media-has-caption': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'import/first': 'warn',
+    'import/no-cycle': 0,
     'quotes': ['error', 'single'],
     'max-len': [2, 120, 2],
     'semi': [2, 'never'],

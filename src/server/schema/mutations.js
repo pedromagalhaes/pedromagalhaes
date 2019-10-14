@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow, no-unused-vars, consistent-return */
+
 const graphql = require('graphql')
 const mongoose = require('mongoose')
 
@@ -6,8 +8,6 @@ const Lyric = mongoose.model('lyric')
 
 const UserType = require('./types/user_type')
 const AuthService = require('../services/auth')
-const SongType = require('./types/song_type')
-const LyricType = require('./types/lyric_type')
 
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLBoolean } = graphql
 
@@ -43,40 +43,20 @@ const mutation = new GraphQLObjectType({
         password: { type: GraphQLString }
       },
       resolve(parentValue, { email, password }, req, res, next) {
-        return AuthService.login({ email, password, req, res, next })
+        const resolveLogin = AuthService.login({ email, password, req, res, next })
+        console.log('resolveLogin')
+        return resolveLogin
       }
     },
-    addSong: {
-      type: SongType,
+    activateAccount: {
+      type: UserType,
       args: {
-        title: { type: GraphQLString }
+        emailToken: { type: GraphQLString }
       },
-      resolve(parentValue, { title }) {
-        return (new Song({ title })).save()
-      }
-    },
-    addLyricToSong: {
-      type: SongType,
-      args: {
-        content: { type: GraphQLString },
-        songId: { type: GraphQLID }
-      },
-      resolve(parentValue, { content, songId }) {
-        return Song.addLyric(songId, content)
-      }
-    },
-    likeLyric: {
-      type: LyricType,
-      args: { id: { type: GraphQLID } },
-      resolve(parentValue, { id }) {
-        return Lyric.like(id)
-      }
-    },
-    deleteSong: {
-      type: SongType,
-      args: { id: { type: GraphQLID } },
-      resolve(parentValue, { id }) {
-        return Song.remove({ _id: id })
+      resolve(parentValue, { emailToken }, req, res, next) {
+        const resolveActivateAccount = AuthService.activateAccount({ emailToken })
+        console.log('resolve resolveActivateAccount', resolveActivateAccount)
+        return resolveActivateAccount
       }
     }
   }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
 
 import withData from '@hoc/withData'
 import checkLoggedIn from '@hoc/checkLoggedIn'
+import { Teaser, AboutMe, Worked, OtherProjects, Projects } from '@components'
 
 class Index extends React.Component {
   static async getInitialProps(context, apolloClient) {

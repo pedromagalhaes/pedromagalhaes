@@ -14,7 +14,7 @@ const { useEffect } = React
 const Layout = ({ children, ...props }) => {
   const GlobalStyles = layoutStyles(theme)
   const { user } = props
-  console.log(props)
+  // console.log(props)
 
   useEffect(() => {
     Router.events.on('routeChangeStart', () => NProgress.start())

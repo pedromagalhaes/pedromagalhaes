@@ -7,8 +7,8 @@ import * as Yup from 'yup'
 import PropTypes from 'prop-types'
 
 import mutation from '@mutations/Login'
-import { ModuleTitle, Text, FormFieldError } from '@components'
 import redirect from '@utils/redirect'
+import { ModuleTitle, Text, FormFieldError } from '@components'
 import Styles from './SignIn.styles'
 
 const initialValues = {
@@ -20,8 +20,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address')
     .required('Email is required!'),
-  password: Yup.string()
-    .required('Password is required!')
+  password: Yup.string().required('Password is required!')
 })
 
 const SignIn = () => (
@@ -37,8 +36,8 @@ const SignIn = () => (
           <Grid.Row>
             <Grid.Column computer='10'>
               <Text as='p'>
-                As a logged user you will be able to save your favorite artworks, galleries, artists and events. You
-                can also access exclusive features and subscribe to our newsletters.
+                As a logged user you will be able to save your favorite artworks, galleries, artists and events. You can
+                also access exclusive features and subscribe to our newsletters.
               </Text>
             </Grid.Column>
           </Grid.Row>
@@ -47,7 +46,7 @@ const SignIn = () => (
         <Mutation
           mutation={mutation}
           onCompleted={(data) => {
-            console.log(data)
+            console.log('onCompleted', data)
             data && redirect({}, '/dashboard')
           }}
           onError={(error) => {
@@ -67,8 +66,7 @@ const SignIn = () => (
                       password: values.password
                     }
                   })
-                  console.log(error)
-                  console.log(data)
+                  // console.log(error)
                   // resetForm(initialValues)
                   setSubmitting(false)
                 }, 500)
@@ -87,7 +85,7 @@ const SignIn = () => (
                                 {loading && <p>Loading...</p>}
                                 {error && error.graphQLErrors.length > 0 && (
                                   <Message
-                                    header='Login was unsuccessful'
+                                    header='Login Unsuccessful'
                                     negative
                                     size='small'
                                     content={error.graphQLErrors.map(({ message }) => (
