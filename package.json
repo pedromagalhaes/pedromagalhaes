@@ -96,7 +96,7 @@
     "url-loader": "^1.1.2",
     "uuid": "^3.3.2",
     "webpack": "^4.29.6",
-    "webpack-bundle-size-analyzer": "^2.7.0",
+    "webpack-bundle-size-analyzer": "^3.3.2",
     "yup": "^0.27.0"
   },
   "devDependencies": {
