@@ -35,8 +35,8 @@
     "@babel/core": "7.3.4",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "@next/bundle-analyzer": "^9.1.1",
     "@svgr/webpack": "^4.2.0",
-    "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "^0.0.3",
     "apisauce": "^1.0.2",
@@ -96,7 +96,7 @@
     "url-loader": "^1.1.2",
     "uuid": "^3.3.2",
     "webpack": "^4.29.6",
-    "webpack-bundle-size-analyzer": "^3.3.2",
+    "webpack-bundle-size-analyzer": "^3.1.0",
     "yup": "^0.27.0"
   },
   "devDependencies": {

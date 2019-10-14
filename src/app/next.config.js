@@ -20,7 +20,7 @@ else if (process.argv.indexOf('--bundle=both') !== -1) analyzeTarget = 'both'
 if (environment === 'build') analyzeTarget = 'both'
 
 nextPlugins.push([
-  require('@zeit/next-bundle-analyzer'),
+  require('@next/bundle-analyzer'),
   {
     analyzeServer: analyzeTarget === 'server' || analyzeTarget === 'both',
     analyzeBrowser: analyzeTarget === 'client' || analyzeTarget === 'both',
