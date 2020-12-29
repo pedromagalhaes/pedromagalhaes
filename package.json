@@ -10,6 +10,7 @@
     "dev": "yarn clean:all && yarn install && yarn cross-env NODE_ENV=development yarn nodemon:go",
     "build": "yarn lint:js && yarn clean:all && yarn build:app",
     "build:job": "yarn clean:all && yarn build:app",
+    "build:export": "yarn clean:all && yarn build:app && yarn next export src/app",
     "build:app": "./node_modules/.bin/cross-env NODE_ENV=production environment=build yarn next build src/app",
     "build:debug": "yarn clean:all && yarn install --check-files && yarn cross-env x_app_debug=true yarn build:job",
     "start": "pm2-runtime ecosystem.config.js --env production --formatted",

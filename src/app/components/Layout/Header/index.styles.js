@@ -10,6 +10,15 @@ const HeaderStyles = styled.section`
     background: ${props => props.theme.color1};
   }
 
+  .right.menu.social-icons {
+    .item,
+    .item button,
+    .item i {
+      margin: 0 0 0 10px;
+      padding: 0;
+    }
+  }
+
   .right.menu {
     .item,
     .item button,

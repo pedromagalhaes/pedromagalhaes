@@ -34,14 +34,14 @@ const AboutMe = () => (
               <p>Heres a few technologies Ive been working with recently:</p>
             </div>
             <ul>
+              <li>HTML 5</li>
+              <li>CSS 3</li>
               <li>JavaScript</li>
               <li>React</li>
               <li>Next.js</li>
               <li>Node.js</li>
-              <li>Mongo DB</li>
-              <li>GraphQL</li>
               <li>React Native</li>
-              <li>Jest</li>
+              <li>Cypress</li>
             </ul>
           </Grid.Column>
           <Grid.Column computer='2' />

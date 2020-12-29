@@ -5,15 +5,6 @@ import OtherProjects from '@components/Modules/OtherProjects/OtherProjects'
 import Projects from '@components/Modules/Projects/Projects'
 import ProjectItem from '@components/Modules/Projects/ProjectItem'
 import OtherProjectItem from '@components/Modules/OtherProjects/OtherProjectItem'
-import Map from '@components/Modules/Maps/GoogleMap'
-import SignUp from '@components/Modules/Authentication/SignUp'
-import SignIn from '@components/Modules/Authentication/SignIn'
-import Activate from '@components/Modules/Authentication/Activate'
-import ForgotPassword from '@components/Modules/Authentication/ForgotPassword'
-import ChangePassword from '@components/Modules/Authentication/ChangePassword'
-import Profile from '@components/Modules/Dashboard/Profile'
-import Preferences from '@components/Modules/Dashboard/Preferences'
-import DeleteAccount from '@components/Modules/Dashboard/DeleteAccount'
 import ModuleTitle from '@components/Shared/ModuleTitle'
 import BlogFeed from '@components/Shared/BlogFeed'
 import Card from '@components/Shared/Card'
@@ -26,11 +17,6 @@ import FormFieldError from '@components/Shared/FormFieldError'
 import LoaderLogo from '@components/Loader/Logo'
 
 export {
-  Profile,
-  Preferences,
-  DeleteAccount,
-  ChangePassword,
-  ForgotPassword,
   Teaser,
   AboutMe,
   Worked,
@@ -38,9 +24,6 @@ export {
   Projects,
   ProjectItem,
   OtherProjectItem,
-  Map,
-  SignUp,
-  SignIn,
   ModuleTitle,
   BlogFeed,
   Card,
@@ -50,6 +33,5 @@ export {
   Separator,
   Text,
   FormFieldError,
-  LoaderLogo,
-  Activate
+  LoaderLogo
 }

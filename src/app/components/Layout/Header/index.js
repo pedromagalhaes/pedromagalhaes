@@ -1,41 +1,24 @@
-import { Menu, Container, Segment, Icon, Button } from 'semantic-ui-react'
+import { Menu, Container, Segment, Icon } from 'semantic-ui-react'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import Logo from '@static/logo.svg'
-import redirect from '@utils/redirect'
-import { Auth as AuthService } from '@services'
 import HeaderStyles from './index.styles'
 
-const Header = ({ router, ...props }) => {
-  // console.log(props)
-  const { user } = props
-  const isActive = url => !!(router.asPath === url)
-
-  const handleSignOutSubmit = (e) => {
-    e.preventDefault()
-    AuthService.signOut()
-      .then(() => {
-        redirect({}, '/')
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  return (
-    <>
-      <HeaderStyles className='site-header'>
-        <Segment inverted>
-          <Menu inverted secondary>
-            <Container>
-              <Menu.Menu position='left'>
-                <Link href='/' as='/'>
-                  <Menu.Item className='logo' position='left'>
-                    <Logo />
-                  </Menu.Item>
-                </Link>
-              </Menu.Menu>
+const Header = () => (
+  <>
+    <HeaderStyles className='site-header'>
+      <Segment inverted>
+        <Menu inverted secondary>
+          <Container>
+            <Menu.Menu position='left'>
+              <Link href='/' as='/'>
+                <Menu.Item className='logo' position='left'>
+                  <Logo />
+                </Menu.Item>
+              </Link>
+            </Menu.Menu>
+            {/*
               <Menu.Menu position='right'>
                 <>
                   <Link href='/public/about' as='/about'>
@@ -65,46 +48,24 @@ const Header = ({ router, ...props }) => {
                   </Link>
                 </>
               </Menu.Menu>
-              <Menu.Menu position='right'>
-                {/*
-                <Menu.Item>
-                  <Dropdown trigger={trigger} options={options} />
-                </Menu.Item>
-                */}
-                <Menu.Item>
-                  <Icon size='large' name='search' />
-                </Menu.Item>
-                {!user ? (
-                  <>
-                    <Link href='/public/authentication/login' as='/login'>
-                      <Menu.Item>
-                        <Button inverted basic color='grey'>
-                          Log In
-                        </Button>
-                      </Menu.Item>
-                    </Link>
-                    <Link href='/public/authentication/register' as='/register'>
-                      <Menu.Item>
-                        <Button inverted>Sign Up</Button>
-                      </Menu.Item>
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <Menu.Item>{`${user.firstName} ${user.lastName}`}</Menu.Item>
-                    <Menu.Item onClick={e => handleSignOutSubmit(e)}>
-                      <Button inverted>Log Out</Button>
-                    </Menu.Item>
-                  </>
-                )}
-              </Menu.Menu>
-            </Container>
-          </Menu>
-        </Segment>
-      </HeaderStyles>
-    </>
-  )
-}
+              */}
+            <Menu.Menu position='right' className='social-icons'>
+              <Menu.Item>
+                <Icon size='large' name='github' />
+              </Menu.Item>
+              <Menu.Item>
+                <Icon size='large' name='linkedin' />
+              </Menu.Item>
+              <Menu.Item>
+                <Icon size='large' name='whatsapp' />
+              </Menu.Item>
+            </Menu.Menu>
+          </Container>
+        </Menu>
+      </Segment>
+    </HeaderStyles>
+  </>
+)
 
 Header.propTypes = {
   router: PropTypes.object,
