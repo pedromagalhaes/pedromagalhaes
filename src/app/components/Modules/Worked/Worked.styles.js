@@ -50,7 +50,7 @@ const WorkedStyles = styled.section`
 
   .stretched.twelve.wide.column {
     padding: 0;
-    margin: 7px 0 0;
+    margin: 7px 0 0 0;
   }
 
   ul {
@@ -63,7 +63,7 @@ const WorkedStyles = styled.section`
     li {
       position: relative;
       padding-left: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 3px;
       color: ${props => props.theme.color7};
       font-size: 15px;
 
@@ -73,6 +73,7 @@ const WorkedStyles = styled.section`
         left: 0;
         color: ${props => props.theme.color10} !important;
         line-height: 20px;
+        top: 2px;
       }
     }
   }

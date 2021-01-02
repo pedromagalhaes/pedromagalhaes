@@ -51,13 +51,13 @@ const Header = () => (
               */}
             <Menu.Menu position='right' className='social-icons'>
               <Menu.Item>
-                <Icon size='large' name='github' />
+                <a href='https://github.com/pedromagalhaes' target='_blank'><Icon size='large' name='github' /></a>
               </Menu.Item>
               <Menu.Item>
-                <Icon size='large' name='linkedin' />
+                <a href='https://www.linkedin.com/in/pedroalexandremagalhaes/' target='_blank'><Icon size='large' name='linkedin' /></a>
               </Menu.Item>
               <Menu.Item>
-                <Icon size='large' name='whatsapp' />
+                <a href='https://wa.me/915821052' target='_blank'><Icon size='large' name='whatsapp' /></a>
               </Menu.Item>
             </Menu.Menu>
           </Container>

@@ -19,29 +19,25 @@ const AboutMe = () => (
                 the internet. I develop exceptional websites and web apps that provide intuitive, pixel-perfect user
                 interfaces with efficient and modern backends.
               </p>
-              <p>
-                Shortly after graduating from{' '}
-                <a href='http://dminc.com/' target='blank'>
-                  Instituto Superior da Maia
-                </a>
-                , I joined the engineering team at
-                <a href='https://www.ismai.pt/' target='blank'>
-                  {' '}
-                  Digital Management
-                </a>{' '}
-                where I work on a wide variety of interesting and meaningful projects on a daily basis.
-              </p>
-              <p>Heres a few technologies Ive been working with recently:</p>
+              <p>Here&#39;s a few technologies I&#39;ve been working with recently:</p>
             </div>
             <ul>
-              <li>HTML 5</li>
-              <li>CSS 3</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
               <li>JavaScript</li>
               <li>React</li>
               <li>Next.js</li>
-              <li>Node.js</li>
-              <li>React Native</li>
+              <li>Node</li>
+              <li>Webpack</li>
+              <li>Storybook</li>
+              <li>Lerna</li>
               <li>Cypress</li>
+              <li>Jest</li>
+              <li>Babel</li>
+              <li>ESLint</li>
+              <li>Microservices</li>
+              <li>Docker</li>
+              <li>Jenkins</li>
             </ul>
           </Grid.Column>
           <Grid.Column computer='2' />

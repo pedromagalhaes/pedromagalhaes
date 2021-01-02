@@ -15,12 +15,9 @@ const CardComponent = () => (
         <Grid.Row>
           <Grid.Column computer='16'>
             <div className='project-grid'>
-              <OtherProjectItem title='React Starter App' />
-              <OtherProjectItem title='GraphQL Music Playlist' />
-              <OtherProjectItem title='Next.js Boostrap' />
-              <OtherProjectItem title='Google Weather App' />
-              <OtherProjectItem title='GraphQL Music Playlist' />
-              <OtherProjectItem title='Semantic UI Startkit' />
+              <OtherProjectItem title='Omnibees' />
+              <OtherProjectItem title='CM Faro' />
+              <OtherProjectItem title='Autarquia 360' />
             </div>
           </Grid.Column>
         </Grid.Row>

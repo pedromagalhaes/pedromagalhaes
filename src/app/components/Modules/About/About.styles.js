@@ -52,10 +52,10 @@ const AboutMeStyles = styled.section`
 
   ul {
     display: grid;
-    grid-template-columns: minmax(140px, 200px) minmax(140px, 200px);
+    grid-template-columns: 25% 25% 25% 25%;
     overflow: hidden;
     list-style: none;
-    margin: 20px 0 0;
+    margin: 30px 0 0;
     padding: 0;
 
     li {

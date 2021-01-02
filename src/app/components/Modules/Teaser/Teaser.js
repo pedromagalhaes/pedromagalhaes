@@ -14,9 +14,9 @@ const TeaserComponent = () => (
             exceptional, high-quality websites and applications.
           </p>
         </div>
-        <Button primary inverted size='big'>
-          Get In Touch
-        </Button>
+        <a href='mailto:pedro.magalhaes@outlook.com' target='_blank'>
+          <Button primary inverted size='big'>Get In Touch</Button>
+        </a>
       </Container>
     </Segment>
   </TeaserStyles>

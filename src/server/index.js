@@ -37,7 +37,7 @@ app
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`[HOST] ${process.env.HOST}`)
+      console.log(`[HOST] ${process.env.HOST || 'http://localhost:4000/'}`)
     })
   })
   .catch((err) => {

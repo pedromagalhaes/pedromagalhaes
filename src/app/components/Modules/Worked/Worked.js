@@ -3,7 +3,7 @@ import WorkedStyles from './Worked.styles'
 
 const panes = [
   {
-    menuItem: 'Digital Management, LLC',
+    menuItem: 'Digital Management',
     render: () => (
       <Tab.Pane>
         <Header as='h4' inverted>
@@ -15,81 +15,16 @@ const panes = [
           </span>
         </Header>
         <Header as='h5' inverted>
-          <span>July - Dec 2015</span>
+          <span>Jun 2014 - Current</span>
         </Header>
         <div>
           <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
-          </ul>
-        </div>
-      </Tab.Pane>
-    )
-  },
-  {
-    menuItem: 'Golden Gekko',
-    render: () => (
-      <Tab.Pane>
-        <Header as='h4' inverted>
-          <span>Lead Frontend Engineer</span>
-          <span className='company'>
-            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              &nbsp;@ Golden Gekko
-            </a>
-          </span>
-        </Header>
-        <Header as='h5' inverted>
-          <span>July - Dec 2015</span>
-        </Header>
-        <div>
-          <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
-          </ul>
-        </div>
-      </Tab.Pane>
-    )
-  },
-  {
-    menuItem: 'Omnibees',
-    render: () => (
-      <Tab.Pane>
-        <Header as='h4' inverted>
-          <span>Lead Frontend Engineer</span>
-          <span className='company'>
-            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
-              &nbsp;@ Omnibees
-            </a>
-          </span>
-        </Header>
-        <Header as='h5' inverted>
-          <span>July - Dec 2015</span>
-        </Header>
-        <div>
-          <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
+            <li>Frontend architecture for web applications in React and NodeJS</li>
+            <li>Task automation, bundlers, linters, speed and load performance, monorepos</li>
+            <li>Code reviews, automated tests, OWASP security</li>
+            <li>Crash report and monitoring tools</li>
+            <li>Continuous integration, delivery, testing, deployment</li>
+            <li>Analytics, SEO and Social Media</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -100,27 +35,24 @@ const panes = [
     render: () => (
       <Tab.Pane>
         <Header as='h4' inverted>
-          <span>Senior Frontend Engineer</span>
+          <span>Lead Frontend Engineer</span>
           <span className='company'>
-            <a href='https://www.dminc.com/' target='_blank' rel='nofollow noopener noreferrer'>
+            <a href='https://www.visualforma.pt/en/' target='_blank' rel='nofollow noopener noreferrer'>
               &nbsp;@ Visualforma
             </a>
           </span>
         </Header>
         <Header as='h5' inverted>
-          <span>July - Dec 2015</span>
+          <span>Jun 2010 - May 2014</span>
         </Header>
         <div>
           <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
+            <li>Front End Development in PHP &amp; .NET projects</li>
+            <li>Mobile and Responsive Web</li>
+            <li>Front End Security</li>
+            <li>Usability and Accessibility Evaluation</li>
+            <li>A/B Tests, Web Analytics</li>
+            <li>Search Engine Optimization</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -139,19 +71,41 @@ const panes = [
           </span>
         </Header>
         <Header as='h5' inverted>
-          <span>July - Dec 2015</span>
+          <span>Feb 2009 - Jul 2009</span>
         </Header>
         <div>
           <ul>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
+            <li>Software Development in PHP</li>
+            <li>Usability and Accessibility Evaluation</li>
+            <li>Web Performance, Refactoring</li>
+            <li>Bug Testing &amp; Fixing</li>
+          </ul>
+        </div>
+      </Tab.Pane>
+    )
+  },
+  {
+    menuItem: 'Pedro Magalhães',
+    render: () => (
+      <Tab.Pane>
+        <Header as='h4' inverted>
+          <span>Full Stack Developer</span>
+          <span className='company'>
+            <a href='https://www.pedromagalhaes.com/' target='_blank' rel='nofollow noopener noreferrer'>
+              &nbsp;@ Pedro Magalhães
+            </a>
+          </span>
+        </Header>
+        <Header as='h5' inverted>
+          <span>Feb 2009 - Jul 2009</span>
+        </Header>
+        <div>
+          <ul>
+            <li>Software Development in PHP & MySQL</li>
+            <li>Setup of CMS such Wordpress, Magento, others</li>
+            <li>Usability and Accessibility Evaluation</li>
+            <li>Web Performance, Refactoring</li>
+            <li>Bug Testing &amp; Fixing</li>
           </ul>
         </div>
       </Tab.Pane>
@@ -171,7 +125,7 @@ const CardComponent = () => (
         <Grid.Row>
           <Grid.Column computer='16'>
             <div className='tabs'>
-              <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+              <Tab grid={{ paneWidth: 12, tabWidth: 4 }} menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
             </div>
           </Grid.Column>
         </Grid.Row>
