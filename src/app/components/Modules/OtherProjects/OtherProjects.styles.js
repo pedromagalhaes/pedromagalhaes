@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Styles = styled.section`
   margin: 0;
-  background: ${props => props.theme.color9};
+  background: ${props => props.theme.color2};
   padding: 40px 0 80px 0;
 
   h3.ui.header {
@@ -12,7 +12,7 @@ const Styles = styled.section`
     width: 100%;
     white-space: nowrap;
     font-size: 30px;
-    margin: 10px 0 0;
+    margin: 10px 0 25px;
     color: ${props => props.theme.color6};
     font-weight: bold;
 

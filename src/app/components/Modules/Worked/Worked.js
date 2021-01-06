@@ -85,7 +85,7 @@ const panes = [
     )
   },
   {
-    menuItem: 'Pedro Magalhães',
+    menuItem: 'Freelancer',
     render: () => (
       <Tab.Pane>
         <Header as='h4' inverted>
@@ -97,7 +97,7 @@ const panes = [
           </span>
         </Header>
         <Header as='h5' inverted>
-          <span>Feb 2009 - Jul 2009</span>
+          <span>Jun 2007 - Jul 2009</span>
         </Header>
         <div>
           <ul>
@@ -119,7 +119,7 @@ const CardComponent = () => (
       <Grid>
         <Grid.Row>
           <Grid.Column computer='16'>
-            <Header as='h3' content="Where I've Worked" inverted />
+            <Header as='h3' content='Experience' inverted />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

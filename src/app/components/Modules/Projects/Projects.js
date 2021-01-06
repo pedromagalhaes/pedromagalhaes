@@ -9,7 +9,7 @@ const Projects = () => (
       <Grid>
         <Grid.Row>
           <Grid.Column computer='16'>
-            <Header as='h3' content='Works' inverted />
+            <Header as='h3' content='Featured Projects' inverted />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

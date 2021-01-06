@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const WorkedStyles = styled.section`
-  background: ${props => props.theme.color12};
+  background: ${props => props.theme.color2};
   padding: 45px 0 67px 0;
 
   .ui.vertical.tabular.menu .active.item,
@@ -16,7 +16,7 @@ const WorkedStyles = styled.section`
     width: 100%;
     white-space: nowrap;
     font-size: 30px;
-    margin: 10px 0 0;
+    margin: 10px 0 25px;
     color: ${props => props.theme.color6};
     font-weight: bold;
   }

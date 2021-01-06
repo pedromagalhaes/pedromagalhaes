@@ -6,7 +6,7 @@ const TeaserStyles = styled.section`
   .ui.segment {
     padding: 50px 0 67px 0;
     text-align: left;
-    background: ${props => props.theme.color1};
+    background: ${props => props.theme.color2};
   }
 
   h1.ui.header {

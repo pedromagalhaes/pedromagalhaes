@@ -7,7 +7,7 @@ const HeaderStyles = styled.section`
     border-radius: 0;
     padding: 25px 0 25px 0;
     box-shadow: none;
-    background: ${props => props.theme.color1};
+    background: ${props => props.theme.color2};
   }
 
   .right.menu.social-icons {

@@ -60,7 +60,7 @@ const ProjectsStyles = styled.section`
     width: 100%;
     white-space: nowrap;
     font-size: 30px;
-    margin: 10px 0 0;
+    margin: 10px 0 25px;
     font-weight: bold;
   }
 
@@ -133,7 +133,7 @@ const ProjectsStyles = styled.section`
   }
 
   .description {
-    background-color: ${props => props.theme.color12};
+    background-color: ${props => props.theme.color2};
     font-size: 16px;
     padding: 20px;
     color: ${props => props.theme.color7};

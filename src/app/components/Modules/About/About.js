@@ -42,7 +42,7 @@ const AboutMe = () => (
           </Grid.Column>
           <Grid.Column computer='2' />
           <Grid.Column computer='5'>
-            <Image src='https://dummyimage.com/500x500/27363b/dfdfdf' fluid />
+            <Image src='https://dummyimage.com/500x500/000000/dfdfdf' fluid />
           </Grid.Column>
         </Grid.Row>
       </Grid>

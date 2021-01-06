@@ -31,7 +31,7 @@ const ProjectItem = ({ align, title, description }) => (
       <div className='image-container'>
         <div className='image-wrapper'>
           <div />
-          <Image src='https://dummyimage.com/580x360/557C83/CCCCCC' fluid />
+          <Image src='https://dummyimage.com/580x360/000000/CCCCCC' fluid />
         </div>
       </div>
     </div>
